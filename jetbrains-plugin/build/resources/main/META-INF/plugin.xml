@@ -8,7 +8,7 @@
       Current scope: open .km/.xmind in a Tool Window, import/save message protocol.]]></description>
   <depends>com.intellij.modules.platform</depends>
   <extensions defaultExtensionNs="com.intellij">
-    <fileType name="Mindmap" implementationClass="com.souche.mindmap.idea.MindmapFileType" fieldName="INSTANCE" extensions="km;xmind" />
+    <fileType name="Mindmap" implementationClass="com.souche.mindmap.idea.MindmapFileType" fieldName="INSTANCE" language="TEXT" extensions="km;xmind" />
     <toolWindow id="Mindmap" anchor="right" factoryClass="com.souche.mindmap.idea.MindmapToolWindowFactory" canCloseContents="false" />
     <fileEditorProvider implementation="com.souche.mindmap.idea.MindmapFileEditorProvider" />
     <projectService serviceImplementation="com.souche.mindmap.idea.MindmapProjectState" />

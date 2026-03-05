@@ -110,7 +110,12 @@ class MindmapBridge(
         browser.cefBrowser.executeJavaScript(
             """
             (function() {
-              var data = JSON.parse(atob('$encoded'));
+              var binary = atob('$encoded');
+              var bytes = new Uint8Array(binary.length);
+              for (var i = 0; i < binary.length; i++) {
+                bytes[i] = binary.charCodeAt(i);
+              }
+              var data = JSON.parse(new TextDecoder('utf-8').decode(bytes));
               window.dispatchEvent(new MessageEvent('message', { data: data }));
               if (window.mindmapHost && typeof window.mindmapHost.onMessage === 'function') {
                 window.mindmapHost.onMessage(JSON.stringify(data));

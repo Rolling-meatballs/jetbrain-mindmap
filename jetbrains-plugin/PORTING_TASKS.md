@@ -32,7 +32,7 @@ Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature 
 | MMP-002 | Ensure Gradle wrapper bootstrap for local setup | P0 | dev | done | `scripts/bootstrap-wrapper.sh` available |
 | MMP-003 | Add auto-open behavior for `.km/.xmind` files | P1 | dev | blocked | Behavior not stable on PyCharm Pro 2025.3 sandbox |
 | MMP-004 | Stabilize warnings/noise under 2025.3.3 sandbox | P1 | dev | in_progress | Non-blocking startup warnings still present |
-| MMP-005 | Implement file editor provider (open as editor tab, not only ToolWindow) | P1 | dev | done | Added FileEditorProvider for `.km/.xmind` |
+| MMP-005 | Implement file editor provider (open as editor tab, not only ToolWindow) | P1 | dev | done | Added FileEditorProvider for `.km/.xmind`; fixed 2025.3 provider/fileType compatibility |
 | MMP-006 | Improve `.xmind` parser coverage (markers/notes/relations) | P1 | dev | in_progress | Added note/hyperlink/labels/marker mapping; relations/style pending |
 | MMP-007 | Verify PNG export with real KityMinder page in sandbox | P1 | dev | in_progress | Host save path ready, full UI validation pending |
 | MMP-008 | Package webui assets reliably for build/release | P0 | dev | in_progress | Bundling exists, need release validation matrix |
@@ -53,4 +53,7 @@ Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature 
 - 2026-03-05 | MMP-008 | in_progress | Added bundled webui extraction/loading fallback chain; release validation pending.
 - 2026-03-05 | MMP-003 | blocked | User reported auto-open ToolWindow does not reliably trigger in PyCharm Pro 2025.3 sandbox.
 - 2026-03-05 | MMP-005 | done | Implemented `FileEditorProvider` and `MindmapFileEditor` for `.km/.xmind` direct opening.
+- 2026-03-05 | MMP-005 | done | Fixed runtime compat: registered `MindmapFileType` class in plugin.xml, made editor provider `DumbAware`, and implemented `MindmapFileEditor.getFile()`.
+- 2026-03-05 | MMP-004 | in_progress | Adjusted file type descriptor to include `language="TEXT"` with implementationClass registration for PyCharm 2025.3 compatibility.
+- 2026-03-05 | MMP-006 | in_progress | Fixed JS bridge UTF-8 decode path (`atob` -> `TextDecoder`) to avoid Chinese text mojibake when importing `.xmind`.
 - 2026-03-05 | MMP-006 | in_progress | Extended xmind conversion to include note/hyperlink/resource/priority/progress fields from JSON/XML.

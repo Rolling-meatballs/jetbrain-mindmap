@@ -14,6 +14,7 @@
         <fileType name="Mindmap"
                   implementationClass="com.souche.mindmap.idea.MindmapFileType"
                   fieldName="INSTANCE"
+                  language="TEXT"
                   extensions="km;xmind"/>
         <toolWindow id="Mindmap" anchor="right" factoryClass="com.souche.mindmap.idea.MindmapToolWindowFactory" canCloseContents="false"/>
         <fileEditorProvider implementation="com.souche.mindmap.idea.MindmapFileEditorProvider"/>

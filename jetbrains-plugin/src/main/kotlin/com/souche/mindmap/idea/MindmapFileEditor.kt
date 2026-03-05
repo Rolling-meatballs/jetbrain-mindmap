@@ -62,6 +62,8 @@ class MindmapFileEditor(
 
     override fun getName(): String = "Mindmap"
 
+    override fun getFile(): VirtualFile = file
+
     override fun setState(state: FileEditorState) = Unit
 
     override fun isModified(): Boolean = false
