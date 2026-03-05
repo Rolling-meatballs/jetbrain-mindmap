@@ -40,6 +40,14 @@
 
 ![Feedback](https://img.souche.com/f2e/5e127e01cf164f9f9cff4892653d7d02.jpeg)
 
+## JetBrains Port
+
+JetBrains plugin skeleton is available in `jetbrains-plugin/`.
+
+- current scope: open `.km` / `.xmind`, JCEF bridge, save protocol
+- pending: full KityMinder UI migration, `.xmind -> .km`, PNG export
+- details: see `jetbrains-plugin/README.md`
+
 ## 
 
 [大搜车无线开发中心](https://blog.souche.com/tag/frontend/) Present
