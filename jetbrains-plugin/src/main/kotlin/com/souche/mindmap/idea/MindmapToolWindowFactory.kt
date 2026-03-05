@@ -1,5 +1,7 @@
 package com.souche.mindmap.idea
 
+import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
@@ -32,7 +34,15 @@ class MindmapToolWindowFactory : ToolWindowFactory {
             }
         }
 
-        browser.loadHTML(MindmapHtml.page(query.inject("payload")))
+        val webUi = MindmapWebUiLoader(project).load(query.inject("payload"))
+        browser.loadHTML(webUi.html)
+        if (webUi.source == MindmapWebUiLoader.Source.FALLBACK) {
+            val message = webUi.issues.joinToString(" ")
+            NotificationGroupManager.getInstance()
+                .getNotificationGroup("Mindmap Notifications")
+                .createNotification("Using fallback UI. $message", NotificationType.WARNING)
+                .notify(project)
+        }
         val content = ContentFactory.getInstance().createContent(browser.component, "Mindmap", false)
         toolWindow.contentManager.addContent(content)
     }

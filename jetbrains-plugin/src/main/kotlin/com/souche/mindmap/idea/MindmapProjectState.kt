@@ -11,6 +11,7 @@ class MindmapProjectState {
     var browser: JBCefBrowser? = null
     var bridge: MindmapBridge? = null
     var currentFile: VirtualFile? = null
+    val autoOpenedFiles: MutableSet<String> = mutableSetOf()
 
     companion object {
         fun getInstance(project: Project): MindmapProjectState = project.service()

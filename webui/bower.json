@@ -28,7 +28,7 @@
     "less",
     "ui",
     "src",
-    "Gruntfile.js",
+    "scripts",
     "package.json"
   ],
   "devDependencies": {

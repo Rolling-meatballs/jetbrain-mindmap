@@ -2,11 +2,14 @@
 
 This folder contains a JetBrains plugin skeleton for porting `vscode-mindmap`.
 
+Migration tracking file: `jetbrains-plugin/PORTING_TASKS.md`
+
 ## Current scope
 
 - Action: `Open Mindmap` (Editor menu + Tools menu)
 - Shortcut: `Ctrl+M` / `Cmd+M`
 - Supports target files: `.km` and `.xmind`
+- Double-click `.km` / `.xmind` opens Mindmap custom editor tab (FileEditorProvider)
 - Tool Window (`Mindmap`) rendered with JCEF
 - Auto-follow selected editor file (`.km` / `.xmind`)
 - JS <-> Kotlin bridge protocol compatible with VS Code messages:
@@ -22,22 +25,78 @@ This folder contains a JetBrains plugin skeleton for porting `vscode-mindmap`.
   - supports `content.xml` (classic xmind packages)
 - PNG export:
   - accepts base64 image payload and writes sibling `.png`
+- UI loading strategy:
+  - prefers bundled webui assets packaged inside plugin
+  - falls back to project `webui/mindmap.html` when bundled assets are unavailable/incomplete
+  - falls back to built-in skeleton UI when assets are missing
 
 ## What is intentionally incomplete
 
-- Real KityMinder web UI integration (currently a JSON editor page)
+- Packaged plugin does not bundle full KityMinder assets yet (uses project-local `webui/` in dev)
 - Full fidelity xmind edge-case coverage (markers, notes, style, relation, etc.)
-- Front-end side PNG payload generation is still placeholder in current demo page
+- Front-end side PNG payload generation still depends on real KityMinder page availability
 
 ## Run
 
 From this folder:
 
 ```bash
-gradle runIde
+./gradlew runIde
 ```
 
 If you do not have local Gradle installed yet, import this folder as a Gradle project in IntelliJ IDEA and run the `runIde` task.
+
+> Required Gradle version: **8.13+** (recommended: 8.13).  
+> Build system now uses **IntelliJ Platform Gradle Plugin 2.x** and targets **IntelliJ IDEA 2025.3.3 (build 253)**.
+
+## Build packaged webui
+
+The plugin build snapshots runtime webui files from repo `../webui` into plugin resources (`bundled-webui/**`).
+
+For complete packaged UI, prepare webui dependencies before building plugin:
+
+```bash
+cd webui
+npm run init
+npm run build
+```
+
+Then build plugin from `jetbrains-plugin`:
+
+```bash
+./gradlew buildPlugin
+```
+
+At runtime, plugin loads bundled webui first.
+
+## Enable full webui in development
+
+The plugin will use real KityMinder page only when `webui/mindmap.html` and all referenced assets exist.
+
+From repo root:
+
+```bash
+cd webui
+npm run init
+npm run build
+```
+
+If both bundled and project webui are incomplete, plugin shows a warning and automatically uses fallback UI.
+
+## Troubleshooting
+
+- If you do not have Gradle wrapper yet (or wrapper version is too old), generate it with:
+
+```bash
+cd jetbrains-plugin
+./scripts/bootstrap-wrapper.sh
+```
+
+- Then always run with wrapper (`Use Gradle from: gradle-wrapper.properties` in IDE):
+
+```bash
+./gradlew runIde
+```
 
 ## Suggested next steps
 

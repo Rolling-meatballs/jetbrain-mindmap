@@ -14,7 +14,8 @@ import java.util.Base64
 
 class MindmapBridge(
     private val project: Project,
-    private val browser: JBCefBrowser
+    private val browser: JBCefBrowser,
+    private val fileProvider: (() -> VirtualFile?)? = null
 ) {
     private val xmindConverter = XmindConverter()
 
@@ -30,8 +31,7 @@ class MindmapBridge(
     }
 
     fun reloadCurrentFile() {
-        val state = MindmapProjectState.getInstance(project)
-        val file = state.currentFile ?: return
+        val file = resolveCurrentFile() ?: return
 
         val importData = if (file.extension == "xmind") {
             runCatching {
@@ -53,8 +53,7 @@ class MindmapBridge(
     }
 
     private fun handleSave(message: JSONObject) {
-        val state = MindmapProjectState.getInstance(project)
-        val file = state.currentFile ?: return
+        val file = resolveCurrentFile() ?: return
         val exportData = message.optString("exportData")
         val targetFile = resolveSaveTarget(file)
 
@@ -67,8 +66,7 @@ class MindmapBridge(
     }
 
     private fun handleExportToImage(message: JSONObject) {
-        val state = MindmapProjectState.getInstance(project)
-        val file = state.currentFile ?: return
+        val file = resolveCurrentFile() ?: return
         val exportData = message.optString("exportData")
         if (exportData.isBlank()) {
             notifyError("No image payload received.")
@@ -94,6 +92,10 @@ class MindmapBridge(
         val parent = file.parent ?: return file
         val kmName = "${file.nameWithoutExtension}.km"
         return parent.findChild(kmName) ?: parent.createChildData(this, kmName)
+    }
+
+    private fun resolveCurrentFile(): VirtualFile? {
+        return fileProvider?.invoke() ?: MindmapProjectState.getInstance(project).currentFile
     }
 
     private fun resolvePngTarget(file: VirtualFile): VirtualFile {

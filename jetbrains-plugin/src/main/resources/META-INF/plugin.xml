@@ -11,7 +11,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Mindmap"
+                  implementationClass="com.souche.mindmap.idea.MindmapFileType"
+                  fieldName="INSTANCE"
+                  extensions="km;xmind"/>
         <toolWindow id="Mindmap" anchor="right" factoryClass="com.souche.mindmap.idea.MindmapToolWindowFactory" canCloseContents="false"/>
+        <fileEditorProvider implementation="com.souche.mindmap.idea.MindmapFileEditorProvider"/>
         <projectService serviceImplementation="com.souche.mindmap.idea.MindmapProjectState"/>
         <postStartupActivity implementation="com.souche.mindmap.idea.MindmapStartupActivity"/>
         <notificationGroup id="Mindmap Notifications" displayType="BALLOON" isLogByDefault="true"/>

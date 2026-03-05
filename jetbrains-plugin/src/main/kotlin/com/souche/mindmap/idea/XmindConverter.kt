@@ -55,11 +55,7 @@ class XmindConverter {
 
     private fun topicFromJson(topic: JSONObject): JSONObject {
         val node = JSONObject()
-        node.put("data", JSONObject().apply {
-            put("id", topic.optString("id", UUID.randomUUID().toString()))
-            put("text", topic.optString("title", ""))
-            put("created", System.currentTimeMillis())
-        })
+        node.put("data", buildDataFromJson(topic))
 
         val children = JSONArray()
         val attached = topic.optJSONObject("children")?.optJSONArray("attached") ?: JSONArray()
@@ -90,11 +86,7 @@ class XmindConverter {
 
     private fun topicFromXml(topic: Element): JSONObject {
         val node = JSONObject()
-        node.put("data", JSONObject().apply {
-            put("id", topic.getAttribute("id").ifBlank { UUID.randomUUID().toString() })
-            put("text", directChildText(topic, "title"))
-            put("created", System.currentTimeMillis())
-        })
+        node.put("data", buildDataFromXml(topic))
 
         val children = JSONArray()
         val childrenElement = directChild(topic, "children")
@@ -139,6 +131,133 @@ class XmindConverter {
     private fun directChildText(parent: Element, name: String): String {
         val element = directChild(parent, name)
         return element?.textContent?.trim().orEmpty()
+    }
+
+    private fun buildDataFromJson(topic: JSONObject): JSONObject {
+        val data = JSONObject()
+        data.put("id", topic.optString("id", UUID.randomUUID().toString()))
+        data.put("text", topic.optString("title", ""))
+        data.put("created", System.currentTimeMillis())
+
+        topic.optString("href").takeIf { it.isNotBlank() }?.let { data.put("hyperlink", it) }
+        extractJsonNote(topic).takeIf { it.isNotBlank() }?.let { data.put("note", it) }
+        extractJsonLabels(topic).takeIf { it.length() > 0 }?.let { data.put("resource", it) }
+        extractJsonPriority(topic)?.let { data.put("priority", it) }
+        extractJsonProgress(topic)?.let { data.put("progress", it) }
+
+        return data
+    }
+
+    private fun buildDataFromXml(topic: Element): JSONObject {
+        val data = JSONObject()
+        data.put("id", topic.getAttribute("id").ifBlank { UUID.randomUUID().toString() })
+        data.put("text", directChildText(topic, "title"))
+        data.put("created", System.currentTimeMillis())
+
+        topic.getAttribute("xlink:href").takeIf { it.isNotBlank() }?.let { data.put("hyperlink", it) }
+        extractXmlNote(topic).takeIf { it.isNotBlank() }?.let { data.put("note", it) }
+        extractXmlLabels(topic).takeIf { it.length() > 0 }?.let { data.put("resource", it) }
+        extractXmlPriority(topic)?.let { data.put("priority", it) }
+        extractXmlProgress(topic)?.let { data.put("progress", it) }
+
+        return data
+    }
+
+    private fun extractJsonNote(topic: JSONObject): String {
+        val notes = topic.optJSONObject("notes") ?: return ""
+        val plain = notes.optJSONObject("plain")
+        if (plain != null) {
+            return plain.optString("content").trim()
+        }
+        return notes.optString("realHTML").trim()
+    }
+
+    private fun extractJsonLabels(topic: JSONObject): JSONArray {
+        val labels = topic.optJSONArray("labels") ?: return JSONArray()
+        val resources = JSONArray()
+        for (index in 0 until labels.length()) {
+            val raw = labels.optString(index).trim()
+            if (raw.isNotBlank()) {
+                resources.put(raw)
+            }
+        }
+        return resources
+    }
+
+    private fun extractJsonPriority(topic: JSONObject): Int? {
+        val markers = topic.optJSONArray("markers") ?: return null
+        for (index in 0 until markers.length()) {
+            val marker = markers.optJSONObject(index) ?: continue
+            val markerId = marker.optString("markerId")
+            parsePriority(markerId)?.let { return it }
+        }
+        return null
+    }
+
+    private fun extractJsonProgress(topic: JSONObject): Int? {
+        val markers = topic.optJSONArray("markers") ?: return null
+        for (index in 0 until markers.length()) {
+            val marker = markers.optJSONObject(index) ?: continue
+            val markerId = marker.optString("markerId")
+            parseProgress(markerId)?.let { return it }
+        }
+        return null
+    }
+
+    private fun extractXmlNote(topic: Element): String {
+        val notes = directChild(topic, "notes") ?: return ""
+        val plain = directChild(notes, "plain")
+        if (plain != null) {
+            return plain.textContent.trim()
+        }
+        return notes.textContent.trim()
+    }
+
+    private fun extractXmlLabels(topic: Element): JSONArray {
+        val labels = directChild(topic, "labels") ?: return JSONArray()
+        val resources = JSONArray()
+        val labelNodes = labels.getElementsByTagName("label")
+        for (index in 0 until labelNodes.length) {
+            val value = labelNodes.item(index)?.textContent?.trim().orEmpty()
+            if (value.isNotBlank()) {
+                resources.put(value)
+            }
+        }
+        return resources
+    }
+
+    private fun extractXmlPriority(topic: Element): Int? {
+        val refs = topic.getElementsByTagName("marker-ref")
+        for (index in 0 until refs.length) {
+            val marker = refs.item(index) as? Element ?: continue
+            parsePriority(marker.getAttribute("marker-id"))?.let { return it }
+        }
+        return null
+    }
+
+    private fun extractXmlProgress(topic: Element): Int? {
+        val refs = topic.getElementsByTagName("marker-ref")
+        for (index in 0 until refs.length) {
+            val marker = refs.item(index) as? Element ?: continue
+            parseProgress(marker.getAttribute("marker-id"))?.let { return it }
+        }
+        return null
+    }
+
+    private fun parsePriority(markerId: String): Int? {
+        val match = Regex("""priority-(\d+)""").find(markerId) ?: return null
+        return match.groupValues[1].toIntOrNull()
+    }
+
+    private fun parseProgress(markerId: String): Int? {
+        return when (markerId) {
+            "task-start" -> 1
+            "task-quarter" -> 2
+            "task-half" -> 3
+            "task-3quar" -> 4
+            "task-done" -> 5
+            else -> Regex("""task-(\d+)""").find(markerId)?.groupValues?.get(1)?.toIntOrNull()
+        }
     }
 
     private fun wrapKm(root: JSONObject): JSONObject {
