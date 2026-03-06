@@ -1,6 +1,33 @@
+# VSCode
 out
-node_modules
 .vscode-test/
 *.vsix
+
+# Node
+node_modules
 webui/node_modules
 webui/bower_components
+
+# Gradle
+.gradle
+.gradle-local/
+.gradle-user-home/
+**/build/
+!gradle-wrapper.jar
+
+# JetBrains Plugin
+jetbrains-plugin/.intellijPlatform/
+jetbrains-plugin/build/
+jetbrains-plugin/.kotlin/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
