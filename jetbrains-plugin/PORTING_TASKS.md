@@ -1,6 +1,6 @@
 # Mindmap JetBrains Porting Tasks
 
-Last updated: 2026-03-05
+Last updated: 2026-03-06
 
 ## Tracking Rules
 
@@ -31,19 +31,19 @@ Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature 
 | MMP-001 | Migrate Gradle build to IntelliJ Platform Plugin 2.x | P0 | dev | done | Switched to 2.x and PyCharm Pro target |
 | MMP-002 | Ensure Gradle wrapper bootstrap for local setup | P0 | dev | done | `scripts/bootstrap-wrapper.sh` available |
 | MMP-003 | Add auto-open behavior for `.km/.xmind` files | P1 | dev | blocked | Behavior not stable on PyCharm Pro 2025.3 sandbox |
-| MMP-004 | Stabilize warnings/noise under 2025.3.3 sandbox | P1 | dev | in_progress | Non-blocking startup warnings still present |
+| MMP-004 | Stabilize warnings/noise under 2025.3.3 sandbox | P1 | dev | done | Warnings classified: platform noise vs plugin-actionable; no feature blocker remains |
 | MMP-005 | Implement file editor provider (open as editor tab, not only ToolWindow) | P1 | dev | done | Added FileEditorProvider for `.km/.xmind`; fixed 2025.3 provider/fileType compatibility |
-| MMP-006 | Improve `.xmind` parser coverage (markers/notes/relations) | P1 | dev | in_progress | Added note/hyperlink/labels/marker + basic style/image mapping; relations pending |
+| MMP-006 | Improve `.xmind` parser coverage (markers/notes/relations) | P1 | dev | done | Added note/hyperlink/labels/marker + style/image mapping; relations imported as `xmindRelations` metadata with explicit runtime notice |
 | MMP-007 | Verify PNG export with real KityMinder page in sandbox | P1 | dev | done | End-to-end verified: export button -> bridge -> `.png` file in sandbox project |
-| MMP-008 | Package webui assets reliably for build/release | P0 | dev | in_progress | Bundling exists, need release validation matrix |
-| MMP-009 | Add automated smoke tests for bridge commands | P2 | dev | todo | loaded/import/save/exportToImage roundtrip |
-| MMP-010 | Prepare release checklist (build, sign, compatibility) | P2 | dev | todo | For first internal release |
+| MMP-008 | Package webui assets reliably for build/release | P0 | dev | done | Validation matrix executed: buildPlugin/test/runIde passed; startup warnings classified as non-blocking |
+| MMP-009 | Add automated smoke tests for bridge commands | P2 | dev | done | Loaded/import/save/export helper-level smoke coverage completed and validated via Gradle tests |
+| MMP-010 | Prepare release checklist (build, sign, compatibility) | P2 | dev | in_progress | Checklist drafted in `RELEASE_CHECKLIST.md`; execution/sign-off pending |
 
 ## Immediate Next Steps
 
-1. Complete MMP-004: collect and classify sandbox startup warnings (actionable vs ignorable).
-2. Complete MMP-006: cover relations and add sample regression files.
-3. Start MMP-009: add smoke tests for loaded/save/exportToImage bridge commands.
+1. Complete MMP-010: execute `RELEASE_CHECKLIST.md` items and record sign-off artifacts.
+2. Revisit relation line rendering in webui as a post-parity enhancement (metadata already preserved).
+3. Triage MMP-003 auto-open instability separately from release path.
 
 ## Progress Log
 
@@ -76,4 +76,19 @@ Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature 
 - 2026-03-05 | MMP-007 | in_progress | Hardened shim export flow to catch synchronous `minder.exportData('png')` errors, add export payload-size probe, and fail explicitly when host postMessage transport fails.
 - 2026-03-05 | MMP-007 | in_progress | Added PNG export recovery for malformed image nodes (`image` without `imageSize`) and made xmind image import require valid width/height to prevent `reading 'width'` export crash.
 - 2026-03-05 | MMP-007 | done | User validated PNG export end-to-end in sandbox: `exportToImage` -> `command=exportToImage` -> `exported path=.../E项目V2.0需求.png`.
+- 2026-03-06 | MMP-004 | done | Classified sandbox startup warnings: ignorable platform noise (`cds`, `CFBundleURLTypes`, `com.intellij.modules.ultimate` dependency set, `nativecerts`, `JCEF-sandbox`, Grazie/cloud login) vs actionable plugin defects (save write-action/threading, export image payload), and verified no remaining feature blocker.
 - 2026-03-05 | MMP-006 | in_progress | Extended xmind conversion to include note/hyperlink/resource/priority/progress fields from JSON/XML.
+- 2026-03-06 | MMP-006 | in_progress | Added `.xmind` relationship parsing from JSON/XML and persisted as `root.data.xmindRelations` in `.km` for lossless import (visual relation rendering in webui still pending).
+- 2026-03-06 | MMP-009 | in_progress | Added bridge outbound message codec/import-message builder tests; user validated `MindmapBridgeMessageCodecTest` and `MindmapBridgeImportMessageBuilderTest` via Gradle.
+- 2026-03-06 | MMP-009 | in_progress | Added `MindmapBridgeCommandDispatcher` and smoke tests for loaded/save/exportToImage dispatch, payload forwarding, and error wrapping.
+- 2026-03-06 | MMP-009 | in_progress | User validated `./gradlew test --tests com.souche.mindmap.idea.MindmapBridgeCommandDispatcherTest` passed successfully.
+- 2026-03-06 | MMP-009 | in_progress | Added `MindmapBridgeRoundtripTest` to verify loaded/import message build + save/export command dispatch + outbound codec in one helper-level roundtrip scenario.
+- 2026-03-06 | MMP-009 | done | User validated `./gradlew test --tests com.souche.mindmap.idea.MindmapBridgeRoundtripTest` passed successfully; bridge smoke test scope closed.
+- 2026-03-06 | MMP-006 | done | Finalized relation strategy: converter now preserves JSON/XML relationships as `root.data.xmindRelations`, added converter regression tests, and bridge shows explicit info notification that relation lines are metadata-only in current web UI.
+- 2026-03-06 | MMP-008 | in_progress | Added `RELEASE_VALIDATION_MATRIX.md` (packaging integrity, runtime feature checks, automated test gate, release decision criteria) and linked it from README.
+- 2026-03-06 | MMP-008 | done | User executed matrix core commands (`buildPlugin`, `test`, `runIde`) successfully; observed sandbox startup warnings remain non-blocking (Ultimate deps, LoadingState noise, nativecerts/Grazie/JCEF launcher warnings).
+- 2026-03-06 | MMP-010 | in_progress | Added `RELEASE_CHECKLIST.md` (version/metadata, build-test gate, runtime validation, packaging integrity, warning baseline, release notes, handoff artifacts) and linked it from README.
+- 2026-03-06 | MMP-010 | in_progress | Extended `RELEASE_CHECKLIST.md` with sign-off template (release identity, compatibility window, evidence paths, validator/owner approval, GO/NO-GO decision fields).
+- 2026-03-06 | MMP-010 | in_progress | Pre-filled checklist evidence from current build artifacts and validations (zip path/size/SHA256, since/until build, manifest+bundled-webui checks, warning baseline), leaving approval/release-note sign-off items pending.
+- 2026-03-06 | MMP-003 | in_progress | 临时变更申请已确认：双击 `.km/.xmind` 仅打开文件编辑器，不再自动弹出 Mindmap 侧边 ToolWindow（保留手动 `Open Mindmap` 入口）。
+- 2026-03-06 | MMP-003 | in_progress | 已移除 `MindmapStartupActivity` 中 selection-change 自动 `ToolWindow.show()` 逻辑；双击文件现在仅打开编辑器，ToolWindow 需手动触发（待你本地 runIde 复核）。

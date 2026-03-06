@@ -3,6 +3,8 @@
 This folder contains a JetBrains plugin skeleton for porting `vscode-mindmap`.
 
 Migration tracking file: `jetbrains-plugin/PORTING_TASKS.md`
+Release validation matrix: `jetbrains-plugin/RELEASE_VALIDATION_MATRIX.md`
+Release checklist: `jetbrains-plugin/RELEASE_CHECKLIST.md`
 
 ## Current scope
 
@@ -68,6 +70,21 @@ Then build plugin from `jetbrains-plugin`:
 ```
 
 At runtime, plugin loads bundled webui first.
+
+## Release validation
+
+Before internal release, run the validation matrix:
+
+```bash
+cd jetbrains-plugin
+./gradlew clean buildPlugin
+./gradlew test
+./gradlew runIde
+```
+
+Then verify checklist items in `RELEASE_VALIDATION_MATRIX.md`.
+
+For release readiness sign-off, complete `RELEASE_CHECKLIST.md`.
 
 ## Enable full webui in development
 

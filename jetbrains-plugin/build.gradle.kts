@@ -23,6 +23,9 @@ repositories {
 
 dependencies {
     implementation("org.json:json:20240303")
+    testImplementation(kotlin("test"))
+    // Required by IntelliJ JUnit5 test environment initializer at runtime.
+    testImplementation("junit:junit:4.13.2")
 
     intellijPlatform {
         pycharmProfessional("2025.3.3")
@@ -101,5 +104,9 @@ tasks {
 
     runIde {
         jvmArgs("-Xmx2g")
+    }
+
+    test {
+        useJUnitPlatform()
     }
 }

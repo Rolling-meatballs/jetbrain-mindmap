@@ -6,7 +6,6 @@ import com.intellij.openapi.fileEditor.FileEditorManagerListener
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.ProjectActivity
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.openapi.wm.ToolWindowManager
 
 class MindmapStartupActivity : ProjectActivity {
     override suspend fun execute(project: Project) {
@@ -26,27 +25,10 @@ class MindmapStartupActivity : ProjectActivity {
                     if (!isSupported(file)) return
 
                     state.currentFile = file
-                    autoOpenToolWindow(project, state, file)
                     state.bridge?.reloadCurrentFile()
-                }
-
-                override fun fileClosed(source: FileEditorManager, file: VirtualFile) {
-                    state.autoOpenedFiles.remove(file.path)
                 }
             }
         )
-    }
-
-    private fun autoOpenToolWindow(project: Project, state: MindmapProjectState, file: VirtualFile) {
-        if (!state.autoOpenedFiles.add(file.path)) {
-            return
-        }
-
-        ToolWindowManager.getInstance(project)
-            .getToolWindow(MindmapToolWindowFactory.TOOL_WINDOW_ID)
-            ?.show {
-                state.bridge?.reloadCurrentFile()
-            }
     }
 
     private fun isSupported(file: VirtualFile): Boolean {

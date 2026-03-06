@@ -23,71 +23,39 @@ class MindmapBridge(
     private val fileProvider: (() -> VirtualFile?)? = null
 ) {
     private val xmindConverter = XmindConverter()
+    private val importMessageBuilder = MindmapBridgeImportMessageBuilder()
+    private val commandDispatcher = MindmapBridgeCommandDispatcher(
+        log = ::appendBridgeLog,
+        notifyError = ::notifyError,
+        onLoaded = ::reloadCurrentFile,
+        onSave = ::handleSave,
+        onExportToImage = ::handleExportToImage
+    )
 
     init {
         appendBridgeLog("bridge_initialized")
     }
 
     fun onMessage(payload: String?): String {
-        if (payload.isNullOrBlank()) {
-            appendBridgeLog("empty payload")
-            return ""
-        }
-        val payloadJson = runCatching { JSONObject(payload) }
-            .onFailure {
-                appendBridgeLog("invalid json payload")
-                notifyError("Invalid message payload from web UI.")
-            }
-            .getOrNull() ?: return ""
-        val rawCommand = payloadJson.optString("command")
-        val command = rawCommand.trim()
-        val details = payloadJson.optString("message")
-        if (details.isNotBlank()) {
-            appendBridgeLog("command=$command raw=$rawCommand message=$details")
-        } else {
-            appendBridgeLog("command=$command raw=$rawCommand")
-        }
-        runCatching {
-            when (command) {
-                "loaded" -> reloadCurrentFile()
-                "save" -> {
-                    appendBridgeLog("save_payload_chars=${payloadJson.optString("exportData").length}")
-                    handleSave(payloadJson)
-                }
-                "exportToImage" -> {
-                    appendBridgeLog("export_payload_chars=${payloadJson.optString("exportData").length}")
-                    handleExportToImage(payloadJson)
-                }
-                "clientError" -> notifyError(payloadJson.optString("message").ifBlank { "Unknown web UI error." })
-                "debugProbe" -> Unit
-            }
-        }.onFailure {
-            appendBridgeLog("handler_exception=${it::class.simpleName}:${it.message ?: "unknown"}")
-            notifyError("Bridge handler failed for '$command': ${it.message ?: "Unknown error"}")
-        }
+        commandDispatcher.dispatch(payload)
         return ""
     }
 
     fun reloadCurrentFile() {
         val file = resolveCurrentFile() ?: return
 
-        val importData = if (file.extension == "xmind") {
-            runCatching {
-                xmindConverter.convertToKmJson(file)
-            }.onFailure {
-                notifyError("Failed to parse ${file.name}. ${it.message ?: "Unknown error"}")
-            }.getOrDefault("{}")
-        } else {
-            runReadAction { VfsUtil.loadText(file) }
-        }
-
-        sendToWeb(
-            mapOf(
-                "command" to "import",
-                "importData" to importData,
-                "extName" to ".${file.extension.orEmpty()}"
-            )
+        val message = importMessageBuilder.build(
+            extension = file.extension,
+            loadKmText = { runReadAction { VfsUtil.loadText(file) } },
+            loadXmindAsKmJson = {
+                runCatching { xmindConverter.convertToKmJson(file) }
+                    .onFailure { notifyError("Failed to parse ${file.name}. ${it.message ?: "Unknown error"}") }
+                    .getOrDefault("{}")
+                    .also(::notifyRelationImportFallback)
+            }
         )
+
+        sendToWeb(message)
     }
 
     private fun handleSave(message: JSONObject) {
@@ -162,26 +130,26 @@ class MindmapBridge(
 
 
     private fun sendToWeb(message: Map<String, String>) {
-        val json = JSONObject(message).toString()
-        val encoded = Base64.getEncoder().encodeToString(json.toByteArray(StandardCharsets.UTF_8))
+        val encoded = MindmapBridgeMessageCodec.encodeMessage(message)
         browser.cefBrowser.executeJavaScript(
-            """
-            (function() {
-              var binary = atob('$encoded');
-              var bytes = new Uint8Array(binary.length);
-              for (var i = 0; i < binary.length; i++) {
-                bytes[i] = binary.charCodeAt(i);
-              }
-              var data = JSON.parse(new TextDecoder('utf-8').decode(bytes));
-              window.dispatchEvent(new MessageEvent('message', { data: data }));
-              if (window.mindmapHost && typeof window.mindmapHost.onMessage === 'function') {
-                window.mindmapHost.onMessage(JSON.stringify(data));
-              }
-            })();
-            """.trimIndent(),
+            MindmapBridgeMessageCodec.buildInjectionScript(encoded),
             browser.cefBrowser.url,
             0
         )
+    }
+
+    private fun notifyRelationImportFallback(importData: String) {
+        val relationCount = runCatching {
+            JSONObject(importData)
+                .optJSONObject("root")
+                ?.optJSONObject("data")
+                ?.optJSONArray("xmindRelations")
+                ?.length() ?: 0
+        }.getOrDefault(0)
+
+        if (relationCount > 0) {
+            notifyInfo("Imported $relationCount relation(s) as metadata (xmindRelations); current web UI does not render relation lines yet.")
+        }
     }
 
     private fun notifyInfo(content: String) {

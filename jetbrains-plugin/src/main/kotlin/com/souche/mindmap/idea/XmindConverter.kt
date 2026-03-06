@@ -11,14 +11,24 @@ import java.util.zip.ZipInputStream
 import javax.xml.parsers.DocumentBuilderFactory
 
 class XmindConverter {
-    fun convertToKmJson(file: VirtualFile): String {
-        val zipData = readZipEntries(file)
+    private data class XmindRelation(
+        val fromId: String,
+        val toId: String,
+        val title: String
+    )
 
-        zipData["content.json"]?.let { bytes ->
+    fun convertToKmJson(file: VirtualFile): String {
+        return convertToKmJson(readZipEntries(file))
+    }
+
+    internal fun convertToKmJson(zipData: Map<String, ByteArray>): String {
+        val normalizedEntries = zipData.mapKeys { it.key.substringAfterLast('/') }
+
+        normalizedEntries["content.json"]?.let { bytes ->
             return fromContentJson(String(bytes, StandardCharsets.UTF_8)).toString()
         }
 
-        zipData["content.xml"]?.let { bytes ->
+        normalizedEntries["content.xml"]?.let { bytes ->
             return fromContentXml(bytes).toString()
         }
 
@@ -49,8 +59,9 @@ class XmindConverter {
 
         val primarySheet = sheets.optJSONObject(0) ?: return EMPTY_DOC
         val rootTopic = primarySheet.optJSONObject("rootTopic") ?: return EMPTY_DOC
-
-        return wrapKm(topicFromJson(rootTopic))
+        val km = wrapKm(topicFromJson(rootTopic))
+        applyRelations(km, extractJsonRelations(primarySheet))
+        return km
     }
 
     private fun topicFromJson(topic: JSONObject): JSONObject {
@@ -81,7 +92,9 @@ class XmindConverter {
         if (topics.length == 0) return EMPTY_DOC
 
         val rootTopic = topics.item(0) as? Element ?: return EMPTY_DOC
-        return wrapKm(topicFromXml(rootTopic))
+        val km = wrapKm(topicFromXml(rootTopic))
+        applyRelations(km, extractXmlRelations(firstSheet))
+        return km
     }
 
     private fun topicFromXml(topic: Element): JSONObject {
@@ -407,6 +420,80 @@ class XmindConverter {
             "task-done" -> 5
             else -> Regex("""task-(\d+)""").find(markerId)?.groupValues?.get(1)?.toIntOrNull()
         }
+    }
+
+    private fun extractJsonRelations(sheet: JSONObject): List<XmindRelation> {
+        val rawRelations = sheet.optJSONArray("relationships") ?: return emptyList()
+        val relations = mutableListOf<XmindRelation>()
+        for (index in 0 until rawRelations.length()) {
+            val relation = rawRelations.optJSONObject(index) ?: continue
+            val fromId = firstNonBlank(
+                relation.optString("end1Id"),
+                relation.optString("end1"),
+                relation.optString("sourceId"),
+                relation.optString("source")
+            ) ?: continue
+            val toId = firstNonBlank(
+                relation.optString("end2Id"),
+                relation.optString("end2"),
+                relation.optString("targetId"),
+                relation.optString("target")
+            ) ?: continue
+            val title = relation.optString("title").trim()
+            relations += XmindRelation(fromId, toId, title)
+        }
+        return relations
+    }
+
+    private fun extractXmlRelations(sheet: Element): List<XmindRelation> {
+        val relationNodes = sheet.getElementsByTagName("relationship")
+        val relations = mutableListOf<XmindRelation>()
+        for (index in 0 until relationNodes.length) {
+            val relation = relationNodes.item(index) as? Element ?: continue
+            val fromId = firstXmlAttribute(relation, "end1", "end1id", "source", "sourceid") ?: continue
+            val toId = firstXmlAttribute(relation, "end2", "end2id", "target", "targetid") ?: continue
+            val title = firstNonBlank(
+                firstXmlAttribute(relation, "title"),
+                directChildText(relation, "title")
+            ).orEmpty()
+            relations += XmindRelation(fromId, toId, title)
+        }
+        return relations
+    }
+
+    private fun applyRelations(km: JSONObject, relations: List<XmindRelation>) {
+        if (relations.isEmpty()) return
+        val root = km.optJSONObject("root") ?: return
+        val rootData = root.optJSONObject("data") ?: JSONObject().also { root.put("data", it) }
+        val relationArray = JSONArray()
+
+        relations
+            .distinctBy { "${it.fromId}->${it.toId}:${it.title}" }
+            .forEach { relation ->
+                val relationJson = JSONObject().apply {
+                    put("from", relation.fromId)
+                    put("to", relation.toId)
+                    if (relation.title.isNotBlank()) {
+                        put("title", relation.title)
+                    }
+                }
+                relationArray.put(relationJson)
+            }
+
+        if (relationArray.length() > 0) {
+            // Keep relation data lossless even though current webui does not render cross-topic links.
+            rootData.put("xmindRelations", relationArray)
+        }
+    }
+
+    private fun firstNonBlank(vararg values: String?): String? {
+        for (value in values) {
+            val trimmed = value?.trim().orEmpty()
+            if (trimmed.isNotEmpty()) {
+                return trimmed
+            }
+        }
+        return null
     }
 
     private fun wrapKm(root: JSONObject): JSONObject {
