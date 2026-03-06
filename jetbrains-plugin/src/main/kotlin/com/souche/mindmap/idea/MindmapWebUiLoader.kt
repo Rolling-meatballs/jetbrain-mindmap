@@ -189,33 +189,220 @@ class MindmapWebUiLoader(
         return """
 <script>
 (function() {
-  if (window.acquireVsCodeApi && window.vscode) {
-    return;
-  }
-
   var bridgeState = {};
+  var api = null;
+
   function sendRawPayload(payload) {
     $jsQueryCall;
   }
 
-  var api = {
-    postMessage: function(message) {
+  if (window.acquireVsCodeApi) {
+    try {
+      api = window.acquireVsCodeApi();
+    } catch (e) {
+      api = null;
+    }
+  }
+
+  if (!api && window.vscode) {
+    api = window.vscode;
+  }
+
+  if (!api) {
+    api = {
+      postMessage: function(message) {
+        var payload = typeof message === 'string' ? message : JSON.stringify(message || {});
+        sendRawPayload(payload);
+      },
+      setState: function(partial) {
+        Object.assign(bridgeState, partial || {});
+        return bridgeState;
+      },
+      getState: function() {
+        return bridgeState;
+      }
+    };
+  }
+
+  if (typeof api.postMessage !== 'function') {
+    api.postMessage = function(message) {
       var payload = typeof message === 'string' ? message : JSON.stringify(message || {});
       sendRawPayload(payload);
-    },
-    setState: function(partial) {
+    };
+  }
+
+  if (typeof api.setState !== 'function') {
+    api.setState = function(partial) {
       Object.assign(bridgeState, partial || {});
       return bridgeState;
-    },
-    getState: function() {
+    };
+  }
+
+  if (typeof api.getState !== 'function') {
+    api.getState = function() {
       return bridgeState;
-    }
-  };
+    };
+  }
 
   window.acquireVsCodeApi = function() {
     return api;
   };
   window.vscode = window.acquireVsCodeApi();
+
+  function postClientError(message) {
+    try {
+      api.postMessage({
+        command: 'clientError',
+        message: message
+      });
+    } catch (e) {
+      sendRawPayload(JSON.stringify({
+        command: 'clientError',
+        message: message
+      }));
+    }
+  }
+
+  function postHostMessage(message) {
+    var payload = typeof message === 'string' ? message : JSON.stringify(message || {});
+    try {
+      if (api && typeof api.postMessage === 'function') {
+        api.postMessage(message);
+        return;
+      }
+    } catch (e) {
+      // fallback below
+    }
+
+    try {
+      sendRawPayload(payload);
+    } catch (e) {
+      throw new Error('host postMessage transport failed');
+    }
+  }
+
+  // Expose a stable bridge helper so page scripts can bypass fragile window.vscode wiring.
+  window.__mindmapHostPostMessage = postHostMessage;
+
+  function wireButton(selector, marker, handler) {
+    var button = document.querySelector(selector);
+    if (!button || button[marker]) {
+      return !!button;
+    }
+
+    button[marker] = true;
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      handler();
+    }, true);
+
+    return true;
+  }
+
+  function wireSaveButton() {
+    return wireButton('.km-export-save', '__mindmapSaveWired', function() {
+      postHostMessage({ command: 'debugProbe', message: 'save_clicked' });
+      if (!window.minder || typeof window.minder.exportJson !== 'function') {
+        postClientError('Save failed: minder is unavailable.');
+        return;
+      }
+
+      postHostMessage({
+        command: 'save',
+        exportData: JSON.stringify(window.minder.exportJson(), null, 4)
+      });
+    });
+  }
+
+  function wireExportButton() {
+    return wireButton('.km-export-image', '__mindmapExportWired', function() {
+      postHostMessage({ command: 'debugProbe', message: 'export_clicked' });
+      if (!window.minder || typeof window.minder.exportData !== 'function') {
+        postClientError('PNG export failed: minder is unavailable.');
+        return;
+      }
+
+      function sanitizeImageNodes() {
+        if (!window.minder.getRoot || typeof window.minder.getRoot !== 'function') {
+          return;
+        }
+        var root = window.minder.getRoot();
+        if (!root || typeof root.traverse !== 'function') {
+          return;
+        }
+
+        root.traverse(function(node) {
+          var data = node && node.data;
+          if (!data || !data.image) {
+            return;
+          }
+          var size = data.imageSize;
+          var valid = size && Number(size.width) > 0 && Number(size.height) > 0;
+          if (!valid) {
+            if (typeof node.setData === 'function') {
+              node.setData('image', null);
+              node.setData('imageTitle', null);
+              node.setData('imageSize', null);
+            } else {
+              data.image = null;
+              data.imageTitle = null;
+              data.imageSize = null;
+            }
+          }
+        });
+      }
+
+      function exportPng() {
+        return Promise.resolve().then(function() {
+          return window.minder.exportData('png');
+        });
+      }
+
+      var timeoutPromise = new Promise(function(_, reject) {
+        window.setTimeout(function() {
+          reject(new Error('export timeout'));
+        }, 8000);
+      });
+
+      Promise.race([
+        exportPng().catch(function(err) {
+          var text = (err && err.message) || String(err);
+          if (text.indexOf("reading 'width'") >= 0) {
+            sanitizeImageNodes();
+            return exportPng();
+          }
+          throw err;
+        }),
+        timeoutPromise
+      ]).then(function(result) {
+        if (!result) {
+          throw new Error('empty PNG payload');
+        }
+
+        postHostMessage({ command: 'debugProbe', message: 'export_payload_chars=' + String(result).length });
+        postHostMessage({
+          command: 'exportToImage',
+          exportData: result
+        });
+      }).catch(function(err) {
+        postClientError('PNG export failed: ' + ((err && err.message) || String(err)));
+      });
+    });
+  }
+
+  postHostMessage({ command: 'debugProbe', message: 'shim_ready' });
+  postHostMessage({ command: 'loaded' });
+
+  var retries = 0;
+  var timer = window.setInterval(function() {
+    retries += 1;
+    var saveReady = wireSaveButton();
+    var exportReady = wireExportButton();
+    if ((saveReady && exportReady) || retries > 120) {
+      window.clearInterval(timer);
+    }
+  }, 250);
 })();
 </script>
         """.trimIndent()

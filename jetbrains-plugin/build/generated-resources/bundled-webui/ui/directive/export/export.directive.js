@@ -18,12 +18,22 @@ angular.module('kityminderEditor').directive('export', [
           });
         };
         $scope.exportToImage = function() {
-          minder.exportData('png').then(function(res) {
-            window.vscode.postMessage({
-              command: 'exportToImage',
-              exportData: res,
+          Promise.resolve(minder.exportData('png'))
+            .then(function(res) {
+              if (!res) {
+                throw new Error('empty PNG payload');
+              }
+              window.vscode.postMessage({
+                command: 'exportToImage',
+                exportData: res,
+              });
+            })
+            .catch(function(err) {
+              window.vscode.postMessage({
+                command: 'clientError',
+                message: 'PNG export failed: ' + ((err && err.message) || String(err)),
+              });
             });
-          });
         };
       },
     };

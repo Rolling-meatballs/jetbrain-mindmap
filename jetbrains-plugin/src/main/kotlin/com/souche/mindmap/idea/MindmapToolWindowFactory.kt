@@ -8,6 +8,7 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.jcef.JBCefApp
 import com.intellij.ui.jcef.JBCefBrowser
+import com.intellij.ui.jcef.JBCefBrowserBase
 import com.intellij.ui.jcef.JBCefJSQuery
 
 class MindmapToolWindowFactory : ToolWindowFactory {
@@ -27,7 +28,7 @@ class MindmapToolWindowFactory : ToolWindowFactory {
 
         val bridge = MindmapBridge(project, browser)
         state.bridge = bridge
-        val query = JBCefJSQuery.create(browser).apply {
+        val query = JBCefJSQuery.create(browser as JBCefBrowserBase).apply {
             addHandler { payload ->
                 bridge.onMessage(payload)
                 null

@@ -1,0 +1,14 @@
+1772764429373 | bridge_initialized
+1772764429785 | bridge_initialized
+1772764429918 | command=debugProbe raw=debugProbe message=shim_ready
+1772764429921 | command=loaded raw=loaded
+1772764430021 | command=loaded raw=loaded
+1772764430422 | command=debugProbe raw=debugProbe message=shim_ready
+1772764430422 | command=loaded raw=loaded
+1772764430494 | command=loaded raw=loaded
+1772764436618 | command=debugProbe raw=debugProbe message=export_clicked
+1772764436794 | command=debugProbe raw=debugProbe message=export_payload_chars=1708238
+1772764436818 | command=exportToImage raw=exportToImage
+1772764436819 | export_payload_chars=1708238
+1772764436821 | export_queued source=/Users/murphy/PyCharmMiscProject/E项目V2.0需求.xmind
+1772764436860 | exported path=/Users/murphy/PyCharmMiscProject/E项目V2.0需求.png bytes=1281161

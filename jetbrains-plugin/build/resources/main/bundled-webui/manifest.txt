@@ -790,6 +790,7 @@ bower_components/marked/docs/img/logo-black.svg
 bower_components/marked/docs/js/index.js
 bower_components/marked/esbuild.config.js
 bower_components/marked/eslint.config.js
+bower_components/marked/lib/marked.js
 bower_components/marked/man/marked.1.md
 bower_components/marked/package-lock.json
 bower_components/marked/package.json

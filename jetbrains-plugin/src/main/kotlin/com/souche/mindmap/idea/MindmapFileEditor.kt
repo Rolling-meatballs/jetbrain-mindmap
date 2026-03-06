@@ -11,6 +11,7 @@ import com.intellij.openapi.util.UserDataHolderBase
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.jcef.JBCefApp
 import com.intellij.ui.jcef.JBCefBrowser
+import com.intellij.ui.jcef.JBCefBrowserBase
 import com.intellij.ui.jcef.JBCefJSQuery
 import java.beans.PropertyChangeListener
 import javax.swing.JComponent
@@ -33,7 +34,7 @@ class MindmapFileEditor(
         if (JBCefApp.isSupported()) {
             val editorBrowser = JBCefBrowser()
             val editorBridge = MindmapBridge(project, editorBrowser) { file }
-            val editorQuery = JBCefJSQuery.create(editorBrowser).apply {
+            val editorQuery = JBCefJSQuery.create(editorBrowser as JBCefBrowserBase).apply {
                 addHandler { payload ->
                     editorBridge.onMessage(payload)
                     null

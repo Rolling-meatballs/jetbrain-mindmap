@@ -2,13 +2,18 @@ package com.souche.mindmap.idea
 
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
+import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.jcef.JBCefBrowser
 import org.json.JSONObject
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.nio.file.StandardOpenOption
 import java.nio.charset.StandardCharsets
 import java.util.Base64
 
@@ -19,13 +24,46 @@ class MindmapBridge(
 ) {
     private val xmindConverter = XmindConverter()
 
+    init {
+        appendBridgeLog("bridge_initialized")
+    }
+
     fun onMessage(payload: String?): String {
-        if (payload.isNullOrBlank()) return ""
-        val message = JSONObject(payload)
-        when (message.optString("command")) {
-            "loaded" -> reloadCurrentFile()
-            "save" -> handleSave(message)
-            "exportToImage" -> handleExportToImage(message)
+        if (payload.isNullOrBlank()) {
+            appendBridgeLog("empty payload")
+            return ""
+        }
+        val payloadJson = runCatching { JSONObject(payload) }
+            .onFailure {
+                appendBridgeLog("invalid json payload")
+                notifyError("Invalid message payload from web UI.")
+            }
+            .getOrNull() ?: return ""
+        val rawCommand = payloadJson.optString("command")
+        val command = rawCommand.trim()
+        val details = payloadJson.optString("message")
+        if (details.isNotBlank()) {
+            appendBridgeLog("command=$command raw=$rawCommand message=$details")
+        } else {
+            appendBridgeLog("command=$command raw=$rawCommand")
+        }
+        runCatching {
+            when (command) {
+                "loaded" -> reloadCurrentFile()
+                "save" -> {
+                    appendBridgeLog("save_payload_chars=${payloadJson.optString("exportData").length}")
+                    handleSave(payloadJson)
+                }
+                "exportToImage" -> {
+                    appendBridgeLog("export_payload_chars=${payloadJson.optString("exportData").length}")
+                    handleExportToImage(payloadJson)
+                }
+                "clientError" -> notifyError(payloadJson.optString("message").ifBlank { "Unknown web UI error." })
+                "debugProbe" -> Unit
+            }
+        }.onFailure {
+            appendBridgeLog("handler_exception=${it::class.simpleName}:${it.message ?: "unknown"}")
+            notifyError("Bridge handler failed for '$command': ${it.message ?: "Unknown error"}")
         }
         return ""
     }
@@ -53,56 +91,75 @@ class MindmapBridge(
     }
 
     private fun handleSave(message: JSONObject) {
-        val file = resolveCurrentFile() ?: return
+        val file = requireCurrentFile("save") ?: return
         val exportData = message.optString("exportData")
-        val targetFile = resolveSaveTarget(file)
-
-        WriteCommandAction.runWriteCommandAction(project) {
-            VfsUtil.saveText(targetFile, exportData)
-            targetFile.refresh(false, false)
+        appendBridgeLog("save_queued source=${file.path}")
+        ApplicationManager.getApplication().invokeLater {
+            runCatching {
+                WriteCommandAction.runWriteCommandAction(project) {
+                    val targetFile = if (file.extension != "xmind") {
+                        file
+                    } else {
+                        val parent = file.parent ?: error("Cannot resolve parent directory for ${file.name}")
+                        val kmName = "${file.nameWithoutExtension}.km"
+                        parent.findChild(kmName) ?: parent.createChildData(this, kmName)
+                    }
+                    VfsUtil.saveText(targetFile, exportData)
+                    targetFile.refresh(false, false)
+                    appendBridgeLog("saved path=${targetFile.path} bytes=${exportData.toByteArray(StandardCharsets.UTF_8).size}")
+                }
+            }.onSuccess {
+                notifyInfo("Saved ${file.name}")
+            }.onFailure {
+                notifyError("Save failed for ${file.name}: ${it.message ?: "Unknown error"}")
+            }
         }
-
-        notifyInfo("Saved ${targetFile.name}")
     }
 
     private fun handleExportToImage(message: JSONObject) {
-        val file = resolveCurrentFile() ?: return
+        val file = requireCurrentFile("PNG export") ?: return
         val exportData = message.optString("exportData")
         if (exportData.isBlank()) {
             notifyError("No image payload received.")
             return
         }
 
-        val targetFile = resolvePngTarget(file)
         val rawBase64 = exportData.replace(Regex("^data:image/\\w+;base64,"), "")
         val bytes = runCatching { Base64.getDecoder().decode(rawBase64) }
             .onFailure { notifyError("Invalid image payload.") }
             .getOrNull() ?: return
 
-        WriteCommandAction.runWriteCommandAction(project) {
-            targetFile.setBinaryContent(bytes)
-            targetFile.refresh(false, false)
+        appendBridgeLog("export_queued source=${file.path}")
+        ApplicationManager.getApplication().invokeLater {
+            runCatching {
+                WriteCommandAction.runWriteCommandAction(project) {
+                    val parent = file.parent ?: error("Cannot resolve parent directory for ${file.name}")
+                    val pngName = "${file.nameWithoutExtension}.png"
+                    val targetFile = parent.findChild(pngName) ?: parent.createChildData(this, pngName)
+                    targetFile.setBinaryContent(bytes)
+                    targetFile.refresh(false, false)
+                    appendBridgeLog("exported path=${targetFile.path} bytes=${bytes.size}")
+                }
+            }.onSuccess {
+                notifyInfo("Exported ${file.nameWithoutExtension}.png")
+            }.onFailure {
+                notifyError("Export failed for ${file.name}: ${it.message ?: "Unknown error"}")
+            }
         }
-
-        notifyInfo("Exported ${targetFile.name}")
-    }
-
-    private fun resolveSaveTarget(file: VirtualFile): VirtualFile {
-        if (file.extension != "xmind") return file
-        val parent = file.parent ?: return file
-        val kmName = "${file.nameWithoutExtension}.km"
-        return parent.findChild(kmName) ?: parent.createChildData(this, kmName)
     }
 
     private fun resolveCurrentFile(): VirtualFile? {
         return fileProvider?.invoke() ?: MindmapProjectState.getInstance(project).currentFile
     }
 
-    private fun resolvePngTarget(file: VirtualFile): VirtualFile {
-        val parent = file.parent ?: return file
-        val pngName = "${file.nameWithoutExtension}.png"
-        return parent.findChild(pngName) ?: parent.createChildData(this, pngName)
+    private fun requireCurrentFile(action: String): VirtualFile? {
+        val file = resolveCurrentFile()
+        if (file == null) {
+            notifyError("No current file selected for $action.")
+        }
+        return file
     }
+
 
     private fun sendToWeb(message: Map<String, String>) {
         val json = JSONObject(message).toString()
@@ -135,9 +192,29 @@ class MindmapBridge(
     }
 
     private fun notifyError(content: String) {
+        appendBridgeLog("error=$content")
         NotificationGroupManager.getInstance()
             .getNotificationGroup("Mindmap Notifications")
             .createNotification(content, NotificationType.ERROR)
             .notify(project)
+    }
+
+    private fun appendBridgeLog(line: String) {
+        val record = "${System.currentTimeMillis()} | $line\n"
+
+        val candidatePaths = mutableListOf(Paths.get(PathManager.getLogPath(), "mindmap-bridge.log"))
+        project.basePath?.let { candidatePaths.add(Paths.get(it, ".mindmap-bridge.log")) }
+
+        for (path in candidatePaths) {
+            runCatching {
+                Files.writeString(
+                    path,
+                    record,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND,
+                    StandardOpenOption.WRITE
+                )
+            }
+        }
     }
 }

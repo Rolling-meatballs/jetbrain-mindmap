@@ -144,6 +144,8 @@ class XmindConverter {
         extractJsonLabels(topic).takeIf { it.length() > 0 }?.let { data.put("resource", it) }
         extractJsonPriority(topic)?.let { data.put("priority", it) }
         extractJsonProgress(topic)?.let { data.put("progress", it) }
+        applyJsonStyle(topic, data)
+        applyJsonImage(topic, data)
 
         return data
     }
@@ -154,13 +156,57 @@ class XmindConverter {
         data.put("text", directChildText(topic, "title"))
         data.put("created", System.currentTimeMillis())
 
-        topic.getAttribute("xlink:href").takeIf { it.isNotBlank() }?.let { data.put("hyperlink", it) }
+        firstXmlAttribute(topic, "xlink:href", "href")?.takeIf { it.isNotBlank() }?.let { data.put("hyperlink", it) }
         extractXmlNote(topic).takeIf { it.isNotBlank() }?.let { data.put("note", it) }
         extractXmlLabels(topic).takeIf { it.length() > 0 }?.let { data.put("resource", it) }
         extractXmlPriority(topic)?.let { data.put("priority", it) }
         extractXmlProgress(topic)?.let { data.put("progress", it) }
+        applyXmlStyle(topic, data)
+        applyXmlImage(topic, data)
 
         return data
+    }
+
+    private fun applyJsonStyle(topic: JSONObject, data: JSONObject) {
+        val styleSources = buildList {
+            topic.optJSONObject("style")?.let { add(it) }
+            topic.optJSONObject("style")?.optJSONObject("properties")?.let { add(it) }
+            topic.optJSONObject("titleStyle")?.let { add(it) }
+            topic.optJSONObject("topicStyle")?.let { add(it) }
+        }
+
+        firstJsonString(styleSources, "fo:color", "textColor", "fontColor", "color")
+            ?.let { data.put("color", it) }
+        firstJsonString(styleSources, "svg:fill", "fillColor", "fill", "background", "backgroundColor")
+            ?.let { data.put("background", it) }
+        firstJsonString(styleSources, "fo:font-family", "fontFamily", "font-family")
+            ?.let { data.put("font-family", it) }
+
+        firstJsonString(styleSources, "fo:font-size", "fontSize", "font-size")
+            ?.let(::parseDimension)
+            ?.let { size ->
+                if (size > 0) data.put("font-size", size)
+            }
+    }
+
+    private fun applyJsonImage(topic: JSONObject, data: JSONObject) {
+        val image = topic.optJSONObject("image") ?: return
+        val url = firstJsonString(listOf(image), "src", "xlink:href", "href", "url") ?: return
+        val width = parseDimension(image.opt("width"))
+        val height = parseDimension(image.opt("height"))
+        // kityminder png export assumes imageSize exists when image exists.
+        if (width == null || height == null || width <= 0 || height <= 0) return
+
+        data.put("image", url)
+        firstJsonString(listOf(image), "title", "alt")
+            ?.let { data.put("imageTitle", it) }
+        data.put(
+            "imageSize",
+            JSONObject().apply {
+                put("width", width)
+                put("height", height)
+            }
+        )
     }
 
     private fun extractJsonNote(topic: JSONObject): String {
@@ -242,6 +288,109 @@ class XmindConverter {
             parseProgress(marker.getAttribute("marker-id"))?.let { return it }
         }
         return null
+    }
+
+    private fun applyXmlStyle(topic: Element, data: JSONObject) {
+        val styleSources = buildList {
+            add(topic)
+            directChild(topic, "style")?.let { add(it) }
+            directChild(topic, "topic-style")?.let { add(it) }
+            directChild(topic, "title")?.let { add(it) }
+        }
+
+        firstXmlAttribute(styleSources, "fo:color", "text-color", "textColor", "color")
+            ?.let { data.put("color", it) }
+        firstXmlAttribute(styleSources, "svg:fill", "fill-color", "fillColor", "fill", "background")
+            ?.let { data.put("background", it) }
+        firstXmlAttribute(styleSources, "fo:font-family", "font-family", "fontFamily")
+            ?.let { data.put("font-family", it) }
+        firstXmlAttribute(styleSources, "fo:font-size", "font-size", "fontSize")
+            ?.let(::parseDimension)
+            ?.let { size ->
+                if (size > 0) data.put("font-size", size)
+            }
+    }
+
+    private fun applyXmlImage(topic: Element, data: JSONObject) {
+        val imageElement = firstXmlImageElement(topic) ?: return
+        val url = firstXmlAttribute(imageElement, "xhtml:src", "src", "xlink:href", "href") ?: return
+        val width = firstXmlAttribute(imageElement, "svg:width", "width")?.let(::parseDimension)
+        val height = firstXmlAttribute(imageElement, "svg:height", "height")?.let(::parseDimension)
+        if (width == null || height == null || width <= 0 || height <= 0) return
+
+        data.put("image", url)
+        firstXmlAttribute(imageElement, "title", "alt")
+            ?.let { data.put("imageTitle", it) }
+        data.put(
+            "imageSize",
+            JSONObject().apply {
+                put("width", width)
+                put("height", height)
+            }
+        )
+    }
+
+    private fun firstJsonString(sources: List<JSONObject>, vararg keys: String): String? {
+        for (source in sources) {
+            for (key in keys) {
+                val value = source.optString(key).trim()
+                if (value.isNotEmpty()) {
+                    return value
+                }
+            }
+        }
+        return null
+    }
+
+    private fun firstXmlAttribute(element: Element, vararg keys: String): String? {
+        return firstXmlAttribute(listOf(element), *keys)
+    }
+
+    private fun firstXmlAttribute(elements: List<Element>, vararg keys: String): String? {
+        for (element in elements) {
+            for (key in keys) {
+                element.getAttribute(key).trim().takeIf { it.isNotEmpty() }?.let { return it }
+            }
+
+            val attributes = element.attributes
+            for (index in 0 until attributes.length) {
+                val node = attributes.item(index) ?: continue
+                val attrName = node.nodeName
+                val attrValue = node.nodeValue?.trim().orEmpty()
+                if (attrValue.isEmpty()) continue
+
+                for (key in keys) {
+                    if (attrName.equals(key, ignoreCase = true) || attrName.endsWith(":$key", ignoreCase = true)) {
+                        return attrValue
+                    }
+                }
+            }
+        }
+        return null
+    }
+
+    private fun firstXmlImageElement(topic: Element): Element? {
+        val nodes = topic.getElementsByTagName("*")
+        for (index in 0 until nodes.length) {
+            val element = nodes.item(index) as? Element ?: continue
+            val name = element.tagName.lowercase()
+            if (name == "img" || name.endsWith(":img")) {
+                return element
+            }
+        }
+        return null
+    }
+
+    private fun parseDimension(raw: Any?): Int? {
+        return when (raw) {
+            null -> null
+            is Number -> raw.toInt()
+            is String -> {
+                val match = Regex("""-?\d+(\.\d+)?""").find(raw.trim()) ?: return null
+                match.value.toDoubleOrNull()?.toInt()
+            }
+            else -> raw.toString().toIntOrNull()
+        }
     }
 
     private fun parsePriority(markerId: String): Int? {

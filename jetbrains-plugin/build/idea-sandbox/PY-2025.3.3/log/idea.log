@@ -1,31 +1,27 @@
-2026-03-05 17:07:32,669 [     53]   INFO - #c.i.p.i.b.AppStarter - ------------------------------------------------------ IDE STARTED ------------------------------------------------------
-2026-03-05 17:07:32,671 [     55]   INFO - #c.i.p.i.b.AppStarter - skipping shell environment: the IDE is likely launched from a terminal (SHLVL=1)
-2026-03-05 17:07:32,671 [     55]   INFO - #c.i.p.i.b.AppStarter - Will skip the config import to directory "/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/config" (exists = true). Current entries: "options", "disabled_plugins.txt".
-2026-03-05 17:07:32,876 [    260]   INFO - #c.i.p.i.b.AppStarter - JNA library (64-bit) loaded in 202 ms
-2026-03-05 17:07:32,880 [    264]   INFO - #c.i.p.i.b.AppStarter - IDE: PyCharm (build #PY-253.31033.139, Thu, 19 Feb 2026 13:23:00 GMT)
-2026-03-05 17:07:32,880 [    264]   INFO - #c.i.p.i.b.AppStarter - OS: macOS (26.3)
-2026-03-05 17:07:32,881 [    265]   INFO - #c.i.p.i.b.AppStarter - JRE: 21.0.10+7-b1163.108, aarch64 (JetBrains s.r.o.)
-2026-03-05 17:07:32,881 [    265]   INFO - #c.i.p.i.b.AppStarter - JVM: 21.0.10+7-b1163.108 (OpenJDK 64-Bit Server VM)
-2026-03-05 17:07:32,883 [    267]   INFO - #c.i.p.i.b.AppStarter - PID: 49895
-2026-03-05 17:07:32,939 [    323]   INFO - #c.i.p.i.b.AppStarter - JVM options: [-Daether.connector.resumeDownloads=false, -Dapple.awt.application.appearance=system, -Dapple.awt.fileDialogForDirectories=true, -Dapple.laf.useScreenMenuBar=true, -Dcompose.swing.render.on.graphics=true, -Dide.native.launcher=false, -Dide.no.platform.update=false, -Didea.auto.reload.plugins=true, -Didea.classpath.index.enabled=false, -Didea.config.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/config, -Didea.is.internal=true, -Didea.log.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/log, -Didea.paths.selector=PyCharm2025.3, -Didea.platform.prefix=Python, -Didea.plugin.in.sandbox.mode=true, -Didea.plugins.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/plugins, -Didea.required.plugins.id=com.souche.mindmap.idea, -Didea.smooth.progress=false, -Didea.system.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system, -Didea.vendor.name=JetBrains, -Dintellij.platform.runtime.repository.path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/modules/module-descriptors.dat, -Dintellij.startup.wizard.initial.timeout=1, -Dio.netty.allocator.type=pooled, -Djava.nio.file.spi.DefaultFileSystemProvider=com.intellij.platform.core.nio.fs.MultiRoutingFileSystemProvider, -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader, -Djava.util.zip.use.nio.for.zip.file.access=true, -Djbr.catch.SIGABRT=true, -Djdk.attach.allowAttachSelf=true, -Djdk.http.auth.tunneling.disabledSchemes="", -Djdk.module.illegalAccess.silent=true, -Djdk.nio.maxCachedBufferSize=2097152, -Djna.boot.library.path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/lib/jna/aarch64, -Djna.noclasspath=true, -Djna.nosys=true, -Dplugin.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/plugins/mindmap-jetbrains, -Dpty4j.preferred.native.folder=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/lib/pty4j, -Dskiko.library.path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/lib/skiko-awt-runtime-all, -Dsplash=true, -Dsun.io.useCanonCaches=false, -Dsun.java2d.metal=true, -Dwelcome.screen.defaultHeight=720, -Dwelcome.screen.defaultWidth=1000, -XX:JbrShrinkingGcMaxHeapFreeRatio=40, -XX:ReservedCodeCacheSize=512m, -XX:+HeapDumpOnOutOfMemoryError, -XX:-OmitStackTraceInFastThrow, -XX:CICompilerCount=2, -XX:+IgnoreUnrecognizedVMOptions, -XX:+UnlockDiagnosticVMOptions, -XX:TieredOldPercentage=100000, -Xbootclasspath/a:/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/lib/nio-fs.jar, --add-opens=java.base/java.io=ALL-UNNAMED, --add-opens=java.base/java.lang=ALL-UNNAMED, --add-opens=java.base/java.lang.ref=ALL-UNNAMED, --add-opens=java.base/java.lang.reflect=ALL-UNNAMED, --add-opens=java.base/java.net=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.base/java.nio.charset=ALL-UNNAMED, --add-opens=java.base/java.text=ALL-UNNAMED, --add-opens=java.base/java.time=ALL-UNNAMED, --add-opens=java.base/java.util=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED, --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED, --add-opens=java.base/jdk.internal.vm=ALL-UNNAMED, --add-opens=java.base/sun.net.dns=ALL-UNNAMED, --add-opens=java.base/sun.nio=ALL-UNNAMED, --add-opens=java.base/sun.nio.ch=ALL-UNNAMED, --add-opens=java.base/sun.nio.fs=ALL-UNNAMED, --add-opens=java.base/sun.security.ssl=ALL-UNNAMED, --add-opens=java.base/sun.security.util=ALL-UNNAMED, --add-opens=java.desktop/com.apple.eawt=ALL-UNNAMED, --add-opens=java.desktop/com.apple.eawt.event=ALL-UNNAMED, --add-opens=java.desktop/com.apple.laf=ALL-UNNAMED, --add-opens=java.desktop/com.sun.java.swing=ALL-UNNAMED, --add-opens=java.desktop/java.awt=ALL-UNNAMED, --add-opens=java.desktop/java.awt.dnd.peer=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-opens=java.desktop/java.awt.font=ALL-UNNAMED, --add-opens=java.desktop/java.awt.image=ALL-UNNAMED, --add-opens=java.desktop/java.awt.peer=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.text=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.text.html.parser=ALL-UNNAMED, --add-opens=java.desktop/sun.awt=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.datatransfer=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED, --add-opens=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.java2d=ALL-UNNAMED, --add-opens=java.desktop/sun.lwawt=ALL-UNNAMED, --add-opens=java.desktop/sun.lwawt.macosx=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.management/sun.management=ALL-UNNAMED, --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED, --add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED, --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED, --add-opens=jdk.jdi/com.sun.tools.jdi=ALL-UNNAMED, -Xms256m, -Xmx2g, -Dfile.encoding=UTF-8, -Duser.country=US, -Duser.language=en, -Duser.variant, -ea]
-2026-03-05 17:07:32,940 [    324]   INFO - #c.i.p.i.b.AppStarter - args: 
-2026-03-05 17:07:32,948 [    332]   INFO - #c.i.p.i.b.AppStarter - library path: /Users/murphy/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
-2026-03-05 17:07:32,953 [    337]   INFO - #c.i.p.i.b.AppStarter - boot library path: /Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/jbr/Contents/Home/lib
-2026-03-05 17:07:32,953 [    337]   INFO - #c.i.p.i.b.AppStarter - locale=en_US JNU=UTF-8 file.encoding=UTF-8
+2026-03-06 10:33:35,220 [      4]   INFO - #c.i.p.i.b.AppStarter - ------------------------------------------------------ IDE STARTED ------------------------------------------------------
+2026-03-06 10:33:35,221 [      5]   INFO - #c.i.p.i.b.AppStarter - skipping shell environment: the IDE is likely launched from a terminal (SHLVL=1)
+2026-03-06 10:33:35,223 [      7]   INFO - #c.i.p.i.b.AppStarter - Will skip the config import to directory "/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/config" (exists = true). Current entries: "options", "disabled_plugins.txt".
+2026-03-06 10:33:35,228 [     12]   INFO - #c.i.p.i.b.AppStarter - JNA library (64-bit) loaded in 7 ms
+2026-03-06 10:33:35,231 [     15]   INFO - #c.i.p.i.b.AppStarter - IDE: PyCharm (build #PY-253.31033.139, Thu, 19 Feb 2026 13:23:00 GMT)
+2026-03-06 10:33:35,231 [     15]   INFO - #c.i.p.i.b.AppStarter - OS: macOS (26.3)
+2026-03-06 10:33:35,231 [     15]   INFO - #c.i.p.i.b.AppStarter - JRE: 21.0.10+7-b1163.108, aarch64 (JetBrains s.r.o.)
+2026-03-06 10:33:35,231 [     15]   INFO - #c.i.p.i.b.AppStarter - JVM: 21.0.10+7-b1163.108 (OpenJDK 64-Bit Server VM)
+2026-03-06 10:33:35,232 [     16]   INFO - #c.i.p.i.b.AppStarter - PID: 60083
+2026-03-06 10:33:35,243 [     27]   INFO - #c.i.p.i.b.AppStarter - JVM options: [-Daether.connector.resumeDownloads=false, -Dapple.awt.application.appearance=system, -Dapple.awt.fileDialogForDirectories=true, -Dapple.laf.useScreenMenuBar=true, -Dcompose.swing.render.on.graphics=true, -Dide.native.launcher=false, -Dide.no.platform.update=false, -Didea.auto.reload.plugins=true, -Didea.classpath.index.enabled=false, -Didea.config.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/config, -Didea.is.internal=true, -Didea.log.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/log, -Didea.paths.selector=PyCharm2025.3, -Didea.platform.prefix=Python, -Didea.plugin.in.sandbox.mode=true, -Didea.plugins.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/plugins, -Didea.required.plugins.id=com.souche.mindmap.idea, -Didea.smooth.progress=false, -Didea.system.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system, -Didea.vendor.name=JetBrains, -Dintellij.platform.runtime.repository.path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/modules/module-descriptors.dat, -Dintellij.startup.wizard.initial.timeout=1, -Dio.netty.allocator.type=pooled, -Djava.nio.file.spi.DefaultFileSystemProvider=com.intellij.platform.core.nio.fs.MultiRoutingFileSystemProvider, -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader, -Djava.util.zip.use.nio.for.zip.file.access=true, -Djbr.catch.SIGABRT=true, -Djdk.attach.allowAttachSelf=true, -Djdk.http.auth.tunneling.disabledSchemes="", -Djdk.module.illegalAccess.silent=true, -Djdk.nio.maxCachedBufferSize=2097152, -Djna.boot.library.path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/lib/jna/aarch64, -Djna.noclasspath=true, -Djna.nosys=true, -Dplugin.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/plugins/mindmap-jetbrains, -Dpty4j.preferred.native.folder=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/lib/pty4j, -Dskiko.library.path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/lib/skiko-awt-runtime-all, -Dsplash=true, -Dsun.io.useCanonCaches=false, -Dsun.java2d.metal=true, -Dwelcome.screen.defaultHeight=720, -Dwelcome.screen.defaultWidth=1000, -XX:JbrShrinkingGcMaxHeapFreeRatio=40, -XX:ReservedCodeCacheSize=512m, -XX:+HeapDumpOnOutOfMemoryError, -XX:-OmitStackTraceInFastThrow, -XX:CICompilerCount=2, -XX:+IgnoreUnrecognizedVMOptions, -XX:+UnlockDiagnosticVMOptions, -XX:TieredOldPercentage=100000, -Xbootclasspath/a:/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/lib/nio-fs.jar, --add-opens=java.base/java.io=ALL-UNNAMED, --add-opens=java.base/java.lang=ALL-UNNAMED, --add-opens=java.base/java.lang.ref=ALL-UNNAMED, --add-opens=java.base/java.lang.reflect=ALL-UNNAMED, --add-opens=java.base/java.net=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.base/java.nio.charset=ALL-UNNAMED, --add-opens=java.base/java.text=ALL-UNNAMED, --add-opens=java.base/java.time=ALL-UNNAMED, --add-opens=java.base/java.util=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED, --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED, --add-opens=java.base/jdk.internal.vm=ALL-UNNAMED, --add-opens=java.base/sun.net.dns=ALL-UNNAMED, --add-opens=java.base/sun.nio=ALL-UNNAMED, --add-opens=java.base/sun.nio.ch=ALL-UNNAMED, --add-opens=java.base/sun.nio.fs=ALL-UNNAMED, --add-opens=java.base/sun.security.ssl=ALL-UNNAMED, --add-opens=java.base/sun.security.util=ALL-UNNAMED, --add-opens=java.desktop/com.apple.eawt=ALL-UNNAMED, --add-opens=java.desktop/com.apple.eawt.event=ALL-UNNAMED, --add-opens=java.desktop/com.apple.laf=ALL-UNNAMED, --add-opens=java.desktop/com.sun.java.swing=ALL-UNNAMED, --add-opens=java.desktop/java.awt=ALL-UNNAMED, --add-opens=java.desktop/java.awt.dnd.peer=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-opens=java.desktop/java.awt.font=ALL-UNNAMED, --add-opens=java.desktop/java.awt.image=ALL-UNNAMED, --add-opens=java.desktop/java.awt.peer=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.text=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.text.html.parser=ALL-UNNAMED, --add-opens=java.desktop/sun.awt=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.datatransfer=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED, --add-opens=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.java2d=ALL-UNNAMED, --add-opens=java.desktop/sun.lwawt=ALL-UNNAMED, --add-opens=java.desktop/sun.lwawt.macosx=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.management/sun.management=ALL-UNNAMED, --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED, --add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED, --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED, --add-opens=jdk.jdi/com.sun.tools.jdi=ALL-UNNAMED, -Xms256m, -Xmx2g, -Dfile.encoding=UTF-8, -Duser.country=US, -Duser.language=en, -Duser.variant, -ea]
+2026-03-06 10:33:35,243 [     27]   INFO - #c.i.p.i.b.AppStarter - args: 
+2026-03-06 10:33:35,243 [     27]   INFO - #c.i.p.i.b.AppStarter - library path: /Users/murphy/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+2026-03-06 10:33:35,243 [     27]   INFO - #c.i.p.i.b.AppStarter - boot library path: /Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/jbr/Contents/Home/lib
+2026-03-06 10:33:35,245 [     29]   INFO - #c.i.p.i.b.AppStarter - locale=en_US JNU=UTF-8 file.encoding=UTF-8
     idea.home.path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64
     idea.config.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/config
     idea.system.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system
     idea.plugins.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/plugins
     idea.log.path=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/log
-2026-03-05 17:07:32,953 [    337]   INFO - #c.i.p.i.b.AppStarter - CPU cores: 12; ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@5583525f[Running, parallelism = 11, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]; factory: com.intellij.concurrency.IdeaForkJoinWorkerThreadFactory@63654727
-2026-03-05 17:07:33,655 [   1039]   INFO - #c.i.i.p.DisabledPluginsState - Plugins to disable: [com.intellij.modules.ultimate], applied
-2026-03-05 17:07:35,534 [   2918]   INFO - #c.i.u.m.s.Menu - use new ScreenMenuBar implementation
-2026-03-05 17:07:35,719 [   3103]   INFO - #c.i.i.p.PluginManager - Using broken plugins file from IDE distribution
-2026-03-05 17:07:35,727 [   3111]   WARN - #c.i.o.a.Application - No URL bundle (CFBundleURLTypes) is defined in the main bundle.
-To be able to open external links, specify protocols in the app layout section of the build file.
-Example: args.urlSchemes = ["your-protocol"] will handle following links: your-protocol://open?file=file&line=line
-2026-03-05 17:07:35,744 [   3128]   INFO - #c.i.i.p.PluginManager - PluginMainDescriptor(name=Mindmap (VSCode Port Skeleton), id=com.souche.mindmap.idea, version=0.1.0, isBundled=false, path=~/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/plugins/mindmap-jetbrains) overrides PluginMainDescriptor(name=Mindmap (VSCode Port Skeleton), id=com.souche.mindmap.idea, version=0.1.0, isBundled=false, path=~/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/plugins/mindmap-jetbrains)
-2026-03-05 17:07:36,619 [   4003]   INFO - #c.i.i.p.PluginManager - Plugin set resolution:
+2026-03-06 10:33:35,247 [     31]   INFO - #c.i.p.i.b.AppStarter - CPU cores: 12; ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@17c80a3d[Running, parallelism = 11, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]; factory: com.intellij.concurrency.IdeaForkJoinWorkerThreadFactory@3ae51e42
+2026-03-06 10:33:35,331 [    115]   INFO - #c.i.i.p.DisabledPluginsState - Plugins to disable: [com.intellij.modules.ultimate], applied
+2026-03-06 10:33:35,453 [    237]   INFO - #c.i.i.p.PluginManager - Using broken plugins file from IDE distribution
+2026-03-06 10:33:35,455 [    239]   INFO - #c.i.i.p.PluginManager - PluginMainDescriptor(name=Mindmap (VSCode Port Skeleton), id=com.souche.mindmap.idea, version=0.1.0, isBundled=false, path=~/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/plugins/mindmap-jetbrains) overrides PluginMainDescriptor(name=Mindmap (VSCode Port Skeleton), id=com.souche.mindmap.idea, version=0.1.0, isBundled=false, path=~/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/plugins/mindmap-jetbrains)
+2026-03-06 10:33:35,494 [    278]   INFO - #c.i.i.p.PluginManager - Plugin set resolution:
 Module intellij.fileWatcher/webDeployment is not enabled because dependency com.jetbrains.plugins.webDeployment is not available
 Module intellij.dotenv.ruby is not enabled because dependency intellij.ruby.backend is not available
 Module intellij.dotenv.go is not enabled because dependency org.jetbrains.plugins.go is not available
@@ -196,7 +192,7 @@ Module intellij.fullLine.js.vue is not enabled because dependency intellij.fullL
 Module intellij.ml.llm.javascript.vue.completion is not enabled because dependency intellij.fullLine.js is not available
 Module intellij.fullLine.js.vue.local is not enabled because dependency intellij.fullLine.js is not available
 Module intellij.microservices.diagrams is not enabled because dependency com.intellij.modules.ultimate is not available
-2026-03-05 17:07:36,732 [   4116]   WARN - #c.i.i.p.PluginManager - Problems found loading plugins:
+2026-03-06 10:33:35,498 [    282]   WARN - #c.i.i.p.PluginManager - Problems found loading plugins:
   Plugin 'AI Playground' (intellij.aiplayground) requires plugin with id=com.intellij.modules.ultimate to be enabled
   Plugin 'Dev Containers' (org.jetbrains.plugins.docker.gateway) requires plugin with id=com.intellij.modules.ultimate to be enabled
   Plugin 'CSS' (com.intellij.css) requires plugin with id=com.intellij.modules.ultimate to be enabled
@@ -231,73 +227,78 @@ Module intellij.microservices.diagrams is not enabled because dependency com.int
   Plugin 'JavaScript Intention Power Pack' (JSIntentionPowerPack) has dependency on 'JavaScript and TypeScript' which cannot be loaded
   Plugin 'Vue.js' (org.jetbrains.plugins.vue) has dependency on 'JavaScript and TypeScript' which cannot be loaded
   Plugin 'Angular' (AngularJS) has dependency on 'JavaScript and TypeScript' which cannot be loaded
-2026-03-05 17:07:37,053 [   4437]   INFO - #c.i.i.p.PluginManager - Loaded bundled plugins: IDEA CORE (253.31033.139), Notebook Files (253.31033.139), File Watchers (253.31033.139), .env files (253.31033.139), TextMate Bundles (253.31033.139), JSON (253.31033.139), YAML (253.31033.139), PyCharm Community and Prof Customization Shared Parts (253.31033.139), Markdown (253.31033.139), Terminal (253.31033.139), Properties (253.31033.139), Python Community Edition (253.31033.139), DevKit Runtime (253.31033.139), Shell Script (253.31033.139), Data Editor Support (253.31033.139), Full Line Code Completion (253.31033.139), Copyright (253.31033.139), Machine Learning Code Completion (253.31033.139), Modal Commit Interface (253.31033.139), Mercurial (253.31033.139), Machine Learning in Search Everywhere (253.31033.139), Ini (253.31033.139), Japanese Language Pack / 日本語言語パック (253.31033.139), Monokai Color Scheme (253.31033.139), EditorConfig (253.31033.139), WarmNeon Color Scheme (253.31033.139), GNU GetText Files Support (*.po) (253.31033.139), Chinese (Simplified) Language Pack / 中文语言包 (253.31033.139), Station (253.31033.139), GitHub Color Scheme (253.31033.139), IDE Features Trainer (253.31033.139), Images (253.31033.139), JavaScript Debugger (253.31033.139), Puppet (253.31033.139), Task Management (253.31033.139), Diagrams (253.31033.139), Remote Execution Agent (253.31033.139), HTML Tools (253.31033.139), Toml (253.31033.139), ReStructuredText (253.31033.139), Python LSP (253.31033.139), PyCharm Customization (253.31033.139), Performance Testing (253.31033.139), Twilight Color Scheme (253.31033.139), Korean Language Pack / 한국어 언어 팩 (253.31033.139), Remote Development Server (253.31033.139), JSONPath (253.31033.139), HTTP Client (253.31033.139), OpenAPI Specifications (253.31033.139), Jupyter (253.31033.139), Jupyter Notebook Colab (253.31033.139), Docker (253.31033.139), Natural Languages (253.31033.139), Git (253.31033.139), GitHub (253.31033.139), GitLab (253.31033.139), Backup and Sync (253.31033.139), MCP Server (253.31033.139), Perforce Helix Core (253.31033.139), Configuration Script (253.31033.139), Shared Indexes (253.31033.139), Shared Indexes for Python (253.31033.139), Code With Me (253.31033.139), PythonDAP (253.31033.139), Subversion (253.31033.139), Endpoints (253.31033.139), Async Profiler for IDE Performance Testing (253.31033.139)
-2026-03-05 17:07:37,054 [   4438]   INFO - #c.i.i.p.PluginManager - Loaded custom plugins: Mindmap (VSCode Port Skeleton) (0.1.0)
-2026-03-05 17:07:37,054 [   4438]   INFO - #c.i.i.p.PluginManager - Disabled plugins: JetBrains Ultimate (253.31033.139)
-2026-03-05 17:07:38,448 [   5832]   INFO - #c.i.p.k.b.BackendKernelServiceKt - Backend started Kernel
-2026-03-05 17:07:38,524 [   5908]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Advisor is initialized
-2026-03-05 17:07:38,525 [   5909]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Starting calculation of verdict for promo window
-2026-03-05 17:07:38,708 [   6092]   INFO - #c.i.u.i.PageCacheUtils - File page caching params:
+2026-03-06 10:33:35,510 [    294]   INFO - #c.i.i.p.PluginManager - Loaded bundled plugins: IDEA CORE (253.31033.139), Notebook Files (253.31033.139), File Watchers (253.31033.139), .env files (253.31033.139), TextMate Bundles (253.31033.139), JSON (253.31033.139), YAML (253.31033.139), PyCharm Community and Prof Customization Shared Parts (253.31033.139), Markdown (253.31033.139), Terminal (253.31033.139), Properties (253.31033.139), Python Community Edition (253.31033.139), DevKit Runtime (253.31033.139), Shell Script (253.31033.139), Data Editor Support (253.31033.139), Full Line Code Completion (253.31033.139), Copyright (253.31033.139), Machine Learning Code Completion (253.31033.139), Modal Commit Interface (253.31033.139), Mercurial (253.31033.139), Machine Learning in Search Everywhere (253.31033.139), Ini (253.31033.139), Japanese Language Pack / 日本語言語パック (253.31033.139), Monokai Color Scheme (253.31033.139), EditorConfig (253.31033.139), WarmNeon Color Scheme (253.31033.139), GNU GetText Files Support (*.po) (253.31033.139), Chinese (Simplified) Language Pack / 中文语言包 (253.31033.139), Station (253.31033.139), GitHub Color Scheme (253.31033.139), IDE Features Trainer (253.31033.139), Images (253.31033.139), JavaScript Debugger (253.31033.139), Puppet (253.31033.139), Task Management (253.31033.139), Diagrams (253.31033.139), Remote Execution Agent (253.31033.139), HTML Tools (253.31033.139), Toml (253.31033.139), ReStructuredText (253.31033.139), Python LSP (253.31033.139), PyCharm Customization (253.31033.139), Performance Testing (253.31033.139), Twilight Color Scheme (253.31033.139), Korean Language Pack / 한국어 언어 팩 (253.31033.139), Remote Development Server (253.31033.139), JSONPath (253.31033.139), HTTP Client (253.31033.139), OpenAPI Specifications (253.31033.139), Jupyter (253.31033.139), Jupyter Notebook Colab (253.31033.139), Docker (253.31033.139), Natural Languages (253.31033.139), Git (253.31033.139), GitHub (253.31033.139), GitLab (253.31033.139), Backup and Sync (253.31033.139), MCP Server (253.31033.139), Perforce Helix Core (253.31033.139), Configuration Script (253.31033.139), Shared Indexes (253.31033.139), Shared Indexes for Python (253.31033.139), Code With Me (253.31033.139), PythonDAP (253.31033.139), Subversion (253.31033.139), Endpoints (253.31033.139), Async Profiler for IDE Performance Testing (253.31033.139)
+2026-03-06 10:33:35,510 [    294]   INFO - #c.i.i.p.PluginManager - Loaded custom plugins: Mindmap (VSCode Port Skeleton) (0.1.0)
+2026-03-06 10:33:35,510 [    294]   INFO - #c.i.i.p.PluginManager - Disabled plugins: JetBrains Ultimate (253.31033.139)
+2026-03-06 10:33:35,552 [    336]   INFO - #c.i.u.m.s.Menu - use new ScreenMenuBar implementation
+2026-03-06 10:33:35,559 [    343]   WARN - #c.i.o.a.Application - No URL bundle (CFBundleURLTypes) is defined in the main bundle.
+To be able to open external links, specify protocols in the app layout section of the build file.
+Example: args.urlSchemes = ["your-protocol"] will handle following links: your-protocol://open?file=file&line=line
+2026-03-06 10:33:35,586 [    370]   INFO - #c.i.p.k.b.BackendKernelServiceKt - Backend started Kernel
+2026-03-06 10:33:35,600 [    384]   WARN - c.i.o.u.r.overrides - Conflicting registry key definition for key ide.exceptions.show.interactive: it was defined by plugin com.intellij but redefined by plugin com.intellij. Consider adding overrides="true" for one of the plugins, see the documentation for com.intellij.openapi.util.registry.RegistryKeyBean.overrides for more details.
+2026-03-06 10:33:35,600 [    384]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Advisor is initialized
+2026-03-06 10:33:35,605 [    389]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Starting calculation of verdict for promo window
+2026-03-06 10:33:35,608 [    392]   INFO - c.i.o.u.r.overrides - Plugin intellij.pycharm.community.customization.shared overrides the registry key welcome.screen.primaryButtonsCount declared by plugin com.intellij.
+2026-03-06 10:33:35,636 [    420]   INFO - #c.i.u.i.PageCacheUtils - File page caching params:
 	DEFAULT_PAGE_SIZE: 10485760
 	Direct memory to use, max: 2126512128
 	FilePageCache: regular
 	Regular FilePageCache: 629145600 bytes
 	DirectByteBuffers pool: 104857600 bytes
-2026-03-05 17:07:38,779 [   6163]   WARN - c.i.o.u.r.overrides - Conflicting registry key definition for key ide.exceptions.show.interactive: it was defined by plugin com.intellij but redefined by plugin com.intellij. Consider adding overrides="true" for one of the plugins, see the documentation for com.intellij.openapi.util.registry.RegistryKeyBean.overrides for more details.
-2026-03-05 17:07:39,390 [   6774]   INFO - c.i.o.u.r.overrides - Plugin intellij.pycharm.community.customization.shared overrides the registry key welcome.screen.primaryButtonsCount declared by plugin com.intellij.
-2026-03-05 17:07:39,401 [   6785]   INFO - #c.i.p.e.i.f.EelMultiRoutingFileSystemBackendInitializationService - Eel MultiRoutingFileSystem backend is initialized
-2026-03-05 17:07:39,762 [   7146]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Verdict not found in stored state, trying to calculate it
-2026-03-05 17:07:39,771 [   7155]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Starting calculation attempt 1 for promo window
-2026-03-05 17:07:39,771 [   7155]   INFO - #c.i.l.LocalizationStateServiceImpl - [i18n] Localization property from registry is null
-2026-03-05 17:07:39,802 [   7186]   INFO - #c.i.l.u.p.AIOnboardingAudience - Checking if promo is forbidden (attempt 1)
-2026-03-05 17:07:40,089 [   7473]   INFO - #c.i.a.o.PathMacrosImpl - Loaded path macros: {}
-2026-03-05 17:07:40,093 [   7477]   INFO - #c.i.s.c.s.IdeStationServerService$Companion - Creating discovery services
-2026-03-05 17:07:40,177 [   7561]   INFO - #c.i.o.v.n.i.VfsData - Use SoftReference in VFS cache: true
-2026-03-05 17:07:40,319 [   7703]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'MLSE'
-2026-03-05 17:07:40,565 [   7949]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'FUS'
-2026-03-05 17:07:40,569 [   7953]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'MP'
-2026-03-05 17:07:40,573 [   7957]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'TRACE'
-2026-03-05 17:07:40,580 [   7964]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'ML'
-2026-03-05 17:07:41,003 [   8387]   INFO - #c.i.i.p.ExpiredPluginsState - Plugins to skip: []
-2026-03-05 17:07:41,210 [   8594]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses names enumerator over mmapped file
-2026-03-05 17:07:41,210 [   8594]   INFO - #c.i.i.s.StatisticsRegionSettingsServiceImpl - Statistics. Region code is americas
-2026-03-05 17:07:41,237 [   8621]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses streamlined attributes storage (over mmapped file)
-2026-03-05 17:07:41,237 [   8621]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses content storage over memory-mapped file, with compression algo: LZ4[ > 8000b ]
-2026-03-05 17:07:41,237 [   8621]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses OverMMappedFile(pageSize=67108864, acquireStorageOwnership=true) storage for main file records table
-2026-03-05 17:07:41,330 [   8714]   INFO - #c.i.o.u.LowMemoryWatcherManager - Use ExponentiallySmoothingTracker(90000 ms)
-2026-03-05 17:07:41,394 [   8778]   INFO - c.i.p.i.IdeFingerprint - Calculated dependencies fingerprint in 3373 ms (hash=1mb19ysqb3yex, buildTime=1771507380, appVersion=PY-253.31033.139)
-2026-03-05 17:07:41,420 [   8804]   INFO - #c.i.o.u.LowMemoryWatcherManager - Subscribing to MemoryPool[G1 Old Gen]{max: 2147483648, threshold: 2040109440 (0.95 * max)}
-2026-03-05 17:07:41,469 [   8853]   INFO - #c.i.o.u.LowMemoryWatcherManager - Schedule GC-time updating: each 15000ms
-2026-03-05 17:07:41,526 [   8910]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage RemoteDev
-2026-03-05 17:07:41,535 [   8919]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage RemoteDev finished
-2026-03-05 17:07:41,535 [   8919]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage CommunityEdition
-2026-03-05 17:07:41,535 [   8919]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage CommunityEdition finished
-2026-03-05 17:07:41,535 [   8919]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage Delayed
-2026-03-05 17:07:41,535 [   8919]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage Delayed finished
-2026-03-05 17:07:41,535 [   8919]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage LicenseFacadeFail
-2026-03-05 17:07:41,535 [   8919]   INFO - #c.i.l.u.p.AIPromoUtil - awaiting LicensingFacade.getInstance()
-2026-03-05 17:07:41,605 [   8989]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase$Companion - Starting services server on /var/folders/5z/2dlsy_f118g46ntbp6cs_0dm0000gn/T/jb.station.ij.49895.sock
-2026-03-05 17:07:41,858 [   9242]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS: impl (expected) version=846400, 0 file records, 0 content blobs
-2026-03-05 17:07:41,896 [   9280]   INFO - #c.i.o.v.n.p.FSRecordsImpl - VFS initialized: 836 ms, 0 failed attempts, 0 error(s) were recovered
-2026-03-05 17:07:41,977 [   9361]   INFO - #c.i.o.v.n.p.PersistentFSImpl - VFS.MAX_FILE_LENGTH_TO_CACHE: 1048576
-2026-03-05 17:07:42,010 [   9394]   INFO - #c.i.p.trialPromotion - IDE is not managed
-2026-03-05 17:07:42,013 [   9397]   INFO - #c.i.o.v.n.p.FSRecordsImpl - VFS scanned: file-by-name index was populated
-2026-03-05 17:07:42,305 [   9689]   INFO - #c.i.h.u.LocalHistoryLog - local history version mismatch (was: 0, expected: 7), rebuilding...
-2026-03-05 17:07:42,305 [   9689]   INFO - #c.i.h.u.LocalHistoryLog - FS has been rebuild, rebuilding local history...
-2026-03-05 17:07:42,427 [   9811]   INFO - #c.i.o.a.Experiments - Experimental feature 'terminal.shell.command.handling' is now turned OFF
-2026-03-05 17:07:42,610 [   9994]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase - [id: 0xc052e147] REGISTERED
-2026-03-05 17:07:42,642 [  10026]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase - [id: 0xc052e147] BIND: /var/folders/5z/2dlsy_f118g46ntbp6cs_0dm0000gn/T/jb.station.ij.49895.sock
-2026-03-05 17:07:42,703 [  10087]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase$Companion - Services server started
-2026-03-05 17:07:42,703 [  10087]   INFO - #c.i.o.v.n.p.FSRecords - VFS health-check enabled: first after 600000 ms, and each following 43200000 ms, wrap in RA: true
-2026-03-05 17:07:42,743 [  10127]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase - [id: 0xc052e147, L:/var/folders/5z/2dlsy_f118g46ntbp6cs_0dm0000gn/T/jb.station.ij.49895.sock] ACTIVE
-2026-03-05 17:07:43,122 [  10506]   INFO - #c.i.o.v.i.l.NativeFileWatcherImpl - Starting file watcher: /Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/bin/fsnotifier
-2026-03-05 17:07:43,235 [  10619]   INFO - #c.i.u.i.c.d.IndexWriter - Use com.intellij.util.indexing.contentQueue.dev.MultiThreadedWithSuspendIndexWriter@62cdbb7f as (parallel) index writer implementation
-2026-03-05 17:07:43,676 [  11060]   INFO - #c.i.s.c.m.SettingsRepositoryToSettingsSyncMigration - No data from settingsRepository in 'settingsRepository' folder => no migration needed
-2026-03-05 17:07:43,869 [  11253]   INFO - #c.i.o.v.i.l.NativeFileWatcherImpl - Native file watcher is operational.
-2026-03-05 17:07:44,152 [  11536]   INFO - #c.i.u.i.i.SlruIndexStorageCacheProvider - SLRU cache will be used for indexes
-2026-03-05 17:07:44,152 [  11536]   INFO - #c.i.u.i.i.MapIndexStorageCacheProvider$Companion - Default index storage cache provider [com.intellij.util.indexing.impl.SlruIndexStorageCacheProvider@3a0d52b1] is used
-2026-03-05 17:07:44,159 [  11543]   INFO - #c.i.u.i.FileBasedIndexImpl - Loading indexes
-2026-03-05 17:07:44,698 [  12082] SEVERE - #c.i.d.LoadingState - Should be called at least in the state COMPONENTS_LOADED, the current state is: CONFIGURATION_STORE_INITIALIZED
+2026-03-06 10:33:35,820 [    604]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Verdict not found in stored state, trying to calculate it
+2026-03-06 10:33:35,820 [    604]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Starting calculation attempt 1 for promo window
+2026-03-06 10:33:35,826 [    610]   INFO - #c.i.p.e.i.f.EelMultiRoutingFileSystemBackendInitializationService - Eel MultiRoutingFileSystem backend is initialized
+2026-03-06 10:33:35,827 [    611]   INFO - #c.i.l.LocalizationStateServiceImpl - [i18n] Localization property from registry is null
+2026-03-06 10:33:35,827 [    611]   INFO - #c.i.l.u.p.AIOnboardingAudience - Checking if promo is forbidden (attempt 1)
+2026-03-06 10:33:35,832 [    616]   INFO - #c.i.s.c.s.IdeStationServerService$Companion - Creating discovery services
+2026-03-06 10:33:35,839 [    623]   INFO - #c.i.a.o.PathMacrosImpl - Loaded path macros: {}
+2026-03-06 10:33:35,841 [    625]   INFO - #fleet.kernel.Transactor - Very long change!!! Duration: 234.733166ms, change from: fleet.tracing.runtime.Span$Noop@309c55
+2026-03-06 10:33:35,865 [    649]   INFO - #c.i.o.v.n.i.VfsData - Use SoftReference in VFS cache: true
+2026-03-06 10:33:35,883 [    667]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'MLSE'
+2026-03-06 10:33:35,893 [    677]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'FUS'
+2026-03-06 10:33:35,893 [    677]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'MP'
+2026-03-06 10:33:35,896 [    680]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'TRACE'
+2026-03-06 10:33:35,896 [    680]   INFO - #c.i.i.s.e.StatisticsEventLoggerProvider - Initialize event logger provider for 'ML'
+2026-03-06 10:33:35,926 [    710]   INFO - #c.i.i.p.ExpiredPluginsState - Plugins to skip: []
+2026-03-06 10:33:35,942 [    726]   INFO - #c.i.i.s.StatisticsRegionSettingsServiceImpl - Statistics. Region code is americas
+2026-03-06 10:33:35,960 [    744]   INFO - #c.i.o.u.LowMemoryWatcherManager - Use ExponentiallySmoothingTracker(90000 ms)
+2026-03-06 10:33:35,973 [    757]   INFO - #c.i.o.u.LowMemoryWatcherManager - Subscribing to MemoryPool[G1 Old Gen]{max: 2147483648, threshold: 2040109440 (0.95 * max)}
+2026-03-06 10:33:35,985 [    769]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses names enumerator over mmapped file
+2026-03-06 10:33:35,985 [    769]   INFO - #c.i.o.u.LowMemoryWatcherManager - Schedule GC-time updating: each 15000ms
+2026-03-06 10:33:35,998 [    782]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses streamlined attributes storage (over mmapped file)
+2026-03-06 10:33:35,998 [    782]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses content storage over memory-mapped file, with compression algo: LZ4[ > 8000b ]
+2026-03-06 10:33:35,999 [    783]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses OverMMappedFile(pageSize=67108864, acquireStorageOwnership=true) storage for main file records table
+2026-03-06 10:33:36,050 [    834]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage RemoteDev
+2026-03-06 10:33:36,052 [    836]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage RemoteDev finished
+2026-03-06 10:33:36,052 [    836]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage CommunityEdition
+2026-03-06 10:33:36,054 [    838]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage CommunityEdition finished
+2026-03-06 10:33:36,055 [    839]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage Delayed
+2026-03-06 10:33:36,055 [    839]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage Delayed finished
+2026-03-06 10:33:36,055 [    839]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage LicenseFacadeFail
+2026-03-06 10:33:36,055 [    839]   INFO - #c.i.l.u.p.AIPromoUtil - awaiting LicensingFacade.getInstance()
+2026-03-06 10:33:36,139 [    923]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase$Companion - Starting services server on /var/folders/5z/2dlsy_f118g46ntbp6cs_0dm0000gn/T/jb.station.ij.60083.sock
+2026-03-06 10:33:36,179 [    963]   INFO - c.i.p.i.IdeFingerprint - Calculated dependencies fingerprint in 613 ms (hash=1mb19ysqb3yex, buildTime=1771507380, appVersion=PY-253.31033.139)
+2026-03-06 10:33:36,194 [    978]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS: impl (expected) version=846400, 0 file records, 0 content blobs
+2026-03-06 10:33:36,261 [   1045]   INFO - #c.i.o.v.n.p.FSRecordsImpl - VFS initialized: 286 ms, 0 failed attempts, 0 error(s) were recovered
+2026-03-06 10:33:36,307 [   1091]   INFO - #c.i.p.trialPromotion - IDE is not managed
+2026-03-06 10:33:36,370 [   1154]   INFO - #c.i.o.v.n.p.FSRecordsImpl - VFS scanned: file-by-name index was populated
+2026-03-06 10:33:36,370 [   1154]   INFO - #c.i.o.v.n.p.PersistentFSImpl - VFS.MAX_FILE_LENGTH_TO_CACHE: 1048576
+2026-03-06 10:33:36,447 [   1231]   INFO - #c.i.h.u.LocalHistoryLog - local history version mismatch (was: 0, expected: 7), rebuilding...
+2026-03-06 10:33:36,448 [   1232]   INFO - #c.i.h.u.LocalHistoryLog - FS has been rebuild, rebuilding local history...
+2026-03-06 10:33:36,451 [   1235]   INFO - #c.i.o.a.Experiments - Experimental feature 'terminal.shell.command.handling' is now turned OFF
+2026-03-06 10:33:36,476 [   1260]   INFO - #c.i.o.v.n.p.FSRecords - VFS health-check enabled: first after 600000 ms, and each following 43200000 ms, wrap in RA: true
+2026-03-06 10:33:36,492 [   1276]   INFO - #c.i.o.v.i.l.NativeFileWatcherImpl - Starting file watcher: /Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/bin/fsnotifier
+2026-03-06 10:33:36,549 [   1333]   INFO - #c.i.s.c.m.SettingsRepositoryToSettingsSyncMigration - No data from settingsRepository in 'settingsRepository' folder => no migration needed
+2026-03-06 10:33:36,570 [   1354]   INFO - #c.i.o.v.i.l.NativeFileWatcherImpl - Native file watcher is operational.
+2026-03-06 10:33:36,673 [   1457]   INFO - #c.i.u.i.c.d.IndexWriter - Use com.intellij.util.indexing.contentQueue.dev.MultiThreadedWithSuspendIndexWriter@39cdc37c as (parallel) index writer implementation
+2026-03-06 10:33:36,675 [   1459]   INFO - #c.i.u.i.i.SlruIndexStorageCacheProvider - SLRU cache will be used for indexes
+2026-03-06 10:33:36,675 [   1459]   INFO - #c.i.u.i.i.MapIndexStorageCacheProvider$Companion - Default index storage cache provider [com.intellij.util.indexing.impl.SlruIndexStorageCacheProvider@369eb829] is used
+2026-03-06 10:33:36,675 [   1459]   INFO - #c.i.u.i.FileBasedIndexImpl - Loading indexes
+2026-03-06 10:33:36,699 [   1483]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase - [id: 0x7944bf13] REGISTERED
+2026-03-06 10:33:36,699 [   1483]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase - [id: 0x7944bf13] BIND: /var/folders/5z/2dlsy_f118g46ntbp6cs_0dm0000gn/T/jb.station.ij.60083.sock
+2026-03-06 10:33:36,705 [   1489]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase - [id: 0x7944bf13, L:/var/folders/5z/2dlsy_f118g46ntbp6cs_0dm0000gn/T/jb.station.ij.60083.sock] ACTIVE
+2026-03-06 10:33:36,705 [   1489]   INFO - c.i.s.c.c.n.s.NettyServicesServerBase$Companion - Services server started
+2026-03-06 10:33:36,735 [   1519] SEVERE - #c.i.d.LoadingState - Should be called at least in the state COMPONENTS_LOADED, the current state is: CONFIGURATION_STORE_INITIALIZED
 Current violators count: 1
 
 
@@ -326,15 +327,16 @@ java.lang.Throwable
 	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
 	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:732)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-03-05 17:07:44,701 [  12085] SEVERE - #c.i.d.LoadingState - PyCharm 2025.3.3  Build #PY-253.31033.139
-2026-03-05 17:07:44,701 [  12085] SEVERE - #c.i.d.LoadingState - JDK: 21.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
-2026-03-05 17:07:44,701 [  12085] SEVERE - #c.i.d.LoadingState - OS: Mac OS X
-2026-03-05 17:07:44,701 [  12085] SEVERE - #c.i.d.LoadingState - Last Action: 
-2026-03-05 17:07:44,841 [  12225]   INFO - #c.i.i.s.p.i.SharedIndexMainZipStorage - Shared Indexes Storage is opened and empty
-2026-03-05 17:07:44,847 [  12231]   INFO - #o.j.i.BuiltInServerManager - built-in server started, port 63344
-2026-03-05 17:07:45,320 [  12704]   WARN - #c.i.u.n.s.ConfirmingTrustManager - Received an empty list of custom trusted root certificates from the system. Check log above for possible errors, enable debug logging in category 'org.jetbrains.nativecerts' for more information
-2026-03-05 17:07:45,321 [  12705]   INFO - #c.i.u.n.s.CertificateManager - Default SSL context initialized
-2026-03-05 17:07:45,845 [  13229] SEVERE - #c.i.d.LoadingState - Should be called at least in the state COMPONENTS_LOADED, the current state is: CONFIGURATION_STORE_INITIALIZED
+2026-03-06 10:33:36,739 [   1523] SEVERE - #c.i.d.LoadingState - PyCharm 2025.3.3  Build #PY-253.31033.139
+2026-03-06 10:33:36,746 [   1530] SEVERE - #c.i.d.LoadingState - JDK: 21.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-03-06 10:33:36,746 [   1530] SEVERE - #c.i.d.LoadingState - OS: Mac OS X
+2026-03-06 10:33:36,747 [   1531] SEVERE - #c.i.d.LoadingState - Last Action: 
+2026-03-06 10:33:36,772 [   1556]   WARN - #c.i.u.n.s.ConfirmingTrustManager - Received an empty list of custom trusted root certificates from the system. Check log above for possible errors, enable debug logging in category 'org.jetbrains.nativecerts' for more information
+2026-03-06 10:33:36,773 [   1557]   INFO - #c.i.u.n.s.CertificateManager - Default SSL context initialized
+2026-03-06 10:33:36,783 [   1567]   INFO - #c.i.s.c.i.StationSocketConnectionLoop - Discovery connection successfully established
+2026-03-06 10:33:36,790 [   1574]   INFO - #c.i.i.s.p.i.SharedIndexMainZipStorage - Shared Indexes Storage is opened and empty
+2026-03-06 10:33:36,907 [   1691]   INFO - #o.j.i.BuiltInServerManager - built-in server started, port 63344
+2026-03-06 10:33:36,952 [   1736] SEVERE - #c.i.d.LoadingState - Should be called at least in the state COMPONENTS_LOADED, the current state is: CONFIGURATION_STORE_INITIALIZED
 Current violators count: 2
 
 
@@ -372,11 +374,14 @@ java.lang.Throwable
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:906)
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:775)
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:762)
-2026-03-05 17:07:45,846 [  13230] SEVERE - #c.i.d.LoadingState - PyCharm 2025.3.3  Build #PY-253.31033.139
-2026-03-05 17:07:45,846 [  13230] SEVERE - #c.i.d.LoadingState - JDK: 21.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
-2026-03-05 17:07:45,846 [  13230] SEVERE - #c.i.d.LoadingState - OS: Mac OS X
-2026-03-05 17:07:45,853 [  13237] SEVERE - #c.i.d.LoadingState - Last Action: 
-2026-03-05 17:07:46,211 [  13595] SEVERE - #c.i.d.LoadingState - Should be called at least in the state COMPONENTS_LOADED, the current state is: CONFIGURATION_STORE_INITIALIZED
+2026-03-06 10:33:36,966 [   1750] SEVERE - #c.i.d.LoadingState - PyCharm 2025.3.3  Build #PY-253.31033.139
+2026-03-06 10:33:36,966 [   1750] SEVERE - #c.i.d.LoadingState - JDK: 21.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-03-06 10:33:36,966 [   1750] SEVERE - #c.i.d.LoadingState - OS: Mac OS X
+2026-03-06 10:33:36,966 [   1750] SEVERE - #c.i.d.LoadingState - Last Action: 
+2026-03-06 10:33:37,063 [   1847]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'FilenameIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,069 [   1853]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'TodoIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,075 [   1859]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'ru.adelf.idea.php.dotenv.keyValues' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,084 [   1868] SEVERE - #c.i.d.LoadingState - Should be called at least in the state COMPONENTS_LOADED, the current state is: CONFIGURATION_STORE_INITIALIZED
 Current violators count: 3
 
 
@@ -433,11 +438,11 @@ java.lang.Throwable
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:906)
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:775)
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:762)
-2026-03-05 17:07:46,212 [  13596] SEVERE - #c.i.d.LoadingState - PyCharm 2025.3.3  Build #PY-253.31033.139
-2026-03-05 17:07:46,212 [  13596] SEVERE - #c.i.d.LoadingState - JDK: 21.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
-2026-03-05 17:07:46,212 [  13596] SEVERE - #c.i.d.LoadingState - OS: Mac OS X
-2026-03-05 17:07:46,212 [  13596] SEVERE - #c.i.d.LoadingState - Last Action: 
-2026-03-05 17:07:46,305 [  13689] SEVERE - #c.i.d.LoadingState - Should be called at least in the state COMPONENTS_LOADED, the current state is: CONFIGURATION_STORE_INITIALIZED
+2026-03-06 10:33:37,085 [   1869] SEVERE - #c.i.d.LoadingState - PyCharm 2025.3.3  Build #PY-253.31033.139
+2026-03-06 10:33:37,086 [   1870] SEVERE - #c.i.d.LoadingState - JDK: 21.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-03-06 10:33:37,086 [   1870] SEVERE - #c.i.d.LoadingState - OS: Mac OS X
+2026-03-06 10:33:37,086 [   1870] SEVERE - #c.i.d.LoadingState - Last Action: 
+2026-03-06 10:33:37,090 [   1874] SEVERE - #c.i.d.LoadingState - Should be called at least in the state COMPONENTS_LOADED, the current state is: CONFIGURATION_STORE_INITIALIZED
 Current violators count: 4
 
 
@@ -489,298 +494,239 @@ java.lang.Throwable
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:906)
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:775)
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:762)
-2026-03-05 17:07:46,338 [  13722] SEVERE - #c.i.d.LoadingState - PyCharm 2025.3.3  Build #PY-253.31033.139
-2026-03-05 17:07:46,338 [  13722] SEVERE - #c.i.d.LoadingState - JDK: 21.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
-2026-03-05 17:07:46,338 [  13722] SEVERE - #c.i.d.LoadingState - OS: Mac OS X
-2026-03-05 17:07:46,338 [  13722] SEVERE - #c.i.d.LoadingState - Last Action: 
-2026-03-05 17:07:46,369 [  13753]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'FilenameIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,369 [  13753]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'IdIndex' index (applicable providers: [default, fake-storage]), shards = 1
-2026-03-05 17:07:46,370 [  13754]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'Stubs' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,374 [  13758]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'Py.setuptools.namespace' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,394 [  13778]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'TodoIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,403 [  13787]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'Py.module.name' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,427 [  13811]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'filetypes' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,433 [  13817]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'ru.adelf.idea.php.dotenv.keyValues' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,433 [  13817]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'HashFragmentIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,433 [  13817]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'fileIncludes' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,448 [  13832]   INFO - #c.i.f.n.TrigramIndexFilter - Filter exclude extensions is disabled
-2026-03-05 17:07:46,448 [  13832]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'Trigram.Index' index (applicable providers: [default, fake-storage]), shards = 1
-2026-03-05 17:07:46,481 [  13865]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'FrameworkDetectionIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:46,567 [  13951]   INFO - #c.i.s.c.i.StationSocketConnectionLoop - Discovery connection successfully established
-2026-03-05 17:07:46,606 [  13990]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'XmlTagNames' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,094 [  14478]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'SchemaTypeInheritance' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,120 [  14504]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'XmlNamespaces' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,142 [  14526]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'html5.custom.attributes.index' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,234 [  14618]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'RelaxSymbolIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,370 [  14754]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'json.file.root.values' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,374 [  14758]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'DomFileIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,440 [  14824]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'editorconfig.index.name' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,477 [  14861]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'xmlProperties' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,499 [  14883]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'PuppetFactsIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,513 [  14897]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'PuppetRubyPluginsIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,638 [  15022]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'ai.debugger.py.imports' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,649 [  15033]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'HtmlTagIdIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,658 [  15042]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'http.request.execution.environment' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,742 [  15126]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'http.request.completion.host' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,816 [  15200]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'http.request.name.index' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,820 [  15204]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'http.request.headers.values.index' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,884 [  15268]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'OpenapiSpecificationContentIndexer' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:47,903 [  15287]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'SwReferencesIndex' index (applicable providers: [default, fake-storage])
-2026-03-05 17:07:49,237 [  16621]   INFO - #c.i.u.i.FileBasedIndexImpl - Indices to be built:json.file.root.values(v = 5),HashFragmentIndex(v = 19111503),DomFileIndex(v = 0),TodoIndex(v = 13),FilenameIndex(v = 258),filetypes(v = 4096),XmlTagNames(v = 1),Py.module.name(v = 0),SchemaTypeInheritance(v = 2),Trigram.Index(v = 4),http.request.name.index(v = 2),PuppetFactsIndex(v = 3),editorconfig.index.name(v = 5),XmlNamespaces(v = 8),Stubs(v = 46),xmlProperties(v = 2),FrameworkDetectionIndex(v = 65536),http.request.execution.environment(v = 3),RelaxSymbolIndex(v = 0),http.request.completion.host(v = 5),PuppetRubyPluginsIndex(v = 3),SwReferencesIndex(v = 1),IdIndex(v = 22),ai.debugger.py.imports(v = 1),ru.adelf.idea.php.dotenv.keyValues(v = 7),OpenapiSpecificationContentIndexer(v = 13),http.request.headers.values.index(v = 4),fileIncludes(v = 6),Py.setuptools.namespace(v = 0),html5.custom.attributes.index(v = 1),HtmlTagIdIndex(v = 3)
-2026-03-05 17:07:49,244 [  16628]   INFO - #c.i.u.i.FileBasedIndexImpl - Using simple flusher for indexes
-2026-03-05 17:07:49,258 [  16642]   INFO - #c.i.u.i.IndexDataInitializer - Index data initialization done: 4945 ms. Initialized indexes: [FilenameIndex, Py.module.name, TodoIndex, Trigram.Index, ru.adelf.idea.php.dotenv.keyValues, Py.setuptools.namespace, XmlTagNames, FrameworkDetectionIndex, HashFragmentIndex, SchemaTypeInheritance, XmlNamespaces, html5.custom.attributes.index, IdIndex, RelaxSymbolIndex, Stubs, DomFileIndex, json.file.root.values, editorconfig.index.name, xmlProperties, PuppetRubyPluginsIndex, ai.debugger.py.imports, HtmlTagIdIndex, fileIncludes, PuppetFactsIndex, http.request.headers.values.index, OpenapiSpecificationContentIndexer, SwReferencesIndex, http.request.execution.environment, http.request.completion.host, http.request.name.index, filetypes].
-2026-03-05 17:07:51,201 [  18585]   INFO - #c.i.p.s.StubIndexImpl - Following stub indices will be built:markdown.header.anchor(v = 2),properties.index(v = 2),Py.function.shortName(v = 2),markdown.header(v = 2),ini.property.key(v = 2),Py.class.attributes(v = 2),Python.Decorator(v = 2),Py.TypeAliasName(v = 2),puppet.class.instantiation(v = 3),puppet.type(v = 5),dom.namespaceKey(v = 1),puppet.variable(v = 8),puppet.function(v = 4),Py.module.attribute(v = 2),Py.class.super(v = 2),Py.variable.shortName(v = 3),puppet.namespace(v = 5),puppet.resource(v = 8),puppet.top.variable(v = 5),puppet.class(v = 7),Py.class.shortName(v = 2),puppet.subclass(v = 3),puppet.node(v = 4),dom.elementClass(v = 0),Py.class.shortNameInsensitive(v = 2),puppet.resource.by.type(v = 4)
-2026-03-05 17:07:51,201 [  18585]   INFO - #c.i.u.i.IndexDataInitializer - Index data initialization done: 1939 ms. Initialized stub indexes: {puppet.resource.by.type, puppet.function, puppet.top.variable, puppet.resource, puppet.node, markdown.header.anchor, Py.class.attributes, dom.namespaceKey, puppet.type, Py.module.attribute, Py.class.super, properties.index, puppet.class.instantiation, Py.function.shortName, Py.TypeAliasName, puppet.subclass, markdown.header, Python.Decorator, puppet.class, Py.class.shortNameInsensitive, puppet.variable, ini.property.key, Py.class.shortName, puppet.namespace, dom.elementClass, Py.variable.shortName}.
-2026-03-05 17:07:58,782 [  26166]   WARN - #c.i.o.v.n.RefreshSession - Long VFS change processing (11892ms, 0 events): []
-2026-03-05 17:07:58,802 [  26186]   INFO - #c.i.i.u.e.t.ExperimentalToolbarSettings - Dispatching UI settings change.
-2026-03-05 17:07:59,696 [  27080]   INFO - #c.i.o.f.i.FileTypeManagerImpl - File types changed: ignored files list updated: *.pyc;*.pyo;*.rbc;*.yarb;*~;.DS_Store;.git;.hg;.mypy_cache;.pytest_cache;.ruff_cache;.svn;CVS;__pycache__;_svn;vssver.scc;vssver2.scc;*$py.class. Caused by plugin 'intellij.pycharm.community.customization.shared'.
-2026-03-05 17:07:59,714 [  27098]   INFO - #c.i.u.i.d.AppIndexingDependenciesService - Invalidating all indexing flags. Reason: File type change: added - null, removed - null
-2026-03-05 17:07:59,976 [  27360]   INFO - #c.i.p.PlatformProjectOpenProcessor - Opening /Users/murphy/PyCharmMiscProject
-2026-03-05 17:08:00,216 [  27600]   INFO - #c.i.p.p.ProjectEntitiesStorage - Creating entity for project ProjectId(id=ev5eafqb9b15p4g8mlub)
-2026-03-05 17:08:00,220 [  27604]   INFO - #c.i.p.j.JdkEx - === TabbingMode: available ===
-2026-03-05 17:08:00,229 [  27613]   INFO - #c.i.p.p.ProjectEntitiesStorage - Entity for project ProjectId(id=ev5eafqb9b15p4g8mlub) created successfully
-2026-03-05 17:08:00,252 [  27636]   INFO - #c.i.c.ComponentStoreImpl - Project store initialization started for path: /Users/murphy/PyCharmMiscProject and template: null
-2026-03-05 17:08:00,284 [  27668]   INFO - #c.i.p.j.JdkEx - === TabbingMode: on ===
-2026-03-05 17:08:00,285 [  27669]   INFO - #c.i.c.ComponentStoreImpl - Project store initialized with paths: [Macro(key=$PROJECT_CONFIG_DIR$, value=/Users/murphy/PyCharmMiscProject/.idea), Macro(key=$WORKSPACE_FILE$, value=/Users/murphy/PyCharmMiscProject/.idea/workspace.xml), Macro(key=$PROJECT_FILE$, value=/Users/murphy/PyCharmMiscProject/.idea/misc.xml), Macro(key=$CACHE_FILE$, value=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system/projects/pycharmmiscproject.d22650a1/cache-state.xml), Macro(key=$PRODUCT_WORKSPACE_FILE$, value=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/config/workspace/3AWDrjHO7yZpNiR5boLIfLEilRK.xml)]
-2026-03-05 17:08:01,241 [  28625]   INFO - #c.i.o.w.i.ProjectFrameHelper - Creating status bar
-2026-03-05 17:08:01,252 [  28636]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Loading global entities com.intellij.platform.workspace.jps.entities.SdkEntity from files
-2026-03-05 17:08:01,262 [  28646]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Loading global entities com.intellij.platform.workspace.jps.entities.LibraryEntity from files
-2026-03-05 17:08:01,266 [  28650]   INFO - #c.i.o.w.i.ProjectFrameHelper - Status bar created
-2026-03-05 17:08:01,274 [  28658]   INFO - #c.i.w.i.i.GlobalWorkspaceModel - Project Welcome is added to the list of initializing and open projects
-2026-03-05 17:08:01,274 [  28658]   INFO - #c.i.w.i.i.l.m.ModuleBridgeLoaderService - Workspace model loaded without cache. Loading real project state into workspace model. Thread[#23,DefaultDispatcher-worker-1 @run com.intellij.projectPreInit ModuleBridgeLoaderService#842,5,main]
-2026-03-05 17:08:02,254 [  29638]   INFO - #c.i.w.i.i.GlobalWorkspaceModel - Sync global entities with mutable entity storage
-2026-03-05 17:08:02,955 [  30339]   INFO - #c.i.w.i.i.j.s.JpsProjectModelSynchronizer - Attempt 1: Apply JPS storage (iml files)
-2026-03-05 17:08:03,636 [  31020]   INFO - #c.i.o.w.i.ProjectFrameHelper - Setting project frame to Project(name=Welcome, containerState=PRE_INIT, componentStore=/Users/murphy/PyCharmMiscProject)
-2026-03-05 17:08:03,713 [  31097]   INFO - #c.i.o.w.i.s.IdeStatusBarImpl - Initializing status bar
-2026-03-05 17:08:04,988 [  32372]   INFO - #c.i.c.m.CodeInsightContextEnabling - multiverse is enabled
-2026-03-05 17:08:05,649 [  33033]   INFO - #c.i.w.i.i.EntitiesOrphanageImpl - Update orphanage. 0 modules added
-2026-03-05 17:08:05,865 [  33249]   INFO - #c.i.w.i.i.WorkspaceModelImpl - Project model updated to version 1
-2026-03-05 17:08:05,892 [  33276]   INFO - #c.i.w.i.i.j.s.JpsProjectModelSynchronizer - Attempt 1: Changes were successfully applied
-2026-03-05 17:08:06,388 [  33772]   WARN - #c.i.s.ComponentManagerImpl - `preload=NOT_HEADLESS` must be used only for core services (service=com.jetbrains.rdserver.toolWindow.BackendServerToolWindowManager, plugin=com.jetbrains.codeWithMe)
-2026-03-05 17:08:06,460 [  33844]   INFO - #c.i.p.c.ProjectCodeStyleSettingsManager - Initialized from default code style settings.
-2026-03-05 17:08:06,681 [  34065]   INFO - #c.i.o.w.i.ProjectFrameHelper - Project frame set to Project(name=Welcome, containerState=COMPONENT_CREATED, componentStore=/Users/murphy/PyCharmMiscProject)
-2026-03-05 17:08:06,694 [  34078]   INFO - #c.i.o.p.i.ProjectManagerImpl - Project Welcome was added to the list of open projects
-2026-03-05 17:08:07,041 [  34425]   INFO - #c.i.c.p.p.ProvisionedCodeWithMeEnterpriseConfiguration - No JBIDES plugin found. Using public/self-configured CWM.
-2026-03-05 17:08:07,206 [  34590]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'isCodeWithMeHostEnabled' value in [/Library/Application Support/JetBrains/CodeWithMe/isCodeWithMeHostEnabled, /Library/Application Support/JetBrains/CodeWithMe/config.json, /Users/murphy/Library/Application Support/JetBrains/CodeWithMe/isCodeWithMeHostEnabled, /Users/murphy/Library/Application Support/JetBrains/CodeWithMe/config.json]
-2026-03-05 17:08:07,211 [  34595]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'isCodeWithMeHostEnabled' is not found
-2026-03-05 17:08:07,211 [  34595]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'lobbyServerUrl' value in [/Library/Application Support/JetBrains/CodeWithMe/lobbyServerUrl, /Library/Application Support/JetBrains/CodeWithMe/config.json, /Users/murphy/Library/Application Support/JetBrains/CodeWithMe/lobbyServerUrl, /Users/murphy/Library/Application Support/JetBrains/CodeWithMe/config.json]
-2026-03-05 17:08:07,223 [  34607]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'lobbyServerUrl' is not found
-2026-03-05 17:08:07,554 [  34938]   INFO - PerformancePlugin - Performance Plugin is in silent mode
-2026-03-05 17:08:07,568 [  34952]   INFO - #c.i.p.c.c.PyToolWindowLayoutProvider - Python default layout applied
-2026-03-05 17:08:07,872 [  35256]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'enabled' value in [/Library/Application Support/JetBrains/portForwarding/enabled, /Library/Application Support/JetBrains/portForwarding/config.json, /Users/murphy/Library/Application Support/JetBrains/portForwarding/enabled, /Users/murphy/Library/Application Support/JetBrains/portForwarding/config.json]
-2026-03-05 17:08:07,878 [  35262]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'enabled' is not found
-2026-03-05 17:08:08,111 [  35495]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Running task: (dumb mode task) com.intellij.openapi.project.InitialDumbTaskRequiredForSmartMode@2ded5d8b
-2026-03-05 17:08:08,210 [  35594]   INFO - #c.i.o.p.DumbServiceMergingTaskQueue - Initializing DumbServiceMergingTaskQueue...
-2026-03-05 17:08:08,226 [  35610]   INFO - #c.i.o.p.DumbServiceMergingTaskQueue - Running initialization condition: com.intellij.indexing.shared.download.SharedIndexDownloadedCondition@6140f39b
-2026-03-05 17:08:08,235 [  35619]   INFO - #c.i.o.p.DumbServiceMergingTaskQueue - Finished: com.intellij.indexing.shared.download.SharedIndexDownloadedCondition@6140f39b
-2026-03-05 17:08:08,462 [  35846]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.indexing.shared.platform.impl.OnDiskSharedIndexChunkLocator@2d0326e
-2026-03-05 17:08:08,464 [  35848]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.indexing.shared.platform.impl.OnDiskSharedIndexChunkLocator@2d0326e
-2026-03-05 17:08:08,468 [  35852]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.util.indexing.ProjectFileBasedIndexStartupActivity@4c22feaf
-2026-03-05 17:08:08,690 [  36074]   INFO - #c.i.u.i.FileBasedIndexImpl - Indexes are already loaded
-2026-03-05 17:08:08,696 [  36080]   INFO - #c.i.u.i.p.IncrementalProjectIndexableFilesFilterHolder - PersistentProjectIndexableFilesFilterFactory is chosen as indexable files filter factory for project: Welcome
-2026-03-05 17:08:08,697 [  36081]   INFO - #c.i.u.i.FileBasedIndexImpl - Indexes are already loaded
-2026-03-05 17:08:08,698 [  36082]   INFO - #c.i.u.i.d.AppIndexingDependenciesService - Invalidating all indexing flags. Reason: App fingerprint changed: FingerprintImpl(fingerprint=0) to FingerprintImpl(fingerprint=7674406242560287737)
-2026-03-05 17:08:08,935 [  36319]   INFO - #c.i.o.w.e.WelcomeScreenProjectProvider - Opened the welcome screen project at /Users/murphy/PyCharmMiscProject
-2026-03-05 17:08:09,007 [  36391]   INFO - #c.i.o.u.i.UpdateCheckerService - channel: release
-2026-03-05 17:08:09,240 [  36624]   INFO - #c.i.u.m.MergeAllWindowsAction - === FullScreenTabSupport: frames: 1 ===
-2026-03-05 17:08:09,255 [  36639]   INFO - #c.i.i.p.i.ProjectViewInitNotifier - Project View initialization started
-2026-03-05 17:08:09,265 [  36649]   INFO - #c.i.i.p.DisabledPluginsState - Plugins to enable: [com.intellij.classic.ui], applied
-2026-03-05 17:08:09,266 [  36650]   INFO - #c.i.l.LocalizationStateServiceImpl - [i18n] Localization property from registry is null
-2026-03-05 17:08:09,426 [  36810]   INFO - #c.i.u.i.UnindexedFilesScanner - Full scanning on startup will NOT be skipped for project Welcome because of following unsatisfied conditions:
+2026-03-06 10:33:37,101 [   1885] SEVERE - #c.i.d.LoadingState - PyCharm 2025.3.3  Build #PY-253.31033.139
+2026-03-06 10:33:37,101 [   1885] SEVERE - #c.i.d.LoadingState - JDK: 21.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-03-06 10:33:37,101 [   1885] SEVERE - #c.i.d.LoadingState - OS: Mac OS X
+2026-03-06 10:33:37,101 [   1885] SEVERE - #c.i.d.LoadingState - Last Action: 
+2026-03-06 10:33:37,105 [   1889]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'fileIncludes' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,106 [   1890]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'Py.module.name' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,109 [   1893]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'FrameworkDetectionIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,116 [   1900]   INFO - #c.i.f.n.TrigramIndexFilter - Filter exclude extensions is disabled
+2026-03-06 10:33:37,116 [   1900]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'Trigram.Index' index (applicable providers: [default, fake-storage]), shards = 1
+2026-03-06 10:33:37,117 [   1901]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'IdIndex' index (applicable providers: [default, fake-storage]), shards = 1
+2026-03-06 10:33:37,117 [   1901]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'Py.setuptools.namespace' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,118 [   1902]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'filetypes' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,120 [   1904]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'HashFragmentIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,144 [   1928]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'XmlTagNames' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,145 [   1929]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'Stubs' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,149 [   1933]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'SchemaTypeInheritance' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,154 [   1938]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'XmlNamespaces' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,166 [   1950]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'html5.custom.attributes.index' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,177 [   1961]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'RelaxSymbolIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,190 [   1974]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'DomFileIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,197 [   1981]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'json.file.root.values' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,198 [   1982]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'xmlProperties' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,203 [   1987]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'editorconfig.index.name' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,204 [   1988]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'PuppetFactsIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,207 [   1991]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'PuppetRubyPluginsIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,223 [   2007]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'HtmlTagIdIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,224 [   2008]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'ai.debugger.py.imports' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,233 [   2017]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'http.request.execution.environment' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,247 [   2031]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'http.request.name.index' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,248 [   2032]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'SwReferencesIndex' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,248 [   2032]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'http.request.headers.values.index' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,249 [   2033]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'http.request.completion.host' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,250 [   2034]   INFO - #c.i.u.i.i.s.IndexStorageLayoutLocator - Layout 'default' will be used to for 'OpenapiSpecificationContentIndexer' index (applicable providers: [default, fake-storage])
+2026-03-06 10:33:37,303 [   2087]   INFO - #c.i.u.i.FileBasedIndexImpl - Indices to be built:editorconfig.index.name(v = 5),http.request.name.index(v = 2),ru.adelf.idea.php.dotenv.keyValues(v = 7),xmlProperties(v = 2),Py.setuptools.namespace(v = 0),PuppetFactsIndex(v = 3),TodoIndex(v = 13),XmlNamespaces(v = 8),Stubs(v = 46),http.request.execution.environment(v = 3),SwReferencesIndex(v = 1),filetypes(v = 4096),http.request.completion.host(v = 5),FrameworkDetectionIndex(v = 65536),html5.custom.attributes.index(v = 1),fileIncludes(v = 6),Py.module.name(v = 0),DomFileIndex(v = 0),ai.debugger.py.imports(v = 1),FilenameIndex(v = 258),Trigram.Index(v = 4),IdIndex(v = 22),HtmlTagIdIndex(v = 3),XmlTagNames(v = 1),HashFragmentIndex(v = 19111503),RelaxSymbolIndex(v = 0),SchemaTypeInheritance(v = 2),http.request.headers.values.index(v = 4),OpenapiSpecificationContentIndexer(v = 13),PuppetRubyPluginsIndex(v = 3),json.file.root.values(v = 5)
+2026-03-06 10:33:37,304 [   2088]   INFO - #c.i.u.i.FileBasedIndexImpl - Using simple flusher for indexes
+2026-03-06 10:33:37,306 [   2090]   INFO - #c.i.u.i.IndexDataInitializer - Index data initialization done: 627 ms. Initialized indexes: [FilenameIndex, Py.module.name, Trigram.Index, ru.adelf.idea.php.dotenv.keyValues, HashFragmentIndex, IdIndex, html5.custom.attributes.index, SchemaTypeInheritance, RelaxSymbolIndex, XmlTagNames, FrameworkDetectionIndex, fileIncludes, xmlProperties, json.file.root.values, XmlNamespaces, PuppetRubyPluginsIndex, editorconfig.index.name, Py.setuptools.namespace, DomFileIndex, TodoIndex, filetypes, SwReferencesIndex, OpenapiSpecificationContentIndexer, ai.debugger.py.imports, HtmlTagIdIndex, PuppetFactsIndex, http.request.execution.environment, http.request.name.index, http.request.headers.values.index, http.request.completion.host, Stubs].
+2026-03-06 10:33:37,440 [   2224]   INFO - #c.i.p.s.StubIndexImpl - Following stub indices will be built:Py.class.shortNameInsensitive(v = 2),dom.namespaceKey(v = 1),puppet.function(v = 4),puppet.top.variable(v = 5),ini.property.key(v = 2),properties.index(v = 2),Py.variable.shortName(v = 3),Py.module.attribute(v = 2),puppet.class(v = 7),puppet.resource(v = 8),Py.class.shortName(v = 2),Py.TypeAliasName(v = 2),puppet.class.instantiation(v = 3),puppet.resource.by.type(v = 4),puppet.namespace(v = 5),markdown.header(v = 2),puppet.node(v = 4),Py.class.attributes(v = 2),Python.Decorator(v = 2),markdown.header.anchor(v = 2),Py.class.super(v = 2),Py.function.shortName(v = 2),puppet.type(v = 5),puppet.subclass(v = 3),dom.elementClass(v = 0),puppet.variable(v = 8)
+2026-03-06 10:33:37,441 [   2225]   INFO - #c.i.u.i.IndexDataInitializer - Index data initialization done: 135 ms. Initialized stub indexes: {puppet.resource.by.type, Py.function.shortName, puppet.class.instantiation, puppet.subclass, markdown.header.anchor, puppet.function, Py.class.super, puppet.type, Py.TypeAliasName, puppet.class, properties.index, puppet.resource, puppet.namespace, ini.property.key, puppet.top.variable, Py.variable.shortName, Python.Decorator, dom.elementClass, Py.module.attribute, dom.namespaceKey, markdown.header, Py.class.shortName, puppet.node, Py.class.shortNameInsensitive, puppet.variable, Py.class.attributes}.
+2026-03-06 10:33:38,612 [   3396]   INFO - #c.i.i.u.e.t.ExperimentalToolbarSettings - Dispatching UI settings change.
+2026-03-06 10:33:38,624 [   3408]   INFO - #c.i.o.f.i.FileTypeManagerImpl - File types changed: ignored files list updated: *.pyc;*.pyo;*.rbc;*.yarb;*~;.DS_Store;.git;.hg;.mypy_cache;.pytest_cache;.ruff_cache;.svn;CVS;__pycache__;_svn;vssver.scc;vssver2.scc;*$py.class. Caused by plugin 'intellij.pycharm.community.customization.shared'.
+2026-03-06 10:33:38,652 [   3436]   INFO - #c.i.u.i.d.AppIndexingDependenciesService - Invalidating all indexing flags. Reason: File type change: added - null, removed - null
+2026-03-06 10:33:38,666 [   3450]   INFO - #c.i.p.PlatformProjectOpenProcessor - Opening /Users/murphy/PyCharmMiscProject
+2026-03-06 10:33:38,684 [   3468]   INFO - #c.i.p.p.ProjectEntitiesStorage - Creating entity for project ProjectId(id=o5ailv4f6009tmete649)
+2026-03-06 10:33:38,687 [   3471]   INFO - #c.i.p.p.ProjectEntitiesStorage - Entity for project ProjectId(id=o5ailv4f6009tmete649) created successfully
+2026-03-06 10:33:38,688 [   3472]   INFO - #c.i.p.j.JdkEx - === TabbingMode: available ===
+2026-03-06 10:33:38,697 [   3481]   INFO - #c.i.c.ComponentStoreImpl - Project store initialization started for path: /Users/murphy/PyCharmMiscProject and template: null
+2026-03-06 10:33:38,719 [   3503]   INFO - #c.i.c.ComponentStoreImpl - Project store initialized with paths: [Macro(key=$PROJECT_CONFIG_DIR$, value=/Users/murphy/PyCharmMiscProject/.idea), Macro(key=$WORKSPACE_FILE$, value=/Users/murphy/PyCharmMiscProject/.idea/workspace.xml), Macro(key=$PROJECT_FILE$, value=/Users/murphy/PyCharmMiscProject/.idea/misc.xml), Macro(key=$CACHE_FILE$, value=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system/projects/pycharmmiscproject.d22650a1/cache-state.xml), Macro(key=$PRODUCT_WORKSPACE_FILE$, value=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/config/workspace/3AWDrjHO7yZpNiR5boLIfLEilRK.xml)]
+2026-03-06 10:33:38,730 [   3514]   INFO - #c.i.p.j.JdkEx - === TabbingMode: on ===
+2026-03-06 10:33:38,769 [   3553]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Loading global entities com.intellij.platform.workspace.jps.entities.SdkEntity from files
+2026-03-06 10:33:38,770 [   3554]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Loading global entities com.intellij.platform.workspace.jps.entities.LibraryEntity from files
+2026-03-06 10:33:38,777 [   3561]   INFO - #c.i.w.i.i.GlobalWorkspaceModel - Project Welcome is added to the list of initializing and open projects
+2026-03-06 10:33:38,778 [   3562]   INFO - #c.i.w.i.i.l.m.ModuleBridgeLoaderService - Workspace model loaded without cache. Loading real project state into workspace model. Thread[#32,DefaultDispatcher-worker-9 @run com.intellij.projectPreInit ModuleBridgeLoaderService#836,5,main]
+2026-03-06 10:33:38,862 [   3646]   INFO - #c.i.w.i.i.GlobalWorkspaceModel - Sync global entities with mutable entity storage
+2026-03-06 10:33:38,868 [   3652]   INFO - #c.i.o.w.i.ProjectFrameHelper - Creating status bar
+2026-03-06 10:33:38,886 [   3670]   INFO - #c.i.o.w.i.ProjectFrameHelper - Status bar created
+2026-03-06 10:33:38,927 [   3711]   INFO - #c.i.w.i.i.j.s.JpsProjectModelSynchronizer - Attempt 1: Apply JPS storage (iml files)
+2026-03-06 10:33:40,483 [   5267]   INFO - #c.i.i.p.DisabledPluginsState - Plugins to enable: [com.jetbrains.codeWithMe],  was already enabled, nothing changed
+2026-03-06 10:33:40,486 [   5270]   INFO - #c.i.i.p.DynamicPlugins - Plugins to load: []
+2026-03-06 10:33:40,582 [   5366]   INFO - #c.i.l.u.p.AIPromoUtil - LicensingFacade.getInstance() await finished, is null: false
+2026-03-06 10:33:40,582 [   5366]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage LicenseFacadeFail finished
+2026-03-06 10:33:40,583 [   5367]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage NoValidIdeLicense
+2026-03-06 10:33:40,583 [   5367]   INFO - #c.i.l.u.p.AIOnboardingAudience - No promo: no valid license
+2026-03-06 10:33:40,583 [   5367]   INFO - #c.i.p.trialPromotion - [auto-trial check] Not eligible for auto-trial: the user is not new or imported config is not old enough
+2026-03-06 10:33:40,583 [   5367]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage NoValidIdeLicense finished
+2026-03-06 10:33:40,583 [   5367]   INFO - #c.i.p.trialPromotion - Checking available licenses for product [PC]
+2026-03-06 10:33:40,590 [   5374]   INFO - #c.i.o.u.i.ExternalUpdateManager - update manager: false
+2026-03-06 10:33:40,956 [   5740]   INFO - #c.i.p.trialPromotion - Trial is not available. Found licenses that are active or have been expired for less than 120 days
+2026-03-06 10:33:41,931 [   6715]   INFO - #c.i.o.w.i.ProjectFrameHelper - Setting project frame to Project(name=Welcome, containerState=PRE_INIT, componentStore=/Users/murphy/PyCharmMiscProject)
+2026-03-06 10:33:41,952 [   6736]   INFO - #c.i.c.m.CodeInsightContextEnabling - multiverse is enabled
+2026-03-06 10:33:41,965 [   6749]   INFO - #c.i.w.i.i.EntitiesOrphanageImpl - Update orphanage. 0 modules added
+2026-03-06 10:33:41,968 [   6752]   INFO - #c.i.w.i.i.WorkspaceModelImpl - Project model updated to version 1
+2026-03-06 10:33:41,969 [   6753]   INFO - #c.i.w.i.i.j.s.JpsProjectModelSynchronizer - Attempt 1: Changes were successfully applied
+2026-03-06 10:33:41,992 [   6776]   WARN - #c.i.s.ComponentManagerImpl - `preload=NOT_HEADLESS` must be used only for core services (service=com.jetbrains.rdserver.toolWindow.BackendServerToolWindowManager, plugin=com.jetbrains.codeWithMe)
+2026-03-06 10:33:41,999 [   6783]   INFO - #c.i.c.p.p.ProvisionedCodeWithMeEnterpriseConfiguration - No JBIDES plugin found. Using public/self-configured CWM.
+2026-03-06 10:33:42,004 [   6788]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'isCodeWithMeHostEnabled' value in [/Library/Application Support/JetBrains/CodeWithMe/isCodeWithMeHostEnabled, /Library/Application Support/JetBrains/CodeWithMe/config.json, /Users/murphy/Library/Application Support/JetBrains/CodeWithMe/isCodeWithMeHostEnabled, /Users/murphy/Library/Application Support/JetBrains/CodeWithMe/config.json]
+2026-03-06 10:33:42,006 [   6790]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'isCodeWithMeHostEnabled' is not found
+2026-03-06 10:33:42,006 [   6790]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'lobbyServerUrl' value in [/Library/Application Support/JetBrains/CodeWithMe/lobbyServerUrl, /Library/Application Support/JetBrains/CodeWithMe/config.json, /Users/murphy/Library/Application Support/JetBrains/CodeWithMe/lobbyServerUrl, /Users/murphy/Library/Application Support/JetBrains/CodeWithMe/config.json]
+2026-03-06 10:33:42,007 [   6791]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'lobbyServerUrl' is not found
+2026-03-06 10:33:42,009 [   6793]   INFO - #c.i.p.c.ProjectCodeStyleSettingsManager - Initialized from default code style settings.
+2026-03-06 10:33:42,012 [   6796]   INFO - #c.i.o.p.i.ProjectManagerImpl - Project Welcome was added to the list of open projects
+2026-03-06 10:33:42,032 [   6816]   INFO - #c.i.p.c.c.PyToolWindowLayoutProvider - Python default layout applied
+2026-03-06 10:33:42,043 [   6827]   INFO - PerformancePlugin - Performance Plugin is in silent mode
+2026-03-06 10:33:42,050 [   6834]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'enabled' value in [/Library/Application Support/JetBrains/portForwarding/enabled, /Library/Application Support/JetBrains/portForwarding/config.json, /Users/murphy/Library/Application Support/JetBrains/portForwarding/enabled, /Users/murphy/Library/Application Support/JetBrains/portForwarding/config.json]
+2026-03-06 10:33:42,051 [   6835]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'enabled' is not found
+2026-03-06 10:33:42,063 [   6847]   INFO - #c.i.o.w.i.s.IdeStatusBarImpl - Initializing status bar
+2026-03-06 10:33:42,154 [   6938]   INFO - #c.i.o.w.i.ProjectFrameHelper - Project frame set to Project(name=Welcome, containerState=COMPONENT_CREATED, componentStore=/Users/murphy/PyCharmMiscProject)
+2026-03-06 10:33:42,195 [   6979]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Running task: (dumb mode task) com.intellij.openapi.project.InitialDumbTaskRequiredForSmartMode@7a71e5ff
+2026-03-06 10:33:42,196 [   6980]   INFO - #c.i.o.p.DumbServiceMergingTaskQueue - Initializing DumbServiceMergingTaskQueue...
+2026-03-06 10:33:42,196 [   6980]   INFO - #c.i.o.p.DumbServiceMergingTaskQueue - Running initialization condition: com.intellij.indexing.shared.download.SharedIndexDownloadedCondition@7e2a04c4
+2026-03-06 10:33:42,197 [   6981]   INFO - #c.i.o.p.DumbServiceMergingTaskQueue - Finished: com.intellij.indexing.shared.download.SharedIndexDownloadedCondition@7e2a04c4
+2026-03-06 10:33:42,198 [   6982]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.indexing.shared.platform.impl.OnDiskSharedIndexChunkLocator@722ca1ed
+2026-03-06 10:33:42,199 [   6983]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.indexing.shared.platform.impl.OnDiskSharedIndexChunkLocator@722ca1ed
+2026-03-06 10:33:42,199 [   6983]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.util.indexing.ProjectFileBasedIndexStartupActivity@31eeaa82
+2026-03-06 10:33:42,209 [   6993]   INFO - #c.i.u.i.FileBasedIndexImpl - Indexes are already loaded
+2026-03-06 10:33:42,220 [   7004]   INFO - #c.i.u.i.p.IncrementalProjectIndexableFilesFilterHolder - PersistentProjectIndexableFilesFilterFactory is chosen as indexable files filter factory for project: Welcome
+2026-03-06 10:33:42,221 [   7005]   INFO - #c.i.u.i.FileBasedIndexImpl - Indexes are already loaded
+2026-03-06 10:33:42,221 [   7005]   INFO - #c.i.u.i.d.AppIndexingDependenciesService - Invalidating all indexing flags. Reason: App fingerprint changed: FingerprintImpl(fingerprint=0) to FingerprintImpl(fingerprint=7674406242560287737)
+2026-03-06 10:33:42,251 [   7035]   INFO - #c.i.u.i.UnindexedFilesScanner - Full scanning on startup will NOT be skipped for project Welcome because of following unsatisfied conditions:
 FILTER_IS_NOT_UP_TO_DATE: Persistent indexable files filter is NOT up-to-date because of following unsatisfied conditions: [IS_FILTER_LOADED_FROM_DISK, FILTER_IS_NOT_INVALIDATED, INDEXING_REQUEST_ID_DID_NOT_CHANGE_AFTER_LAST_SCANNING]
-2026-03-05 17:08:09,503 [  36887]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.util.indexing.ProjectFileBasedIndexStartupActivity@4c22feaf
-2026-03-05 17:08:09,537 [  36921]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.util.indexing.FileBasedIndexInfrastructureExtensionStartup@a601f9f
-2026-03-05 17:08:09,537 [  36921]   INFO - #c.i.o.p.UnindexedFilesScannerExecutor - [d22650a1] Running task: com.intellij.util.indexing.UnindexedFilesScannerExecutorImpl$ScheduledScanningTask@66126c43
-2026-03-05 17:08:09,644 [  37028]   INFO - #c.i.u.m.t.TouchbarSupport - touchbar disabled: registry
-2026-03-05 17:08:09,801 [  37185]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] scanning stage (scanning id=0): DelayedPushProperties
-2026-03-05 17:08:10,042 [  37426]   INFO - #c.i.i.p.i.ProjectViewInitNotifier - Project View initialization completed
-2026-03-05 17:08:10,151 [  37535]   INFO - #c.i.u.i.FileBasedIndexImpl - Indexes are already loaded
-2026-03-05 17:08:10,185 [  37569]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] Started scanning for indexing of Welcome. Reason: On project open
-2026-03-05 17:08:10,257 [  37641]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] scanning stage (scanning id=0): CreatingIterators
-2026-03-05 17:08:10,577 [  37961]   INFO - #c.i.o.a.i.NonBlockingReadActionImpl - OTel monitoring for NonBlockingReadAction is enabled
-2026-03-05 17:08:10,577 [  37961]   INFO - #c.i.i.b.BookmarksManager - no state loaded for new bookmarks
-2026-03-05 17:08:10,604 [  37988]   INFO - #o.j.p.t.TerminalOptionsProvider - Initialized TerminalOptionsProvider.cursorShape value to BLOCK
-2026-03-05 17:08:10,813 [  38197]   INFO - #c.i.i.b.BookmarkManager - no state loaded for old bookmarks
-2026-03-05 17:08:10,876 [  38260]   INFO - #c.i.p.c.s.s.i.Cache - No cache for LocalEelDescriptor, will fill
-2026-03-05 17:08:10,876 [  38260]   INFO - #c.i.p.c.s.s.i.Cache - Starting update for LocalEelDescriptor
-2026-03-05 17:08:10,903 [  38287]   INFO - #c.i.p.m.f.i.ImportsRankingModelService - Loading CatBoost Imports Ranking model
-2026-03-05 17:08:11,155 [  38539]   INFO - #c.i.w.i.i.EntitiesOrphanageImpl - Update orphanage. 0 modules added
-2026-03-05 17:08:11,239 [  38623]   INFO - #c.i.w.i.i.WorkspaceModelImpl - Project model updated to version 2 in 558 ms: ConstantEntitiesCheckActivity
-2026-03-05 17:08:11,755 [  39139]   INFO - #c.i.p.d.i.f.FrontendXBreakpointManager - Breakpoint created for XBreakpointId(uid=1)
-2026-03-05 17:08:11,760 [  39144]   INFO - #c.i.p.d.i.f.FrontendXBreakpointManager - Breakpoint created for XBreakpointId(uid=2)
-2026-03-05 17:08:11,897 [  39281]   INFO - #c.i.s.c.i.StationSocketConnectionLoop - RecentProjects connection successfully established
-2026-03-05 17:08:12,235 [  39619]   INFO - #c.i.o.e.s.p.m.ExternalProjectsDataStorage - Load external projects data in 158 millis (read time: 155)
-2026-03-05 17:08:12,288 [  39672]   INFO - #c.i.i.s.IdeStartupScripts - 0 startup script(s) found
-2026-03-05 17:08:12,293 [  39677]   INFO - #c.i.p.w.WhatsNewShowOnStartCheckService - Checking whether to show the What's New page on startup.
-2026-03-05 17:08:12,308 [  39692]   INFO - #c.i.o.u.i.ExternalUpdateManager - update manager: false
-2026-03-05 17:08:12,342 [  39726]   INFO - #c.i.o.a.i.ActionUpdater - 1091 ms to grab EDT for DockToolWindowAction#presentation@ToolwindowTitle (com.intellij.openapi.wm.impl.DockToolWindowAction)
-2026-03-05 17:08:12,342 [  39726]   INFO - #c.i.o.a.i.ActionUpdater - 1009 ms to grab EDT for ExpandRecursivelyAction#presentation@ToolwindowTitle (com.intellij.ide.projectView.actions.ExpandRecursivelyAction)
-2026-03-05 17:08:12,342 [  39726]   INFO - #c.i.o.a.i.ActionUpdater - 1009 ms to grab EDT for ExpandAllAction#presentation@ToolwindowTitle (ExpandAllAction)
-2026-03-05 17:08:12,342 [  39726]   INFO - #c.i.o.a.i.ActionUpdater - 1009 ms to grab EDT for CollapseAllAction#presentation@ToolwindowTitle (CollapseAllAction)
-2026-03-05 17:08:12,355 [  39739]   INFO - #c.i.d.PerformanceWatcherImpl - Post-startup activities under progress took 3408ms; general responsiveness: 0/29 sluggish, 29/29 very slow; EDT responsiveness: 0/1 sluggish, 1/1 very slow
-2026-03-05 17:08:12,502 [  39886]   WARN - #c.i.o.a.i.ActionUpdater - 4120 ms total to grab EDT 5 times to expand ToolWindowHeader$2#expandGroup@ToolwindowTitle (com.intellij.toolWindow.ToolWindowHeader$2). Use `ActionUpdateThread.BGT`.
-2026-03-05 17:08:12,540 [  39924]   INFO - #c.i.i.f.FavoritesManager - no state loaded for old favorites
-2026-03-05 17:08:12,560 [  39944]   INFO - #c.i.p.m.f.i.ImportsRankingModelService - Successfully loaded imports ranking model
-2026-03-05 17:08:12,806 [  40190]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage LicenseFacadeFail finished
-2026-03-05 17:08:12,814 [  40198]   WARN - #c.i.l.u.p.AIPromoWindowAdvisor - Verdict calculation took too long
-2026-03-05 17:08:13,855 [  41239]   WARN - #c.i.o.a.i.ActionUpdater - 1060 ms to call on BGT PerforceToolbarWidgetAction#presentation@MainToolbar (org.jetbrains.idea.perforce.actions.PerforceToolbarWidgetAction) "Perforce.Toolbar.PerforceToolbarWidgetAction"
-2026-03-05 17:08:15,101 [  42485]   INFO - #c.i.i.p.DisabledPluginsState - Plugins to enable: [com.jetbrains.codeWithMe],  was already enabled, nothing changed
-2026-03-05 17:08:15,137 [  42521]   INFO - #c.i.i.s.p.i.SharedIndexChunkConfigurationImpl - Chunk bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139 is registered for project 'Welcome: matching: (fb=51, stub=39), incompatible: (fb=0, stub=0), unknown: (fb=35, stub=92), 
-2026-03-05 17:08:15,137 [  42521]   INFO - #c.i.i.p.DynamicPlugins - Plugins to load: []
-2026-03-05 17:08:15,688 [  43072]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] scanning stage (scanning id=0): CollectingIndexableFiles
-2026-03-05 17:08:15,844 [  43228]   INFO - #c.i.u.i.UnindexedFilesScanner - Scanning of Welcome uses 11 scanning threads
-2026-03-05 17:08:16,321 [  43705]   INFO - #c.i.i.s.p.i.SharedIndexInfrastructure - Attached 1 shared indexes: bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139
-2026-03-05 17:08:16,321 [  43705]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.util.indexing.FileBasedIndexInfrastructureExtensionStartup@a601f9f
-2026-03-05 17:08:16,321 [  43705]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.externalDependencies.impl.CheckRequiredPluginsActivity@4e9ba794
-2026-03-05 17:08:16,395 [  43779]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.externalDependencies.impl.CheckRequiredPluginsActivity@4e9ba794
-2026-03-05 17:08:16,395 [  43779]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.util.indexing.DumbModeWhileScanningSubscriber@1c07db24
-2026-03-05 17:08:16,395 [  43779]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.util.indexing.DumbModeWhileScanningSubscriber@1c07db24
-2026-03-05 17:08:16,395 [  43779]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Task finished: (dumb mode task) com.intellij.openapi.project.InitialDumbTaskRequiredForSmartMode@2ded5d8b
-2026-03-05 17:08:16,430 [  43814]   INFO - #c.i.i.s.p.i.BundledSharedIndexPostStartupActivity - Attached 1 pre-built shared indexes: bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139
-2026-03-05 17:08:17,163 [  44547]   INFO - #c.i.p.w.WhatsNewShowOnStartCheckService - Got What's New content: com.intellij.platform.whatsNew.WhatsNewVisionContent@51faa254
-2026-03-05 17:08:17,292 [  44676]   INFO - #c.i.p.w.WhatsNewContentVersionChecker - whats.new.last.shown.version is not defined. Will show What's New.
-2026-03-05 17:08:17,292 [  44676]   INFO - #c.i.p.w.WhatsNewShowOnStartCheckService - Should show What's New: true
-2026-03-05 17:08:17,377 [  44761]   INFO - #c.i.i.a.WhatsNewAction - Open What's New page requested.
-2026-03-05 17:08:18,546 [  45930]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml11.dtd (id=91) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml11.dtd (id=91) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=91, fileInfo='xhtml11.dtd(id=91)'}] and removers: []; 
-2026-03-05 17:08:18,610 [  45994]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of builtin.pp (id=70) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),Stubs->NOT_INDEXED(not indexed),]. Scanner has updated file builtin.pp (id=70) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=70, fileInfo='builtin.pp(id=70)'}] and removers: []; 
-2026-03-05 17:08:18,610 [  45994]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-lat1.ent (id=79) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-lat1.ent (id=79) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=79, fileInfo='xhtml-lat1.ent(id=79)'}] and removers: []; 
-2026-03-05 17:08:18,611 [  45995]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-base-1.mod (id=111) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-base-1.mod (id=111) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=111, fileInfo='xhtml-base-1.mod(id=111)'}] and removers: []; 
-2026-03-05 17:08:18,611 [  45995]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-edit-1.mod (id=75) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-edit-1.mod (id=75) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=75, fileInfo='xhtml-edit-1.mod(id=75)'}] and removers: []; 
-2026-03-05 17:08:18,850 [  46234]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of http-client.env.json (id=85) by request of indexes: [OpenapiSpecificationContentIndexer->NOT_INDEXED(not indexed),SwReferencesIndex->NOT_INDEXED(not indexed),Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),json.file.root.values->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),http.request.execution.environment->NOT_INDEXED(not indexed),]. Scanner has updated file http-client.env.json (id=85) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=85, fileInfo='http-client.env.json(id=85)'}] and removers: []; 
-2026-03-05 17:08:18,851 [  46235]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of http-client.private.env.json (id=84) by request of indexes: [OpenapiSpecificationContentIndexer->NOT_INDEXED(not indexed),SwReferencesIndex->NOT_INDEXED(not indexed),Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),json.file.root.values->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),http.request.execution.environment->NOT_INDEXED(not indexed),]. Scanner has updated file http-client.private.env.json (id=84) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=84, fileInfo='http-client.private.env.json(id=84)'}] and removers: []; 
-2026-03-05 17:08:19,145 [  46529]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-form-1.mod (id=100) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-form-1.mod (id=100) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=100, fileInfo='xhtml-form-1.mod(id=100)'}] and removers: []; 
-2026-03-05 17:08:19,146 [  46530]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-link-1.mod (id=82) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-link-1.mod (id=82) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=82, fileInfo='xhtml-link-1.mod(id=82)'}] and removers: []; 
-2026-03-05 17:08:19,146 [  46530]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-list-1.mod (id=74) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-list-1.mod (id=74) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=74, fileInfo='xhtml-list-1.mod(id=74)'}] and removers: []; 
-2026-03-05 17:08:19,606 [  46990]   INFO - #c.i.o.p.DumbServiceImpl - [Project(name=Welcome, containerState=COMPONENT_CREATED, componentStore=/Users/murphy/PyCharmMiscProject)]: running dumb task without visible indicator: Waiting for scanning to complete
-2026-03-05 17:08:20,144 [  47528]   WARN - #c.i.g.c.l.GrazieLoginManager - Need explicit activation dialog agreement, so skipping cloud login
-2026-03-05 17:08:20,475 [  47859]   INFO - #c.j.p.p.p.PypiPackageCache$Companion - Reloading Pypi package cache
-2026-03-05 17:08:20,475 [  47859]   INFO - #c.j.p.p.p.PypiPackageCache$Companion - Loading python packages from PyPi Repository
-2026-03-05 17:08:20,574 [  47958]   INFO - #c.i.o.p.DumbServiceImpl - exit dumb mode [Welcome]
-2026-03-05 17:08:20,827 [  48211]   INFO - #c.j.p.p.PyPIPackageUtil - Fetching index of all packages available on https://pypi.org/simple/
-2026-03-05 17:08:20,878 [  48262]   INFO - #c.j.p.p.PyPIPackageUtil - Fetching index of all packages available on https://pypi.org/simple/
-2026-03-05 17:08:21,261 [  48645]   WARN - #c.i.g.c.l.GrazieLoginManager - Need explicit activation dialog agreement, so skipping cloud login
-2026-03-05 17:08:21,424 [  48808]   INFO - #c.i.o.p.DumbServiceImpl - enter dumb mode [Welcome]
-2026-03-05 17:08:21,699 [  49083]   INFO - #c.i.p.trialPromotion - [auto-trial check] Not eligible for auto-trial: the user is not new or imported config is not old enough
-2026-03-05 17:08:21,699 [  49083]   INFO - #c.i.p.trialPromotion - Checking available licenses for product [PC]
-2026-03-05 17:08:21,860 [  49244]   INFO - #c.i.o.a.i.ActionUpdater - 352 ms to grab EDT for ToolWindowHeader$2#children@ToolwindowTitle (com.intellij.toolWindow.ToolWindowHeader$2)
-2026-03-05 17:08:22,484 [  49868]   INFO - #c.i.o.a.i.ActionUpdater - 589 ms to grab EDT for DockToolWindowAction#presentation@ToolwindowTitle (com.intellij.openapi.wm.impl.DockToolWindowAction)
-2026-03-05 17:08:22,484 [  49868]   INFO - #c.i.o.a.i.ActionUpdater - 576 ms to grab EDT for ExpandAllAction#presentation@ToolwindowTitle (ExpandAllAction)
-2026-03-05 17:08:22,484 [  49868]   INFO - #c.i.o.a.i.ActionUpdater - 576 ms to grab EDT for CollapseAllAction#presentation@ToolwindowTitle (CollapseAllAction)
-2026-03-05 17:08:22,484 [  49868]   INFO - #c.i.o.a.i.ActionUpdater - 576 ms to grab EDT for ExpandRecursivelyAction#presentation@ToolwindowTitle (com.intellij.ide.projectView.actions.ExpandRecursivelyAction)
-2026-03-05 17:08:23,167 [  50551]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Starting calculation attempt 2 for promo window
-2026-03-05 17:08:23,168 [  50552]   INFO - #c.i.l.u.p.AIOnboardingAudience - Checking if promo is forbidden (attempt 2)
-2026-03-05 17:08:23,168 [  50552]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage RemoteDev
-2026-03-05 17:08:23,168 [  50552]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage RemoteDev finished
-2026-03-05 17:08:23,168 [  50552]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage CommunityEdition
-2026-03-05 17:08:23,187 [  50571]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage CommunityEdition finished
-2026-03-05 17:08:23,187 [  50571]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage Delayed
-2026-03-05 17:08:23,187 [  50571]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage Delayed finished
-2026-03-05 17:08:23,187 [  50571]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage LicenseFacadeFail
-2026-03-05 17:08:23,187 [  50571]   INFO - #c.i.l.u.p.AIPromoUtil - awaiting LicensingFacade.getInstance()
-2026-03-05 17:08:23,187 [  50571]   INFO - #c.i.l.u.p.AIPromoUtil - LicensingFacade.getInstance() await finished, is null: false
-2026-03-05 17:08:23,187 [  50571]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage LicenseFacadeFail finished
-2026-03-05 17:08:23,187 [  50571]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage NoValidIdeLicense
-2026-03-05 17:08:23,187 [  50571]   INFO - #c.i.l.u.p.AIOnboardingAudience - No promo: no valid license
-2026-03-05 17:08:23,190 [  50574]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage NoValidIdeLicense finished
-2026-03-05 17:08:23,544 [  50928]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Saving global entities com.intellij.platform.workspace.jps.entities.SdkEntity to files
-2026-03-05 17:08:23,544 [  50928]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Saving global entities com.intellij.platform.workspace.jps.entities.LibraryEntity to files
-2026-03-05 17:08:24,366 [  51750]   INFO - #c.i.p.w.WhatsNewContent - Opening What's New in editor.
-2026-03-05 17:08:24,366 [  51750]   INFO - #c.i.o.f.i.HTMLEditorProvider - HTML (1402931 chars)
-2026-03-05 17:08:24,522 [  51906]   INFO - #c.i.c.m.CodeInsightContextEnabling - multiverse is enabled
-2026-03-05 17:08:24,838 [  52222]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file .name (id=153) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=153, fileInfo='.name(id=153)'}] and removers: []; 
-2026-03-05 17:08:24,839 [  52223]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file misc.xml (id=152) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=152, fileInfo='misc.xml(id=152)'}] and removers: []; 
-2026-03-05 17:08:24,839 [  52223]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file .gitignore (id=130) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=130, fileInfo='.gitignore(id=130)'}] and removers: []; 
-2026-03-05 17:08:24,853 [  52237]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file modules.xml (id=154) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=154, fileInfo='modules.xml(id=154)'}] and removers: []; 
-2026-03-05 17:08:24,853 [  52237]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file workspace.xml (id=151) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=151, fileInfo='workspace.xml(id=151)'}] and removers: []; 
-2026-03-05 17:08:24,853 [  52237]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file profiles_settings.xml (id=22) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=22, fileInfo='profiles_settings.xml(id=22)'}] and removers: []; 
-2026-03-05 17:08:24,853 [  52237]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file PyCharmMiscProject.iml (id=155) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=155, fileInfo='PyCharmMiscProject.iml(id=155)'}] and removers: []; 
-2026-03-05 17:08:24,868 [  52252]   INFO - #c.i.u.j.JBCefApp - JCEF-sandbox is enabled
-2026-03-05 17:08:24,869 [  52253]   WARN - #c.i.u.j.JBCefApp - JCEF-sandbox was disabled (to enable you should start IDE from launcher)
-2026-03-05 17:08:24,879 [  52263]   INFO - #c.i.u.j.JBCefApp - JCEF logging: level=LOGSEVERITY_DISABLE, file=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/log/jcef_49895.log, chromium_log=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/log/jcef_chromium_49895.log
-2026-03-05 17:08:25,036 [  52420]   INFO - #c.i.a.o.PathMacrosImpl - Saved path macros: {}
-2026-03-05 17:08:25,282 [  52666]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] Scanning completed for Welcome. Number of scanned files: 223; number of files for indexing: 216
-2026-03-05 17:08:25,282 [  52666]   INFO - #c.i.o.p.InitialVfsRefreshService - d22650a1: marking roots for initial VFS refresh
-2026-03-05 17:08:25,290 [  52674]   INFO - #c.i.o.p.InitialVfsRefreshService - d22650a1: starting initial VFS refresh of 1 roots
-2026-03-05 17:08:25,588 [  52972]   INFO - #c.i.c.ComponentStoreImpl - Saving appAIOnboardingPromoWindowAdvisor took 323 ms, CodeStyleSchemeSettings took 12 ms, DefaultFont took 134 ms, EditorColorsManagerImpl took 22 ms, EditorSettings took 33 ms, Encoding took 67 ms, FileTypeManager took 316 ms, FindSettings took 101 ms, GeneralSettings took 48 ms, ScriptedLoadersAssociations took 174 ms, SettingsSyncSettings took 30 ms, TerminalOptionsProvider took 48 ms, UISettings took 292 ms
-2026-03-05 17:08:25,642 [  53026]   INFO - #c.i.p.w.WhatsNewContentVersionChecker - EapWhatsNew version saved '2025-3.3-31033-0840774b30dc737738640b276d8a87a71eb7ecff'
-2026-03-05 17:08:25,656 [  53040]   INFO - #c.i.o.p.InitialVfsRefreshService - d22650a1: initial VFS refresh finished in 365 ms
-2026-03-05 17:08:25,820 [  53204]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Running task: (dumb mode task) UnindexedFilesIndexer[Welcome, reasons: [On project open]]
-2026-03-05 17:08:25,820 [  53204]   INFO - #c.i.o.c.i.s.StoreUtil - saveProjectsAndApp took 2598 ms
-2026-03-05 17:08:25,865 [  53249]   INFO - #c.i.o.p.UnindexedFilesScannerExecutor - [d22650a1] Task finished (scanning id=0): com.intellij.util.indexing.UnindexedFilesScannerExecutorImpl$ScheduledScanningTask@66126c43
-2026-03-05 17:08:25,879 [  53263]   INFO - #c.i.u.i.FileBasedIndexImpl - Indexes are already loaded
-2026-03-05 17:08:25,912 [  53296]   INFO - #c.i.u.i.c.IndexUpdateRunner - Using 11 workers for indexing and 4 for writing indexes
-2026-03-05 17:08:27,214 [  54598]   INFO - #c.i.p.c.s.s.SystemPythonServiceImplKt - pythons refreshed
-2026-03-05 17:08:27,219 [  54603]   INFO - #c.i.p.c.s.s.i.Cache - End update for LocalEelDescriptor
-2026-03-05 17:08:27,266 [  54650]   INFO - #c.i.p.trialPromotion - Trial is not available. Found licenses that are active or have been expired for less than 120 days
-2026-03-05 17:08:27,841 [  55225]   INFO - #c.i.l.u.p.RemoteFeatureDisabler - Verdict: Enabled
-2026-03-05 17:08:27,841 [  55225]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage MarkerFilePresent
-2026-03-05 17:08:27,842 [  55226]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage MarkerFilePresent finished
-2026-03-05 17:08:27,842 [  55226]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage DelayedProject
-2026-03-05 17:08:27,842 [  55226]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage DelayedProject finished
-2026-03-05 17:08:27,842 [  55226]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Calculated verdict in 16955 ms: false, isCalculatedInAcceptableTime: false
-2026-03-05 17:08:27,842 [  55226]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Remote verdict: Enabled, isAIAssistantInstalled: false
-2026-03-05 17:08:27,842 [  55226]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Verdict calculation took too long, promo won't be shown
-2026-03-05 17:08:28,549 [  55933]   INFO - #c.i.u.j.JBCefApp - jcef version: remote_137.0.17.3190_e397b569415d3c67b114495985454e5201955573 | cmd args: [--framework-dir-path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/jbr/Contents/Frameworks/Chromium Embedded Framework.framework, --browser-subprocess-path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/jbr/Contents/Frameworks/jcef Helper.app/Contents/MacOS/jcef Helper, --main-bundle-path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/jbr/Contents/Frameworks/jcef Helper.app, --disable-in-process-stack-traces, --use-mock-keychain, --disable-features=SpareRendererForSitePerProcess, --disable-notifications, --no-proxy-server, --disable-gpu-process-crash-limit, --autoplay-policy=no-user-gesture-required, --disable-component-update]
-2026-03-05 17:08:30,937 [  58321]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 7 finished gracefully
-2026-03-05 17:08:30,943 [  58327]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 10 finished gracefully
-2026-03-05 17:08:30,946 [  58330]   WARN - #c.i.o.a.i.ActionUpdater - 3381 ms to call on BGT ExecutorRegistryImpl$ExecutorAction#presentation@NewUiRunToolbar (com.intellij.execution.ExecutorRegistryImpl$ExecutorAction(id=Run)) "Run"
-2026-03-05 17:08:30,991 [  58375]   WARN - #c.i.o.a.i.ActionUpdater - 3423 ms to call on BGT ExecutorRegistryImpl$ExecutorAction#presentation@NewUiRunToolbar (com.intellij.execution.ExecutorRegistryImpl$ExecutorAction(id=Debug)) "Debug"
-2026-03-05 17:08:31,258 [  58642]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 6 finished gracefully
-2026-03-05 17:08:31,734 [  59118]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 8 finished gracefully
-2026-03-05 17:08:31,741 [  59125]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 3 finished gracefully
-2026-03-05 17:08:32,015 [  59399]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 0 finished gracefully
-2026-03-05 17:08:32,162 [  59546]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 2 finished gracefully
-2026-03-05 17:08:32,992 [  60376]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 5 finished gracefully
-2026-03-05 17:08:33,002 [  60386]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 9 finished gracefully
-2026-03-05 17:08:33,108 [  60492]   INFO - #c.i.i.p.m.MarketplaceRequests - Looking for the last compatible plugin updates for:
+2026-03-06 10:33:42,256 [   7040]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.util.indexing.ProjectFileBasedIndexStartupActivity@31eeaa82
+2026-03-06 10:33:42,257 [   7041]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.util.indexing.FileBasedIndexInfrastructureExtensionStartup@29523850
+2026-03-06 10:33:42,258 [   7042]   INFO - #c.i.o.p.UnindexedFilesScannerExecutor - [d22650a1] Running task: com.intellij.util.indexing.UnindexedFilesScannerExecutorImpl$ScheduledScanningTask@332c3abc
+2026-03-06 10:33:42,265 [   7049]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] scanning stage (scanning id=0): DelayedPushProperties
+2026-03-06 10:33:42,274 [   7058]   INFO - #c.i.u.i.FileBasedIndexImpl - Indexes are already loaded
+2026-03-06 10:33:42,279 [   7063]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] Started scanning for indexing of Welcome. Reason: On project open
+2026-03-06 10:33:42,282 [   7066]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] scanning stage (scanning id=0): CreatingIterators
+2026-03-06 10:33:42,288 [   7072]   INFO - #c.i.o.a.i.NonBlockingReadActionImpl - OTel monitoring for NonBlockingReadAction is enabled
+2026-03-06 10:33:42,364 [   7148]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] scanning stage (scanning id=0): CollectingIndexableFiles
+2026-03-06 10:33:42,365 [   7149]   INFO - #c.i.u.i.UnindexedFilesScanner - Scanning of Welcome uses 11 scanning threads
+2026-03-06 10:33:42,412 [   7196]   INFO - #c.i.i.s.p.i.SharedIndexChunkConfigurationImpl - Chunk bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139 is registered for project 'Welcome: matching: (fb=51, stub=39), incompatible: (fb=0, stub=0), unknown: (fb=35, stub=92), 
+2026-03-06 10:33:42,427 [   7211]   INFO - #c.i.i.p.m.MarketplaceRequests - Looking for the last compatible plugin updates for:
 [com.intellij.microservices.ui, org.jetbrains.plugins.vue, Subversion, org.jetbrains.plugins.docker.gateway, intellij.python.dap.plugin, Git4Idea, PerforceDirectPlugin, NodeJS, tanvd.grazi, Docker, intellij.jupyter, Pythonid, com.intellij.jsonpath, com.intellij.ko, Karma, com.intellij.python.django, com.intellij.swagger, com.jetbrains.performancePlugin, com.jetbrains.restClient, org.toml.lang, com.intellij.mcpServer, com.jetbrains.plugins.webDeployment, intellij.nextjs, intellij.prettierJS, intellij.vitejs, com.intellij.settingsSync, com.intellij.tasks.timeTracking, HtmlTools, com.jetbrains.sh, com.intellij.react, com.intellij.plugins.webcomponents, training, com.intellij.zh, com.deadlock.scsyntax, PythonCore, com.intellij.properties, org.jetbrains.plugins.remote-run, org.jetbrains.plugins.terminal, com.intellij.tasks, JavaScript, org.jetbrains.plugins.node-remote-interpreter, org.intellij.plugins.markdown, org.jetbrains.plugins.gitlab, com.intellij.database, JavaScriptDebugger, org.jetbrains.plugins.yaml, intellij.webpack, org.editorconfig.editorconfigjetbrains, com.intellij.ja, com.intellij.copyright, org.jetbrains.plugins.textmate, ru.adelf.idea.dotenv, tslint, org.jetbrains.completion.full.line, org.jetbrains.plugins.github, com.intellij.notebooks.core]
 Is update check: true
-2026-03-05 17:08:34,048 [  61432]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 4 finished gracefully
-2026-03-05 17:08:39,789 [  67173]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 1 finished gracefully
-2026-03-05 17:08:40,710 [  68094]   INFO - #c.i.u.i.ProjectChangedFilesScanner - Retrieving changed during indexing files of Welcome : 0 to update, calculated in 0ms
-2026-03-05 17:08:40,711 [  68095]   INFO - #c.i.u.i.UnindexedFilesIndexer - Finished for Welcome. Unindexed files update took 14820ms; general responsiveness: 5/14 sluggish, 1/14 very slow; EDT responsiveness: 3/14 sluggish
-2026-03-05 17:08:40,711 [  68095]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Task finished: (dumb mode task) UnindexedFilesIndexer[Welcome, reasons: [On project open]]
-2026-03-05 17:08:40,712 [  68096]   INFO - #c.i.o.p.UnindexedFilesScannerExecutor - [d22650a1] Running task: com.intellij.util.indexing.UnindexedFilesScannerExecutorImpl$ScheduledScanningTask@316aa383
-2026-03-05 17:08:40,712 [  68096]   INFO - #c.i.o.p.UnindexedFilesScannerExecutor - [d22650a1] Skipping task: com.intellij.util.indexing.UnindexedFilesScannerExecutorImpl$ScheduledScanningTask@316aa383
-2026-03-05 17:08:40,723 [  68107]   INFO - #c.i.o.p.DumbServiceImpl - exit dumb mode [Welcome]
-2026-03-05 17:08:40,723 [  68107]   INFO - #c.i.o.p.DumbServiceImpl - [Project(name=Welcome, containerState=COMPONENT_CREATED, componentStore=/Users/murphy/PyCharmMiscProject)]: finished dumb task without visible indicator: Waiting for scanning to complete
-2026-03-05 17:08:45,434 [  72818]   WARN - #c.i.o.a.i.ActionUpdater - 2546 ms to call on BGT ExecutorRegistryImpl$ExecutorAction#presentation@NewUiRunToolbar (com.intellij.execution.ExecutorRegistryImpl$ExecutorAction(id=Debug)) "Debug"
-2026-03-05 17:08:45,436 [  72820]   INFO - #c.i.o.a.i.ActionUpdater - 2040 ms to grab EDT for LikeReactionAction#presentation@WhatsNew (com.intellij.platform.whatsNew.reaction.LikeReactionAction)
-2026-03-05 17:08:45,436 [  72820]   INFO - #c.i.o.a.i.ActionUpdater - 2040 ms to grab EDT for DislikeReactionAction#presentation@WhatsNew (com.intellij.platform.whatsNew.reaction.DislikeReactionAction)
-2026-03-05 17:08:45,547 [  72931]   WARN - #c.i.o.a.i.ActionUpdater - 4080 ms total to grab EDT 2 times to expand DefaultActionGroup#expandGroup@WhatsNew (DefaultActionGroup). Use `ActionUpdateThread.BGT`.
-2026-03-05 17:08:45,593 [  72977]   WARN - #c.i.o.a.i.ActionUpdater - 2708 ms to call on BGT ExecutorRegistryImpl$ExecutorAction#presentation@NewUiRunToolbar (com.intellij.execution.ExecutorRegistryImpl$ExecutorAction(id=Run)) "Run"
-2026-03-05 17:08:50,376 [  77760]   INFO - #c.j.r.p.c.CodeWithMeCleanup - running activity to cleanup old thin clients... Root path is '/Users/murphy/Library/Caches/JetBrains'. JvmStartTimeMs=1772701650544
-2026-03-05 17:08:50,377 [  77761]   INFO - #c.j.r.p.c.CodeWithMeCleanup - found 0 Code With Me client system folders to check
-2026-03-05 17:08:50,378 [  77762]   INFO - #c.j.r.p.c.CodeWithMeCleanup - found 1 Code With Me client config folders to check
-2026-03-05 17:08:50,378 [  77762]   INFO - #c.j.r.p.c.CodeWithMeCleanup - keep only [233] major versions
-2026-03-05 17:08:50,378 [  77762]   INFO - #c.j.r.p.c.CodeWithMeCleanup - keep config folder with version 233.14475.35, it is the most up-to-date config folder with 233 major version, path is '/Users/murphy/Library/Application Support/JetBrains/JetBrainsClient233.14475.35'
-2026-03-05 17:08:50,378 [  77762]   INFO - #c.j.r.p.c.CodeWithMeCleanup - Starting the logs folder cleanup. Path: /Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/log
-2026-03-05 17:08:50,380 [  77764]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'versionManagementEnabled' value in [/Library/Application Support/JetBrains/JetBrainsClient/versionManagementEnabled, /Library/Application Support/JetBrains/JetBrainsClient/config.json, /Users/murphy/Library/Application Support/JetBrains/JetBrainsClient/versionManagementEnabled, /Users/murphy/Library/Application Support/JetBrains/JetBrainsClient/config.json]
-2026-03-05 17:08:50,380 [  77764]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'versionManagementEnabled' is not found
-2026-03-05 17:09:09,807 [  97191]   INFO - #c.i.u.g.s.GistStorageImpl - Cleaning old huge-gists dirs from [/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system/caches/huge-gists] ...
-2026-03-05 17:09:09,837 [  97221]   INFO - #c.i.u.g.s.GistStorageImpl - Cleaning old huge-gists dirs finished
-2026-03-05 17:09:21,943 [ 109327]   INFO - #c.j.p.p.p.PypiPackageCache$Companion - Loaded 753986 python packages from PyPi Repository
-2026-03-05 17:11:29,708 [ 237092]   INFO - #c.i.c.ComponentStoreImpl - Saving Project(name=Welcome, containerState=COMPONENT_CREATED, componentStore=/Users/murphy/PyCharmMiscProject)FileTypeUsageLocalSummary took 21 ms, ProjectView took 41 ms, RunManager took 24 ms, XDebuggerManager took 15 ms
-2026-03-05 17:11:29,744 [ 237128]   INFO - #c.i.o.p.DumbServiceImpl - enter dumb mode [Welcome]
-2026-03-05 17:11:30,072 [ 237456]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Running task: (dumb mode task) com.intellij.openapi.roots.impl.PushedFilePropertiesUpdaterImpl$MyDumbModeTask@11afaf7e (reason: Push on VFS changes)
-2026-03-05 17:11:30,446 [ 237830]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Task finished: (dumb mode task) com.intellij.openapi.roots.impl.PushedFilePropertiesUpdaterImpl$MyDumbModeTask@11afaf7e (reason: Push on VFS changes)
-2026-03-05 17:11:30,466 [ 237850]   INFO - #c.i.o.p.DumbServiceImpl - exit dumb mode [Welcome]
-2026-03-05 17:11:30,502 [ 237886]   INFO - #c.i.u.i.PersistentDirtyFilesQueue - Dirty file ids stored. Size: 0. Index: 0 Path: /Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system/index/dirty-file-queues/d22650a1
-2026-03-05 17:11:31,684 [ 239068]   INFO - #c.i.p.p.ProjectEntitiesStorage - Project ProjectId(id=ev5eafqb9b15p4g8mlub) is disposed, removing entity
-2026-03-05 17:11:31,697 [ 239081]   INFO - #c.i.p.d.i.f.FrontendXBreakpointManager - Breakpoint removed for XBreakpointId(uid=1)
-2026-03-05 17:11:31,697 [ 239081]   INFO - #c.i.p.d.i.f.FrontendXBreakpointManager - Breakpoint removed for XBreakpointId(uid=2)
-2026-03-05 17:11:31,705 [ 239089]   INFO - #c.i.w.i.i.GlobalWorkspaceModel - Project Welcome is removed from the list of initializing and open projects. Project was disposed.
-2026-03-05 17:11:31,725 [ 239109]   INFO - #c.i.o.w.i.WindowManagerImpl - === Release(true) frame on closed project ===
-2026-03-05 17:11:36,645 [ 244029]   INFO - #c.i.i.p.m.MarketplaceRequests - Looking for the last compatible plugin updates for:
-[com.intellij.microservices.ui, org.jetbrains.plugins.vue, Subversion, org.jetbrains.plugins.docker.gateway, intellij.python.dap.plugin, Git4Idea, PerforceDirectPlugin, NodeJS, tanvd.grazi, Docker, intellij.jupyter, Pythonid, com.intellij.jsonpath, com.intellij.ko, Karma, com.intellij.python.django, com.intellij.swagger, com.jetbrains.performancePlugin, com.jetbrains.restClient, org.toml.lang, com.intellij.mcpServer, com.jetbrains.plugins.webDeployment, intellij.nextjs, intellij.prettierJS, intellij.vitejs, com.intellij.settingsSync, com.intellij.tasks.timeTracking, HtmlTools, com.jetbrains.sh, com.intellij.react, com.intellij.plugins.webcomponents, training, com.intellij.zh, com.deadlock.scsyntax, PythonCore, com.intellij.properties, org.jetbrains.plugins.remote-run, org.jetbrains.plugins.terminal, com.intellij.tasks, JavaScript, org.jetbrains.plugins.node-remote-interpreter, org.intellij.plugins.markdown, org.jetbrains.plugins.gitlab, com.intellij.database, JavaScriptDebugger, org.jetbrains.plugins.yaml, intellij.webpack, org.editorconfig.editorconfigjetbrains, com.intellij.ja, com.intellij.copyright, org.jetbrains.plugins.textmate, ru.adelf.idea.dotenv, tslint, org.jetbrains.completion.full.line, org.jetbrains.plugins.github, com.intellij.notebooks.core]
-Is update check: true
-2026-03-05 17:11:36,896 [ 244280]   INFO - #c.i.u.i.FileBasedIndexImpl - Index dispose started
-2026-03-05 17:11:36,896 [ 244280]   INFO - #c.i.u.i.PersistentDirtyFilesQueue - Dirty file ids stored. Size: 2. Index: 2 Path: /Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system/index/dirty-file-ids
-2026-03-05 17:11:36,930 [ 244314]   INFO - #c.i.p.s.StubIndexImpl - StubIndexExtension-s were unloaded
-2026-03-05 17:11:36,931 [ 244315]   INFO - #c.i.p.s.SerializationManagerImpl - Start shutting down /Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system/index/rep.names
-2026-03-05 17:11:36,941 [ 244325]   INFO - #c.i.p.s.SerializationManagerImpl - Finished shutting down /Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system/index/rep.names
-2026-03-05 17:11:37,034 [ 244418]   INFO - #c.i.u.i.FileBasedIndexImpl - Index dispose completed in 78ms.
-2026-03-05 17:11:37,034 [ 244418]   INFO - #c.i.o.v.n.p.PersistentFSImpl - VFS dispose started
-2026-03-05 17:11:37,034 [ 244418]   INFO - #c.i.o.v.n.p.FSRecordsImpl - VFS closing
-2026-03-05 17:11:37,034 [ 244418]   INFO - #c.i.o.v.n.p.PersistentFSImpl - VFS dispose completed in 6 ms.
-2026-03-05 17:11:37,317 [ 244701]   INFO - #c.i.p.i.b.AppStarter - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------
+2026-03-06 10:33:42,437 [   7221]   INFO - #c.i.i.s.p.i.SharedIndexInfrastructure - Attached 1 shared indexes: bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139
+2026-03-06 10:33:42,437 [   7221]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.util.indexing.FileBasedIndexInfrastructureExtensionStartup@29523850
+2026-03-06 10:33:42,438 [   7222]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.externalDependencies.impl.CheckRequiredPluginsActivity@222b8108
+2026-03-06 10:33:42,440 [   7224]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.externalDependencies.impl.CheckRequiredPluginsActivity@222b8108
+2026-03-06 10:33:42,443 [   7227]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Running task required for smart mode: com.intellij.util.indexing.DumbModeWhileScanningSubscriber@6e995766
+2026-03-06 10:33:42,443 [   7227]   INFO - #c.i.o.p.InitialDumbTaskRequiredForSmartMode - Finished task required for smart mode: com.intellij.util.indexing.DumbModeWhileScanningSubscriber@6e995766
+2026-03-06 10:33:42,443 [   7227]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Task finished: (dumb mode task) com.intellij.openapi.project.InitialDumbTaskRequiredForSmartMode@7a71e5ff
+2026-03-06 10:33:42,492 [   7276]   INFO - #c.i.o.p.DumbServiceImpl - exit dumb mode [Welcome]
+2026-03-06 10:33:42,502 [   7286]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of builtin.pp (id=68) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),Stubs->NOT_INDEXED(not indexed),]. Scanner has updated file builtin.pp (id=68) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=68, fileInfo='builtin.pp(id=68)'}] and removers: []; 
+2026-03-06 10:33:42,502 [   7286]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml11.dtd (id=89) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml11.dtd (id=89) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=89, fileInfo='xhtml11.dtd(id=89)'}] and removers: []; 
+2026-03-06 10:33:42,502 [   7286]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of http-client.env.json (id=72) by request of indexes: [SwReferencesIndex->NOT_INDEXED(not indexed),OpenapiSpecificationContentIndexer->NOT_INDEXED(not indexed),Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),json.file.root.values->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),http.request.execution.environment->NOT_INDEXED(not indexed),]. Scanner has updated file http-client.env.json (id=72) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=72, fileInfo='http-client.env.json(id=72)'}] and removers: []; 
+2026-03-06 10:33:42,503 [   7287]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-lat1.ent (id=79) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-lat1.ent (id=79) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=79, fileInfo='xhtml-lat1.ent(id=79)'}] and removers: []; 
+2026-03-06 10:33:42,504 [   7288]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-base-1.mod (id=109) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-base-1.mod (id=109) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=109, fileInfo='xhtml-base-1.mod(id=109)'}] and removers: []; 
+2026-03-06 10:33:42,504 [   7288]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-edit-1.mod (id=75) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-edit-1.mod (id=75) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=75, fileInfo='xhtml-edit-1.mod(id=75)'}] and removers: []; 
+2026-03-06 10:33:42,504 [   7288]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-form-1.mod (id=98) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-form-1.mod (id=98) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=98, fileInfo='xhtml-form-1.mod(id=98)'}] and removers: []; 
+2026-03-06 10:33:42,504 [   7288]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of http-client.private.env.json (id=70) by request of indexes: [SwReferencesIndex->NOT_INDEXED(not indexed),OpenapiSpecificationContentIndexer->NOT_INDEXED(not indexed),Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),json.file.root.values->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),http.request.execution.environment->NOT_INDEXED(not indexed),]. Scanner has updated file http-client.private.env.json (id=70) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=70, fileInfo='http-client.private.env.json(id=70)'}] and removers: []; 
+2026-03-06 10:33:42,505 [   7289]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-link-1.mod (id=82) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-link-1.mod (id=82) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=82, fileInfo='xhtml-link-1.mod(id=82)'}] and removers: []; 
+2026-03-06 10:33:42,505 [   7289]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scheduling indexing of xhtml-list-1.mod (id=74) by request of indexes: [Trigram.Index->NOT_INDEXED(not indexed),IdIndex->NOT_INDEXED(not indexed),filetypes->NOT_INDEXED(not indexed),]. Scanner has updated file xhtml-list-1.mod (id=74) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=74, fileInfo='xhtml-list-1.mod(id=74)'}] and removers: []; 
+2026-03-06 10:33:42,510 [   7294]   INFO - #c.i.o.w.e.WelcomeScreenProjectProvider - Opened the welcome screen project at /Users/murphy/PyCharmMiscProject
+2026-03-06 10:33:42,517 [   7301]   INFO - #c.i.o.p.DumbServiceImpl - [Project(name=Welcome, containerState=COMPONENT_CREATED, componentStore=/Users/murphy/PyCharmMiscProject)]: running dumb task without visible indicator: Waiting for scanning to complete
+2026-03-06 10:33:42,519 [   7303]   INFO - #c.i.o.u.i.UpdateCheckerService - channel: release
+2026-03-06 10:33:42,533 [   7317]   INFO - #c.i.u.m.MergeAllWindowsAction - === FullScreenTabSupport: frames: 1 ===
+2026-03-06 10:33:42,546 [   7330]   INFO - #c.i.i.p.DisabledPluginsState - Plugins to enable: [com.intellij.classic.ui], applied
+2026-03-06 10:33:42,546 [   7330]   INFO - #c.i.l.LocalizationStateServiceImpl - [i18n] Localization property from registry is null
+2026-03-06 10:33:42,571 [   7355]   INFO - #c.i.o.p.DumbServiceImpl - enter dumb mode [Welcome]
+2026-03-06 10:33:42,617 [   7401]   INFO - #c.i.u.m.t.TouchbarSupport - touchbar disabled: registry
+2026-03-06 10:33:42,638 [   7422]   INFO - #c.i.s.c.i.StationSocketConnectionLoop - RecentProjects connection successfully established
+2026-03-06 10:33:42,657 [   7441]   INFO - #c.i.w.i.i.EntitiesOrphanageImpl - Update orphanage. 0 modules added
+2026-03-06 10:33:42,659 [   7443]   INFO - #o.j.p.t.TerminalOptionsProvider - Initialized TerminalOptionsProvider.cursorShape value to BLOCK
+2026-03-06 10:33:42,662 [   7446]   INFO - #c.i.w.i.i.WorkspaceModelImpl - Project model updated to version 2 in 70 ms: ConstantEntitiesCheckActivity
+2026-03-06 10:33:42,689 [   7473]   INFO - #c.i.p.c.s.s.i.Cache - No cache for LocalEelDescriptor, will fill
+2026-03-06 10:33:42,690 [   7474]   INFO - #c.i.p.c.s.s.i.Cache - Starting update for LocalEelDescriptor
+2026-03-06 10:33:42,741 [   7525]   INFO - #c.i.p.m.f.i.ImportsRankingModelService - Loading CatBoost Imports Ranking model
+2026-03-06 10:33:42,741 [   7525]   INFO - #c.i.i.p.i.ProjectViewInitNotifier - Project View initialization started
+2026-03-06 10:33:42,742 [   7526]   INFO - #c.i.o.e.s.p.m.ExternalProjectsDataStorage - Load external projects data in 2 millis (read time: 2)
+2026-03-06 10:33:42,751 [   7535]   INFO - #c.i.i.b.BookmarksManager - no state loaded for new bookmarks
+2026-03-06 10:33:42,754 [   7538]   INFO - #c.i.i.b.BookmarkManager - no state loaded for old bookmarks
+2026-03-06 10:33:42,788 [   7572]   INFO - #c.i.i.s.p.i.BundledSharedIndexPostStartupActivity - Attached 1 pre-built shared indexes: bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139
+2026-03-06 10:33:42,806 [   7590]   INFO - #c.i.p.w.WhatsNewShowOnStartCheckService - Checking whether to show the What's New page on startup.
+2026-03-06 10:33:42,809 [   7593]   INFO - #c.i.i.s.IdeStartupScripts - 0 startup script(s) found
+2026-03-06 10:33:42,815 [   7599]   INFO - #c.i.d.PerformanceWatcherImpl - Post-startup activities under progress took 301ms; general responsiveness: ok; EDT responsiveness: ok
+2026-03-06 10:33:42,821 [   7605]   INFO - #c.i.i.f.FavoritesManager - no state loaded for old favorites
+2026-03-06 10:33:42,831 [   7615]   INFO - #c.i.p.d.i.f.FrontendXBreakpointManager - Breakpoint created for XBreakpointId(uid=1)
+2026-03-06 10:33:42,832 [   7616]   INFO - #c.i.p.d.i.f.FrontendXBreakpointManager - Breakpoint created for XBreakpointId(uid=2)
+2026-03-06 10:33:42,884 [   7668]   INFO - #c.i.i.p.i.ProjectViewInitNotifier - Project View initialization completed
+2026-03-06 10:33:42,902 [   7686]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file .name (id=117) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=117, fileInfo='.name(id=117)'}] and removers: []; 
+2026-03-06 10:33:42,912 [   7696]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file misc.xml (id=116) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=116, fileInfo='misc.xml(id=116)'}] and removers: []; 
+2026-03-06 10:33:42,914 [   7698]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file .gitignore (id=114) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=114, fileInfo='.gitignore(id=114)'}] and removers: []; 
+2026-03-06 10:33:42,914 [   7698]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file modules.xml (id=118) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=118, fileInfo='modules.xml(id=118)'}] and removers: []; 
+2026-03-06 10:33:42,914 [   7698]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file workspace.xml (id=115) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=115, fileInfo='workspace.xml(id=115)'}] and removers: []; 
+2026-03-06 10:33:42,914 [   7698]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file profiles_settings.xml (id=22) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=22, fileInfo='profiles_settings.xml(id=22)'}] and removers: []; 
+2026-03-06 10:33:42,915 [   7699]   INFO - #c.i.u.i.IndexingReasonExplanationLogger - Scanner has updated file PyCharmMiscProject.iml (id=119) with appliers: [SingleIndexValueApplier{indexId=filetypes, inputId=119, fileInfo='PyCharmMiscProject.iml(id=119)'}] and removers: []; 
+2026-03-06 10:33:42,989 [   7773]   INFO - #c.i.u.i.UnindexedFilesScanner - [d22650a1] Scanning completed for Welcome. Number of scanned files: 225; number of files for indexing: 218
+2026-03-06 10:33:42,989 [   7773]   INFO - #c.i.o.p.InitialVfsRefreshService - d22650a1: marking roots for initial VFS refresh
+2026-03-06 10:33:42,990 [   7774]   INFO - #c.i.o.p.InitialVfsRefreshService - d22650a1: starting initial VFS refresh of 1 roots
+2026-03-06 10:33:43,000 [   7784]   INFO - #c.i.o.p.InitialVfsRefreshService - d22650a1: initial VFS refresh finished in 9 ms
+2026-03-06 10:33:43,002 [   7786]   INFO - #c.i.o.p.UnindexedFilesScannerExecutor - [d22650a1] Task finished (scanning id=0): com.intellij.util.indexing.UnindexedFilesScannerExecutorImpl$ScheduledScanningTask@332c3abc
+2026-03-06 10:33:43,003 [   7787]   INFO - #c.i.o.p.UnindexedFilesScannerExecutor - [d22650a1] Running task: com.intellij.util.indexing.UnindexedFilesScannerExecutorImpl$ScheduledScanningTask@7c0095e8
+2026-03-06 10:33:43,003 [   7787]   INFO - #c.i.o.p.UnindexedFilesScannerExecutor - [d22650a1] Skipping task: com.intellij.util.indexing.UnindexedFilesScannerExecutorImpl$ScheduledScanningTask@7c0095e8
+2026-03-06 10:33:43,017 [   7801]   INFO - #c.i.p.w.WhatsNewShowOnStartCheckService - Got What's New content: com.intellij.platform.whatsNew.WhatsNewVisionContent@475e696f
+2026-03-06 10:33:43,028 [   7812]   INFO - #c.i.p.w.WhatsNewContentVersionChecker - whats.new.last.shown.version is not defined. Will show What's New.
+2026-03-06 10:33:43,028 [   7812]   INFO - #c.i.p.w.WhatsNewShowOnStartCheckService - Should show What's New: true
+2026-03-06 10:33:43,034 [   7818]   INFO - #c.i.i.a.WhatsNewAction - Open What's New page requested.
+2026-03-06 10:33:43,281 [   8065]   INFO - #c.i.l.u.p.RemoteFeatureDisabler - Verdict: Enabled
+2026-03-06 10:33:43,281 [   8065]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage MarkerFilePresent
+2026-03-06 10:33:43,281 [   8065]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage MarkerFilePresent finished
+2026-03-06 10:33:43,282 [   8066]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - Starting state calculation for stage DelayedProject
+2026-03-06 10:33:43,283 [   8067]   INFO - #c.i.l.u.p.AIPromoWindowStatistics - State calculation for stage DelayedProject finished
+2026-03-06 10:33:43,283 [   8067]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Calculated verdict in 551 ms: false, isCalculatedInAcceptableTime: true
+2026-03-06 10:33:43,283 [   8067]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Remote verdict: Enabled, isAIAssistantInstalled: false
+2026-03-06 10:33:43,283 [   8067]   INFO - #c.i.l.u.p.AIPromoWindowAdvisor - Verdict is false, promo won't be shown
+2026-03-06 10:33:43,543 [   8327]   INFO - #c.i.p.m.f.i.ImportsRankingModelService - Successfully loaded imports ranking model
+2026-03-06 10:33:43,555 [   8339]   INFO - #c.i.o.a.i.ActionUpdater - 646 ms to grab EDT for ToolWindowHeader$2#children@ToolwindowTitle (com.intellij.toolWindow.ToolWindowHeader$2)
+2026-03-06 10:33:43,801 [   8585]   INFO - #c.i.p.c.s.s.SystemPythonServiceImplKt - pythons refreshed
+2026-03-06 10:33:43,802 [   8586]   INFO - #c.i.p.c.s.s.i.Cache - End update for LocalEelDescriptor
+2026-03-06 10:33:47,351 [  12135]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Running task: (dumb mode task) UnindexedFilesIndexer[Welcome, reasons: [On project open]]
+2026-03-06 10:33:47,352 [  12136]   INFO - #c.i.u.i.FileBasedIndexImpl - Indexes are already loaded
+2026-03-06 10:33:47,359 [  12143]   INFO - #c.i.u.i.c.IndexUpdateRunner - Using 11 workers for indexing and 4 for writing indexes
+2026-03-06 10:33:47,370 [  12154]   INFO - #c.i.o.p.DumbServiceImpl - [Project(name=Welcome, containerState=COMPONENT_CREATED, componentStore=/Users/murphy/PyCharmMiscProject)]: finished dumb task without visible indicator: Waiting for scanning to complete
+2026-03-06 10:33:47,400 [  12184]   INFO - #c.i.c.m.CodeInsightContextEnabling - multiverse is enabled
+2026-03-06 10:33:47,586 [  12370]   INFO - #c.i.p.w.WhatsNewContent - Opening What's New in editor.
+2026-03-06 10:33:47,587 [  12371]   INFO - #c.i.o.f.i.HTMLEditorProvider - HTML (1402931 chars)
+2026-03-06 10:33:47,661 [  12445]   INFO - #c.i.u.j.JBCefApp - JCEF-sandbox is enabled
+2026-03-06 10:33:47,663 [  12447]   WARN - #c.i.u.j.JBCefApp - JCEF-sandbox was disabled (to enable you should start IDE from launcher)
+2026-03-06 10:33:47,664 [  12448]   INFO - #c.i.u.j.JBCefApp - JCEF logging: level=LOGSEVERITY_DISABLE, file=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/log/jcef_60083.log, chromium_log=/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/log/jcef_chromium_60083.log
+2026-03-06 10:33:47,776 [  12560]   INFO - #c.i.p.w.WhatsNewContentVersionChecker - EapWhatsNew version saved '2025-3.3-31033-0840774b30dc737738640b276d8a87a71eb7ecff'
+2026-03-06 10:33:47,838 [  12622]   WARN - #c.i.g.c.l.GrazieLoginManager - Need explicit activation dialog agreement, so skipping cloud login
+2026-03-06 10:33:47,854 [  12638]   INFO - #c.j.p.p.p.PypiPackageCache$Companion - Reloading Pypi package cache
+2026-03-06 10:33:47,856 [  12640]   INFO - #c.j.p.p.p.PypiPackageCache$Companion - Loading python packages from PyPi Repository
+2026-03-06 10:33:47,856 [  12640]   INFO - #c.j.p.p.PyPIPackageUtil - Fetching index of all packages available on https://pypi.org/simple/
+2026-03-06 10:33:47,856 [  12640]   INFO - #c.j.p.p.PyPIPackageUtil - Fetching index of all packages available on https://pypi.org/simple/
+2026-03-06 10:33:47,929 [  12713]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 7 finished gracefully
+2026-03-06 10:33:47,937 [  12721]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 3 finished gracefully
+2026-03-06 10:33:47,941 [  12725]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 6 finished gracefully
+2026-03-06 10:33:47,942 [  12726]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 9 finished gracefully
+2026-03-06 10:33:47,946 [  12730]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 1 finished gracefully
+2026-03-06 10:33:47,946 [  12730]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 5 finished gracefully
+2026-03-06 10:33:47,948 [  12732]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 8 finished gracefully
+2026-03-06 10:33:47,950 [  12734]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 2 finished gracefully
+2026-03-06 10:33:47,950 [  12734]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 4 finished gracefully
+2026-03-06 10:33:48,087 [  12871]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 10 finished gracefully
+2026-03-06 10:33:48,094 [  12878]   WARN - #c.i.g.c.l.GrazieLoginManager - Need explicit activation dialog agreement, so skipping cloud login
+2026-03-06 10:33:48,270 [  13054]   INFO - #c.i.u.i.c.IndexUpdateRunner - Coroutine 0 finished gracefully
+2026-03-06 10:33:48,306 [  13090]   INFO - #c.i.u.i.ProjectChangedFilesScanner - Retrieving changed during indexing files of Welcome : 0 to update, calculated in 0ms
+2026-03-06 10:33:48,307 [  13091]   INFO - #c.i.u.i.UnindexedFilesIndexer - Finished for Welcome. Unindexed files update took 950ms; general responsiveness: ok; EDT responsiveness: ok
+2026-03-06 10:33:48,308 [  13092]   INFO - #c.i.o.p.MergingQueueGuiExecutor - Task finished: (dumb mode task) UnindexedFilesIndexer[Welcome, reasons: [On project open]]
+2026-03-06 10:33:48,309 [  13093]   INFO - #c.i.o.p.DumbServiceImpl - exit dumb mode [Welcome]
+2026-03-06 10:33:48,375 [  13159]   INFO - #c.i.u.j.JBCefApp - jcef version: remote_137.0.17.3190_e397b569415d3c67b114495985454e5201955573 | cmd args: [--framework-dir-path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/jbr/Contents/Frameworks/Chromium Embedded Framework.framework, --browser-subprocess-path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/jbr/Contents/Frameworks/jcef Helper.app/Contents/MacOS/jcef Helper, --main-bundle-path=/Users/murphy/.gradle/caches/8.14.3/transforms/77404fb35fa68090e18e83d3c10bdea5/transformed/pycharm-professional-2025.3.3-aarch64/jbr/Contents/Frameworks/jcef Helper.app, --disable-in-process-stack-traces, --use-mock-keychain, --disable-features=SpareRendererForSitePerProcess, --disable-notifications, --no-proxy-server, --disable-gpu-process-crash-limit, --autoplay-policy=no-user-gesture-required, --disable-component-update]
+2026-03-06 10:33:50,265 [  15049]   INFO - #c.i.o.a.i.ActionUpdater - 511 ms to grab EDT for ToolWindowHeader$2#children@ToolwindowTitle (com.intellij.toolWindow.ToolWindowHeader$2)
+2026-03-06 10:33:50,685 [  15469]   INFO - #c.j.p.p.p.PypiPackageCache$Companion - Loaded 754748 python packages from PyPi Repository
+2026-03-06 10:34:05,932 [  30716]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Saving global entities com.intellij.platform.workspace.jps.entities.SdkEntity to files
+2026-03-06 10:34:05,933 [  30717]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Saving global entities com.intellij.platform.workspace.jps.entities.LibraryEntity to files
+2026-03-06 10:34:05,957 [  30741]   INFO - #c.i.a.o.PathMacrosImpl - Saved path macros: {}
+2026-03-06 10:34:17,845 [  42629]   INFO - #c.j.r.p.c.CodeWithMeCleanup - running activity to cleanup old thin clients... Root path is '/Users/murphy/Library/Caches/JetBrains'. JvmStartTimeMs=1772764415084
+2026-03-06 10:34:17,847 [  42631]   INFO - #c.j.r.p.c.CodeWithMeCleanup - found 0 Code With Me client system folders to check
+2026-03-06 10:34:17,849 [  42633]   INFO - #c.j.r.p.c.CodeWithMeCleanup - found 1 Code With Me client config folders to check
+2026-03-06 10:34:17,850 [  42634]   INFO - #c.j.r.p.c.CodeWithMeCleanup - keep only [233] major versions
+2026-03-06 10:34:17,850 [  42634]   INFO - #c.j.r.p.c.CodeWithMeCleanup - keep config folder with version 233.14475.35, it is the most up-to-date config folder with 233 major version, path is '/Users/murphy/Library/Application Support/JetBrains/JetBrainsClient233.14475.35'
+2026-03-06 10:34:17,850 [  42634]   INFO - #c.j.r.p.c.CodeWithMeCleanup - Starting the logs folder cleanup. Path: /Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/log
+2026-03-06 10:34:17,851 [  42635]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'versionManagementEnabled' value in [/Library/Application Support/JetBrains/JetBrainsClient/versionManagementEnabled, /Library/Application Support/JetBrains/JetBrainsClient/config.json, /Users/murphy/Library/Application Support/JetBrains/JetBrainsClient/versionManagementEnabled, /Users/murphy/Library/Application Support/JetBrains/JetBrainsClient/config.json]
+2026-03-06 10:34:17,852 [  42636]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'versionManagementEnabled' is not found
+2026-03-06 10:34:42,270 [  67054]   INFO - #c.i.u.g.s.GistStorageImpl - Cleaning old huge-gists dirs from [/Users/murphy/Documents/Dev/Java/mindmap/jetbrains-plugin/build/idea-sandbox/PY-2025.3.3/system/caches/huge-gists] ...
+2026-03-06 10:34:42,270 [  67054]   INFO - #c.i.u.g.s.GistStorageImpl - Cleaning old huge-gists dirs finished
