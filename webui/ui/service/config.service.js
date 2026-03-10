@@ -15,8 +15,8 @@ angular.module('kityminderEditor').provider('config', function() {
     // 放大缩小比例
     zoom: [10, 20, 30, 50, 80, 100, 120, 150, 200],
 
-    // 图片上传接口
-    imageUpload: 'server/imageUpload.php',
+    // 图片上传接口（Node/HTTP API）
+    imageUpload: '/api/upload-image',
   };
 
   this.set = function(key, value) {

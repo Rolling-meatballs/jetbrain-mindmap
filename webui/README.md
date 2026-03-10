@@ -56,6 +56,29 @@ angular.module('kityminderDemo', ['kityminderEditor'])
 
 ```
 
+### Node.js (Express) 上传接口示例
+
+当前仓库已将图片上传接口默认改为 `POST /api/upload-image`，并提供了可复用示例：
+
+- `server/imageUpload.js`：上传处理逻辑（返回 KityMinder 兼容响应结构）
+- `server/express-upload-route.example.js`：Express + multer 路由挂载示例
+
+最小接入步骤：
+
+1. 安装依赖：
+   - `npm i express multer`
+2. 在你的 Node 服务中挂载：
+   - `app.use(createKityMinderUploadRouter())`
+3. 确保静态文件可访问 `server/upload/` 目录（用于回显上传后的图片 URL）
+
+仓库也提供了开箱即用的最小服务：
+
+- 入口：`server/app.js`
+- 启动：`npm run upload:server`
+- 默认端口：`3030`（可通过 `PORT` 覆盖）
+- 上传接口：`POST /api/upload-image`
+- 健康检查：`GET /healthz`
+
 ## 数据导入导出
 由于 kityminder-editor 是基于 kityminder-core 搭建的，而 kityminder-core 内置了五种常见
 格式的导入或导出，在创建编辑器实例之后，可以使用四个接口进行数据的导入导出。

@@ -48,10 +48,10 @@ Use this checklist for MMP-010 before cutting an internal release.
 
 ## 6) Release Notes (Internal)
 
-- [ ] Mention MMP-006 relation strategy: metadata preserved as `xmindRelations` (no line rendering yet)
-- [ ] Mention MMP-007 PNG export validated in sandbox
-- [ ] Mention MMP-009 bridge smoke tests completed
-- [ ] Mention MMP-003 remains blocked and tracked separately
+- [x] Mention MMP-006 relation strategy: metadata preserved as `xmindRelations` (no line rendering yet)
+- [x] Mention MMP-007 PNG export validated in sandbox
+- [x] Mention MMP-009 bridge smoke tests completed
+- [x] Mention MMP-003 behavior update: double-click opens editor only; ToolWindow is manual (`Open Mindmap`)
 
 ## 7) Artifacts & Handoff
 
@@ -78,9 +78,9 @@ Use this checklist for MMP-010 before cutting an internal release.
 ### Validation Evidence
 
 - Matrix run log path: `Terminal session outputs on 2026-03-06 (buildPlugin/test/runIde)`
-- Runtime validation evidence path (screenshots/logs): `PORTING_TASKS.md progress entries for MMP-006/MMP-007/MMP-008`
+- Runtime validation evidence path (screenshots/logs): `PORTING_TASKS.md progress entries for MMP-003/MMP-006/MMP-007/MMP-008`
 - Known warnings reviewed against baseline (`MMP-004`): `[x] yes  [ ] no`
-- MMP-003 blocked status acknowledged in release note: `[ ] yes  [x] no`
+- MMP-003 behavior update acknowledged in release note: `[x] yes  [ ] no`
 
 ### Approval
 

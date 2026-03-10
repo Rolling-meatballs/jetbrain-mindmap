@@ -5,6 +5,7 @@ This folder contains a JetBrains plugin skeleton for porting `vscode-mindmap`.
 Migration tracking file: `jetbrains-plugin/PORTING_TASKS.md`
 Release validation matrix: `jetbrains-plugin/RELEASE_VALIDATION_MATRIX.md`
 Release checklist: `jetbrains-plugin/RELEASE_CHECKLIST.md`
+Internal release notes draft: `jetbrains-plugin/INTERNAL_RELEASE_NOTES_0.1.0.md`
 
 ## Current scope
 

@@ -30,20 +30,20 @@ Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature 
 |---|---|---|---|---|---|
 | MMP-001 | Migrate Gradle build to IntelliJ Platform Plugin 2.x | P0 | dev | done | Switched to 2.x and PyCharm Pro target |
 | MMP-002 | Ensure Gradle wrapper bootstrap for local setup | P0 | dev | done | `scripts/bootstrap-wrapper.sh` available |
-| MMP-003 | Add auto-open behavior for `.km/.xmind` files | P1 | dev | blocked | Behavior not stable on PyCharm Pro 2025.3 sandbox |
+| MMP-003 | Add auto-open behavior for `.km/.xmind` files | P1 | dev | done | Requirement adjusted: double-click only opens editor tab; ToolWindow remains manual via `Open Mindmap` |
 | MMP-004 | Stabilize warnings/noise under 2025.3.3 sandbox | P1 | dev | done | Warnings classified: platform noise vs plugin-actionable; no feature blocker remains |
 | MMP-005 | Implement file editor provider (open as editor tab, not only ToolWindow) | P1 | dev | done | Added FileEditorProvider for `.km/.xmind`; fixed 2025.3 provider/fileType compatibility |
 | MMP-006 | Improve `.xmind` parser coverage (markers/notes/relations) | P1 | dev | done | Added note/hyperlink/labels/marker + style/image mapping; relations imported as `xmindRelations` metadata with explicit runtime notice |
 | MMP-007 | Verify PNG export with real KityMinder page in sandbox | P1 | dev | done | End-to-end verified: export button -> bridge -> `.png` file in sandbox project |
 | MMP-008 | Package webui assets reliably for build/release | P0 | dev | done | Validation matrix executed: buildPlugin/test/runIde passed; startup warnings classified as non-blocking |
 | MMP-009 | Add automated smoke tests for bridge commands | P2 | dev | done | Loaded/import/save/export helper-level smoke coverage completed and validated via Gradle tests |
-| MMP-010 | Prepare release checklist (build, sign, compatibility) | P2 | dev | in_progress | Checklist drafted in `RELEASE_CHECKLIST.md`; execution/sign-off pending |
+| MMP-010 | Prepare release checklist (build, sign, compatibility) | P2 | dev | in_progress | Checklist + release notes drafted; approval/sign-off fields pending |
 
 ## Immediate Next Steps
 
-1. Complete MMP-010: execute `RELEASE_CHECKLIST.md` items and record sign-off artifacts.
-2. Revisit relation line rendering in webui as a post-parity enhancement (metadata already preserved).
-3. Triage MMP-003 auto-open instability separately from release path.
+1. Complete MMP-010: finalize approval fields in `RELEASE_CHECKLIST.md` and close sign-off.
+2. Prepare first internal release notes from checklist section 6.
+3. Revisit relation line rendering in webui as a post-parity enhancement (metadata already preserved).
 
 ## Progress Log
 
@@ -92,3 +92,7 @@ Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature 
 - 2026-03-06 | MMP-010 | in_progress | Pre-filled checklist evidence from current build artifacts and validations (zip path/size/SHA256, since/until build, manifest+bundled-webui checks, warning baseline), leaving approval/release-note sign-off items pending.
 - 2026-03-06 | MMP-003 | in_progress | 临时变更申请已确认：双击 `.km/.xmind` 仅打开文件编辑器，不再自动弹出 Mindmap 侧边 ToolWindow（保留手动 `Open Mindmap` 入口）。
 - 2026-03-06 | MMP-003 | in_progress | 已移除 `MindmapStartupActivity` 中 selection-change 自动 `ToolWindow.show()` 逻辑；双击文件现在仅打开编辑器，ToolWindow 需手动触发（待你本地 runIde 复核）。
+- 2026-03-06 | MMP-003 | done | User confirmed behavior in sandbox: double-click opens editor only; no auto-open ToolWindow popup.
+- 2026-03-06 | MMP-010 | in_progress | Added `INTERNAL_RELEASE_NOTES_0.1.0.md` and checked checklist release-note items; updated checklist evidence to acknowledge MMP-003 behavior update.
+- 2026-03-06 | MMP-008 | done | Replaced legacy PHP image upload endpoint with `/api/upload-image` in webui config, added Node.js handler + Express route example (`webui/server/imageUpload.js`, `webui/server/express-upload-route.example.js`), and removed `imageUpload.php`.
+- 2026-03-06 | MMP-008 | done | Added runnable upload server scaffold (`webui/server/app.js`, `npm run upload:server`) and documented `/api/upload-image` + static `/server/upload` serving in `webui/README.md`.

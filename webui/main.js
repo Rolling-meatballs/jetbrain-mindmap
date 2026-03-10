@@ -4,7 +4,7 @@
 angular
   .module('kityminderDemo', ['kityminderEditor'])
   .config(function(configProvider) {
-    configProvider.set('imageUpload', '../server/imageUpload.php');
+    configProvider.set('imageUpload', '/api/upload-image');
   })
   .controller('MainController', function($scope) {
     $scope.initEditor = function(editor, minder) {
