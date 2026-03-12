@@ -3,8 +3,8 @@ package com.souche.mindmap.idea
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
+import com.intellij.openapi.application.ReadAction
 import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VfsUtil
@@ -46,7 +46,7 @@ class MindmapBridge(
 
         val message = importMessageBuilder.build(
             extension = file.extension,
-            loadKmText = { runReadAction { VfsUtil.loadText(file) } },
+            loadKmText = { ReadAction.compute<String, RuntimeException> { VfsUtil.loadText(file) } },
             loadXmindAsKmJson = {
                 runCatching { xmindConverter.convertToKmJson(file) }
                     .onFailure { notifyError("Failed to parse ${file.name}. ${it.message ?: "Unknown error"}") }

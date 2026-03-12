@@ -1,6 +1,6 @@
 # Mindmap JetBrains Porting Tasks
 
-Last updated: 2026-03-06
+Last updated: 2026-03-11
 
 ## Tracking Rules
 
@@ -10,7 +10,7 @@ Last updated: 2026-03-06
 
 ## Goal
 
-Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature parity for:
+Port `vscode-mindmap` to JetBrains IntelliJ Platform products with feature parity for:
 
 - `.km` edit/save
 - `.xmind` import + save as `.km`
@@ -19,7 +19,7 @@ Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature 
 
 ## Current Baseline
 
-- Host platform: PyCharm Professional `2025.3.3` (build `253`)
+- Host platform baseline: IntelliJ Platform IDEs on build `253`
 - Build plugin: `org.jetbrains.intellij.platform` `2.10.5`
 - Runtime bridge: JS <-> Kotlin message protocol available (`loaded/import/save/exportToImage`)
 - Web UI strategy: bundled webui -> project webui -> fallback page
@@ -28,16 +28,16 @@ Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature 
 
 | ID | Task | Priority | Owner | Status | Notes |
 |---|---|---|---|---|---|
-| MMP-001 | Migrate Gradle build to IntelliJ Platform Plugin 2.x | P0 | dev | done | Switched to 2.x and PyCharm Pro target |
+| MMP-001 | Migrate Gradle build to IntelliJ Platform Plugin 2.x | P0 | dev | done | Switched to 2.x and IntelliJ Platform target |
 | MMP-002 | Ensure Gradle wrapper bootstrap for local setup | P0 | dev | done | `scripts/bootstrap-wrapper.sh` available |
 | MMP-003 | Add auto-open behavior for `.km/.xmind` files | P1 | dev | done | Requirement adjusted: double-click only opens editor tab; ToolWindow remains manual via `Open Mindmap` |
 | MMP-004 | Stabilize warnings/noise under 2025.3.3 sandbox | P1 | dev | done | Warnings classified: platform noise vs plugin-actionable; no feature blocker remains |
 | MMP-005 | Implement file editor provider (open as editor tab, not only ToolWindow) | P1 | dev | done | Added FileEditorProvider for `.km/.xmind`; fixed 2025.3 provider/fileType compatibility |
-| MMP-006 | Improve `.xmind` parser coverage (markers/notes/relations) | P1 | dev | done | Added note/hyperlink/labels/marker + style/image mapping; relations imported as `xmindRelations` metadata with explicit runtime notice |
+| MMP-006 | Improve `.xmind` parser coverage (markers/notes/relations) | P1 | dev | in_progress | Embedded image rendering fix added (resource attachments -> data URLs); pending local validation with real XMind sample |
 | MMP-007 | Verify PNG export with real KityMinder page in sandbox | P1 | dev | done | End-to-end verified: export button -> bridge -> `.png` file in sandbox project |
 | MMP-008 | Package webui assets reliably for build/release | P0 | dev | done | Validation matrix executed: buildPlugin/test/runIde passed; startup warnings classified as non-blocking |
 | MMP-009 | Add automated smoke tests for bridge commands | P2 | dev | done | Loaded/import/save/export helper-level smoke coverage completed and validated via Gradle tests |
-| MMP-010 | Prepare release checklist (build, sign, compatibility) | P2 | dev | in_progress | Checklist + release notes drafted; approval/sign-off fields pending |
+| MMP-010 | Prepare release checklist (build, sign, compatibility) | P2 | dev | in_progress | Marketplace requested metadata cleanup; plugin.xml name/description updated, vendor profile rename still pending in Marketplace console |
 
 ## Immediate Next Steps
 
@@ -96,3 +96,11 @@ Port `vscode-mindmap` to JetBrains (PyCharm Professional 2025.3.3) with feature 
 - 2026-03-06 | MMP-010 | in_progress | Added `INTERNAL_RELEASE_NOTES_0.1.0.md` and checked checklist release-note items; updated checklist evidence to acknowledge MMP-003 behavior update.
 - 2026-03-06 | MMP-008 | done | Replaced legacy PHP image upload endpoint with `/api/upload-image` in webui config, added Node.js handler + Express route example (`webui/server/imageUpload.js`, `webui/server/express-upload-route.example.js`), and removed `imageUpload.php`.
 - 2026-03-06 | MMP-008 | done | Added runnable upload server scaffold (`webui/server/app.js`, `npm run upload:server`) and documented `/api/upload-image` + static `/server/upload` serving in `webui/README.md`.
+- 2026-03-06 | MMP-010 | in_progress | Switched build target from PyCharm-specific to generic `intellijIdea("2025.3.3")` while keeping only `com.intellij.modules.platform`, to broaden Marketplace compatibility across JetBrains IDEs on build 253.
+- 2026-03-10 | MMP-010 | in_progress | Confirmed Marketplace product scope for `253` line: Android Studio, AppCode, Aqua, CLion, DataGrip, DataSpell, GoLand, IntelliJ IDEA/Community, JetBrains Client/Gateway, MPS, PhpStorm, PyCharm/Community, Rider, RubyMine, RustRover, WebStorm, and Writerside.
+- 2026-03-10 | MMP-010 | in_progress | Updated `plugin.xml` metadata to remove "JetBrains" affiliation wording from plugin name/description per Marketplace review feedback; Marketplace vendor profile rename still requires manual console update.
+- 2026-03-10 | MMP-010 | in_progress | Added Gradle Marketplace publishing via `publishPlugin` using `JETBRAINS_MARKETPLACE_TOKEN` environment variable; documented one-command build+upload flow in README.
+- 2026-03-10 | MMP-010 | in_progress | Bumped plugin version to `0.1.1` for Marketplace resubmission after review feedback; updated release checklist and release notes artifact references.
+- 2026-03-10 | MMP-006 | in_progress | Started fix for `.xmind` embedded images: converter now resolves `resources/*` attachments into browser-safe data URLs; plugin metadata now mentions XMind explicitly for Marketplace searchability.
+- 2026-03-11 | MMP-010 | in_progress | Bumped plugin version to `0.1.2` after Marketplace rejected duplicate `0.1.1` upload in default channel; release artifact references updated for re-publish.
+- 2026-03-11 | MMP-010 | in_progress | Replaced deprecated Kotlin `runReadAction` bridge usage with `ReadAction.compute(...)` to satisfy 2026.1 plugin verification deprecation check.

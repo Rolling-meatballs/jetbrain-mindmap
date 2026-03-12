@@ -1,11 +1,11 @@
 <idea-plugin>
     <id>com.souche.mindmap.idea</id>
-    <name>Mindmap (VSCode Port Skeleton)</name>
+    <name>Mindmap</name>
     <vendor email="dev@souche.com" url="https://github.com/souche/vscode-mindmap">Souche</vendor>
 
     <description><![CDATA[
-      JetBrains skeleton plugin for mindmap editing with a JCEF bridge.
-      Current scope: open .km/.xmind in a Tool Window, import/save message protocol.
+      Mind map and XMind editor plugin with a JCEF-based bridge.
+      Current scope: open and edit .km/.xmind files, import XMind content with styles and images, save .km files, and export PNG images.
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

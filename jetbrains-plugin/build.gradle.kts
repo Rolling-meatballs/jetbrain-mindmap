@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "com.souche.mindmap"
-version = "0.1.0"
+version = "0.1.3"
 
 repositories {
     mavenCentral()
@@ -28,7 +28,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
 
     intellijPlatform {
-        pycharmProfessional("2025.3.3")
+        intellijIdea("2025.3.3")
     }
 }
 
@@ -38,6 +38,10 @@ intellijPlatform {
             sinceBuild = "253"
             untilBuild = "253.*"
         }
+    }
+
+    publishing {
+        token = providers.environmentVariable("JETBRAINS_MARKETPLACE_TOKEN")
     }
 }
 

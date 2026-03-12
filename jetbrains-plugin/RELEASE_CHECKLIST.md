@@ -35,7 +35,7 @@ Use this checklist for MMP-010 before cutting an internal release.
   - [x] `dist/main.min.js`
   - [x] `bower_components/marked/lib/marked.js`
 - [x] Distribution zip exists under `build/distributions/`
-- [x] Plugin jar contains `bundled-webui/**` (checked via `jar tf build/libs/mindmap-jetbrains-0.1.0.jar`)
+- [x] Plugin jar contains `bundled-webui/**` (checked via `jar tf build/libs/mindmap-jetbrains-0.1.2.jar`)
 
 ## 5) Known Non-Blocking Warnings (Documented)
 
@@ -63,15 +63,15 @@ Use this checklist for MMP-010 before cutting an internal release.
 
 ### Release Identity
 
-- Release version: `0.1.0`
+- Release version: `0.1.2`
 - Build date (YYYY-MM-DD): `2026-03-06`
-- Plugin zip path: `build/distributions/mindmap-jetbrains-0.1.0.zip`
+- Plugin zip path: `build/distributions/mindmap-jetbrains-0.1.2.zip`
 - Plugin zip size: `5638813 bytes`
 - SHA256 (`shasum -a 256 <zip>`): `427e80b006af4e20b2ae61d45c699a2fd848fb36d8ceb405baefffb1e8fdbcba`
 
 ### Compatibility Window
 
-- Target IDE: `PyCharm Professional 2025.3.3 (build 253)`
+- Target IDE baseline: `IntelliJ Platform 253-based IDEs` (Marketplace currently resolves to Android Studio, AppCode, Aqua, CLion, DataGrip, DataSpell, GoLand, IntelliJ IDEA/Community, JetBrains Client/Gateway, MPS, PhpStorm, PyCharm/Community, Rider, RubyMine, RustRover, WebStorm, Writerside)
 - `sinceBuild`: `253`
 - `untilBuild`: `253.*`
 

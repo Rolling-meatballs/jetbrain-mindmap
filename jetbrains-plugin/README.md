@@ -5,7 +5,7 @@ This folder contains a JetBrains plugin skeleton for porting `vscode-mindmap`.
 Migration tracking file: `jetbrains-plugin/PORTING_TASKS.md`
 Release validation matrix: `jetbrains-plugin/RELEASE_VALIDATION_MATRIX.md`
 Release checklist: `jetbrains-plugin/RELEASE_CHECKLIST.md`
-Internal release notes draft: `jetbrains-plugin/INTERNAL_RELEASE_NOTES_0.1.0.md`
+Internal release notes draft: `jetbrains-plugin/INTERNAL_RELEASE_NOTES_0.1.2.md`
 
 ## Current scope
 
@@ -50,7 +50,7 @@ From this folder:
 If you do not have local Gradle installed yet, import this folder as a Gradle project in IntelliJ IDEA and run the `runIde` task.
 
 > Required Gradle version: **8.13+** (recommended: 8.13).  
-> Build system now uses **IntelliJ Platform Gradle Plugin 2.x** and targets **IntelliJ IDEA 2025.3.3 (build 253)**.
+> Build system now uses **IntelliJ Platform Gradle Plugin 2.x** and targets **IntelliJ Platform 253-based IDEs**.
 
 ## Build packaged webui
 
@@ -86,6 +86,24 @@ cd jetbrains-plugin
 Then verify checklist items in `RELEASE_VALIDATION_MATRIX.md`.
 
 For release readiness sign-off, complete `RELEASE_CHECKLIST.md`.
+
+## Publish to Marketplace
+
+Use an environment variable for the Marketplace token; do not hardcode it in the repo.
+
+```bash
+cd jetbrains-plugin
+export JETBRAINS_MARKETPLACE_TOKEN='your-token-here'
+./gradlew clean buildPlugin publishPlugin
+```
+
+If you only want to upload an already-built artifact:
+
+```bash
+cd jetbrains-plugin
+export JETBRAINS_MARKETPLACE_TOKEN='your-token-here'
+./gradlew publishPlugin
+```
 
 ## Enable full webui in development
 

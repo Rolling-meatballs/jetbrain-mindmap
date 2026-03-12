@@ -6,6 +6,7 @@ import org.json.JSONObject
 import org.w3c.dom.Element
 import java.io.ByteArrayInputStream
 import java.nio.charset.StandardCharsets
+import java.util.Base64
 import java.util.UUID
 import java.util.zip.ZipInputStream
 import javax.xml.parsers.DocumentBuilderFactory
@@ -22,14 +23,12 @@ class XmindConverter {
     }
 
     internal fun convertToKmJson(zipData: Map<String, ByteArray>): String {
-        val normalizedEntries = zipData.mapKeys { it.key.substringAfterLast('/') }
-
-        normalizedEntries["content.json"]?.let { bytes ->
-            return fromContentJson(String(bytes, StandardCharsets.UTF_8)).toString()
+        entryBytes(zipData, "content.json")?.let { bytes ->
+            return fromContentJson(String(bytes, StandardCharsets.UTF_8), zipData).toString()
         }
 
-        normalizedEntries["content.xml"]?.let { bytes ->
-            return fromContentXml(bytes).toString()
+        entryBytes(zipData, "content.xml")?.let { bytes ->
+            return fromContentXml(bytes, zipData).toString()
         }
 
         return EMPTY_DOC.toString()
@@ -42,8 +41,7 @@ class XmindConverter {
                 var entry = zip.nextEntry
                 while (entry != null) {
                     if (!entry.isDirectory) {
-                        val key = entry.name.substringAfterLast('/')
-                        entries[key] = zip.readBytes()
+                        entries[entry.name] = zip.readBytes()
                     }
                     zip.closeEntry()
                     entry = zip.nextEntry
@@ -53,33 +51,33 @@ class XmindConverter {
         return entries
     }
 
-    private fun fromContentJson(content: String): JSONObject {
+    private fun fromContentJson(content: String, zipData: Map<String, ByteArray>): JSONObject {
         val sheets = JSONArray(content)
         if (sheets.length() == 0) return EMPTY_DOC
 
         val primarySheet = sheets.optJSONObject(0) ?: return EMPTY_DOC
         val rootTopic = primarySheet.optJSONObject("rootTopic") ?: return EMPTY_DOC
-        val km = wrapKm(topicFromJson(rootTopic))
+        val km = wrapKm(topicFromJson(rootTopic, zipData))
         applyRelations(km, extractJsonRelations(primarySheet))
         return km
     }
 
-    private fun topicFromJson(topic: JSONObject): JSONObject {
+    private fun topicFromJson(topic: JSONObject, zipData: Map<String, ByteArray>): JSONObject {
         val node = JSONObject()
-        node.put("data", buildDataFromJson(topic))
+        node.put("data", buildDataFromJson(topic, zipData))
 
         val children = JSONArray()
         val attached = topic.optJSONObject("children")?.optJSONArray("attached") ?: JSONArray()
         for (index in 0 until attached.length()) {
             val childTopic = attached.optJSONObject(index) ?: continue
-            children.put(topicFromJson(childTopic))
+            children.put(topicFromJson(childTopic, zipData))
         }
 
         node.put("children", children)
         return node
     }
 
-    private fun fromContentXml(content: ByteArray): JSONObject {
+    private fun fromContentXml(content: ByteArray, zipData: Map<String, ByteArray>): JSONObject {
         val factory = DocumentBuilderFactory.newInstance().apply {
             isNamespaceAware = false
         }
@@ -92,14 +90,14 @@ class XmindConverter {
         if (topics.length == 0) return EMPTY_DOC
 
         val rootTopic = topics.item(0) as? Element ?: return EMPTY_DOC
-        val km = wrapKm(topicFromXml(rootTopic))
+        val km = wrapKm(topicFromXml(rootTopic, zipData))
         applyRelations(km, extractXmlRelations(firstSheet))
         return km
     }
 
-    private fun topicFromXml(topic: Element): JSONObject {
+    private fun topicFromXml(topic: Element, zipData: Map<String, ByteArray>): JSONObject {
         val node = JSONObject()
-        node.put("data", buildDataFromXml(topic))
+        node.put("data", buildDataFromXml(topic, zipData))
 
         val children = JSONArray()
         val childrenElement = directChild(topic, "children")
@@ -110,7 +108,7 @@ class XmindConverter {
             for (index in 0 until childNodes.length) {
                 val childTopic = childNodes.item(index) as? Element ?: continue
                 if (childTopic.parentNode == topicsElement) {
-                    children.put(topicFromXml(childTopic))
+                    children.put(topicFromXml(childTopic, zipData))
                 }
             }
         }
@@ -146,7 +144,7 @@ class XmindConverter {
         return element?.textContent?.trim().orEmpty()
     }
 
-    private fun buildDataFromJson(topic: JSONObject): JSONObject {
+    private fun buildDataFromJson(topic: JSONObject, zipData: Map<String, ByteArray>): JSONObject {
         val data = JSONObject()
         data.put("id", topic.optString("id", UUID.randomUUID().toString()))
         data.put("text", topic.optString("title", ""))
@@ -158,12 +156,12 @@ class XmindConverter {
         extractJsonPriority(topic)?.let { data.put("priority", it) }
         extractJsonProgress(topic)?.let { data.put("progress", it) }
         applyJsonStyle(topic, data)
-        applyJsonImage(topic, data)
+        applyJsonImage(topic, data, zipData)
 
         return data
     }
 
-    private fun buildDataFromXml(topic: Element): JSONObject {
+    private fun buildDataFromXml(topic: Element, zipData: Map<String, ByteArray>): JSONObject {
         val data = JSONObject()
         data.put("id", topic.getAttribute("id").ifBlank { UUID.randomUUID().toString() })
         data.put("text", directChildText(topic, "title"))
@@ -175,7 +173,7 @@ class XmindConverter {
         extractXmlPriority(topic)?.let { data.put("priority", it) }
         extractXmlProgress(topic)?.let { data.put("progress", it) }
         applyXmlStyle(topic, data)
-        applyXmlImage(topic, data)
+        applyXmlImage(topic, data, zipData)
 
         return data
     }
@@ -202,7 +200,7 @@ class XmindConverter {
             }
     }
 
-    private fun applyJsonImage(topic: JSONObject, data: JSONObject) {
+    private fun applyJsonImage(topic: JSONObject, data: JSONObject, zipData: Map<String, ByteArray>) {
         val image = topic.optJSONObject("image") ?: return
         val url = firstJsonString(listOf(image), "src", "xlink:href", "href", "url") ?: return
         val width = parseDimension(image.opt("width"))
@@ -210,7 +208,8 @@ class XmindConverter {
         // kityminder png export assumes imageSize exists when image exists.
         if (width == null || height == null || width <= 0 || height <= 0) return
 
-        data.put("image", url)
+        val resolvedUrl = resolveEmbeddedImage(url, zipData) ?: url
+        data.put("image", resolvedUrl)
         firstJsonString(listOf(image), "title", "alt")
             ?.let { data.put("imageTitle", it) }
         data.put(
@@ -324,14 +323,15 @@ class XmindConverter {
             }
     }
 
-    private fun applyXmlImage(topic: Element, data: JSONObject) {
+    private fun applyXmlImage(topic: Element, data: JSONObject, zipData: Map<String, ByteArray>) {
         val imageElement = firstXmlImageElement(topic) ?: return
         val url = firstXmlAttribute(imageElement, "xhtml:src", "src", "xlink:href", "href") ?: return
         val width = firstXmlAttribute(imageElement, "svg:width", "width")?.let(::parseDimension)
         val height = firstXmlAttribute(imageElement, "svg:height", "height")?.let(::parseDimension)
         if (width == null || height == null || width <= 0 || height <= 0) return
 
-        data.put("image", url)
+        val resolvedUrl = resolveEmbeddedImage(url, zipData) ?: url
+        data.put("image", resolvedUrl)
         firstXmlAttribute(imageElement, "title", "alt")
             ?.let { data.put("imageTitle", it) }
         data.put(
@@ -392,6 +392,41 @@ class XmindConverter {
             }
         }
         return null
+    }
+
+
+    private fun resolveEmbeddedImage(rawUrl: String, zipData: Map<String, ByteArray>): String? {
+        val trimmed = rawUrl.trim()
+        if (trimmed.isEmpty()) return null
+        if (trimmed.startsWith("data:", ignoreCase = true)) return trimmed
+        if (trimmed.startsWith("http://", ignoreCase = true) || trimmed.startsWith("https://", ignoreCase = true)) return trimmed
+
+        val imageBytes = entryBytes(zipData, trimmed) ?: return null
+        val mimeType = mimeTypeFor(trimmed)
+        val encoded = Base64.getEncoder().encodeToString(imageBytes)
+        return "data:$mimeType;base64,$encoded"
+    }
+
+    private fun entryBytes(zipData: Map<String, ByteArray>, entryName: String): ByteArray? {
+        zipData[entryName]?.let { return it }
+        val normalizedName = entryName.removePrefix("./").trimStart('/')
+        zipData[normalizedName]?.let { return it }
+        val leafName = normalizedName.substringAfterLast('/')
+        return zipData.entries.firstOrNull { entry ->
+            val key = entry.key.removePrefix("./").trimStart('/')
+            key == normalizedName || key.endsWith("/$normalizedName") || key.substringAfterLast('/') == leafName
+        }?.value
+    }
+
+    private fun mimeTypeFor(path: String): String {
+        return when (path.substringAfterLast('.', "").lowercase()) {
+            "png" -> "image/png"
+            "jpg", "jpeg" -> "image/jpeg"
+            "gif" -> "image/gif"
+            "svg" -> "image/svg+xml"
+            "webp" -> "image/webp"
+            else -> "application/octet-stream"
+        }
     }
 
     private fun parseDimension(raw: Any?): Int? {

@@ -106,6 +106,75 @@ class XmindConverterTest {
         assertTrue(!relations.getJSONObject(0).has("title"))
     }
 
+    @Test
+    fun `embeds content json images from xmind resources`() {
+        val content = """
+            [
+              {
+                "rootTopic": {
+                  "id": "root",
+                  "title": "Root",
+                  "image": {
+                    "src": "resources/sample.png",
+                    "width": "120",
+                    "height": "80"
+                  }
+                }
+              }
+            ]
+        """.trimIndent()
+
+        val km = JSONObject(
+            converter.convertToKmJson(
+                mapOf(
+                    "content.json" to content.toByteArray(),
+                    "resources/sample.png" to byteArrayOf(1, 2, 3, 4)
+                )
+            )
+        )
+
+        val image = km.rootData().getString("image")
+        assertTrue(image.startsWith("data:image/png;base64,"))
+        assertEquals(120, km.rootData().getJSONObject("imageSize").getInt("width"))
+        assertEquals(80, km.rootData().getJSONObject("imageSize").getInt("height"))
+    }
+
+    @Test
+    fun `embeds content xml images from xmind resources`() {
+        val xml = """
+            <xmap-content>
+              <sheet>
+                <topic id="root">
+                  <title>Root</title>
+                  <xhtml:img xhtml:src="resources/sample.png" svg:width="64" svg:height="32"/>
+                </topic>
+              </sheet>
+            </xmap-content>
+        """.trimIndent()
+
+        val km = JSONObject(
+            converter.convertToKmJson(
+                mapOf(
+                    "content.xml" to xml.toByteArray(),
+                    "resources/sample.png" to byteArrayOf(9, 8, 7, 6)
+                )
+            )
+        )
+
+        val image = km.rootData().getString("image")
+        assertTrue(image.startsWith("data:image/png;base64,"))
+        assertEquals(64, km.rootData().getJSONObject("imageSize").getInt("width"))
+        assertEquals(32, km.rootData().getJSONObject("imageSize").getInt("height"))
+    }
+
+    private fun JSONObject.rootData(): JSONObject {
+        val root = optJSONObject("root")
+        assertNotNull(root)
+        val data = root.optJSONObject("data")
+        assertNotNull(data)
+        return data
+    }
+
     private fun JSONObject.rootRelations(): JSONArray {
         val root = optJSONObject("root")
         assertNotNull(root)
