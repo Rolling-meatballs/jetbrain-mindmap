@@ -1,28 +1,29 @@
 # Mindmap JetBrains Release Checklist
 
-Last updated: 2026-03-06
+Last updated: 2026-03-12
 
 Use this checklist for MMP-010 before cutting an internal release.
 
 ## 1) Version & Metadata
 
-- [ ] Bump plugin version in `build.gradle.kts`
+- [x] Bump plugin version in `build.gradle.kts`
 - [x] Verify plugin id/name/vendor in `src/main/resources/META-INF/plugin.xml`
 - [x] Verify `sinceBuild` / `untilBuild` compatibility window in `build.gradle.kts`
 
 ## 2) Build & Test Gate
 
-- [x] `./gradlew clean buildPlugin`
-- [x] `./gradlew test`
+- [ ] `./gradlew clean buildPlugin`
+- [ ] `./gradlew test`
 - [ ] Targeted smoke tests:
-  - [x] `./gradlew test --tests com.souche.mindmap.idea.XmindConverterTest`
-  - [x] `./gradlew test --tests com.souche.mindmap.idea.MindmapBridgeRoundtripTest`
+  - [ ] `./gradlew test --tests com.souche.mindmap.idea.XmindConverterTest`
+  - [ ] `./gradlew test --tests com.souche.mindmap.idea.MindmapBridgeRoundtripTest`
 
 ## 3) Runtime Validation
 
-- [x] `./gradlew runIde` starts sandbox successfully
+- [ ] `./gradlew runIde` starts sandbox successfully
 - [x] Open `.km` file, edit, and save succeeds
 - [x] Open `.xmind` file, import displays correctly, save creates sibling `.km`
+- [x] Real-sample `.xmind` embedded `resources/*` images render correctly in sandbox
 - [x] `exportToImage` creates sibling `.png`
 - [x] `.xmind` relation metadata notice appears when relation data exists
 
@@ -34,8 +35,8 @@ Use this checklist for MMP-010 before cutting an internal release.
   - [x] `dist/kityminder.editor.min.js`
   - [x] `dist/main.min.js`
   - [x] `bower_components/marked/lib/marked.js`
-- [x] Distribution zip exists under `build/distributions/`
-- [x] Plugin jar contains `bundled-webui/**` (checked via `jar tf build/libs/mindmap-jetbrains-0.1.2.jar`)
+- [ ] Distribution zip exists under `build/distributions/`
+- [ ] Plugin jar contains `bundled-webui/**` (verify via `jar tf build/libs/mindmap-jetbrains-0.1.4.jar`)
 
 ## 5) Known Non-Blocking Warnings (Documented)
 
@@ -49,13 +50,15 @@ Use this checklist for MMP-010 before cutting an internal release.
 ## 6) Release Notes (Internal)
 
 - [x] Mention MMP-006 relation strategy: metadata preserved as `xmindRelations` (no line rendering yet)
+- [x] Mention MMP-006 embedded image import fix and real-sample validation
+- [x] Mention MMP-010 deprecated API cleanup follow-up (`Application.runReadAction(Computable)`)
 - [x] Mention MMP-007 PNG export validated in sandbox
 - [x] Mention MMP-009 bridge smoke tests completed
 - [x] Mention MMP-003 behavior update: double-click opens editor only; ToolWindow is manual (`Open Mindmap`)
 
 ## 7) Artifacts & Handoff
 
-- [x] Archive plugin zip checksum (SHA256) for traceability
+- [ ] Archive plugin zip checksum (SHA256) for traceability
 - [ ] Record command outputs or screenshots for key validations
 - [ ] Update `PORTING_TASKS.md` with final MMP-010 status
 
@@ -63,11 +66,11 @@ Use this checklist for MMP-010 before cutting an internal release.
 
 ### Release Identity
 
-- Release version: `0.1.2`
-- Build date (YYYY-MM-DD): `2026-03-06`
-- Plugin zip path: `build/distributions/mindmap-jetbrains-0.1.2.zip`
-- Plugin zip size: `5638813 bytes`
-- SHA256 (`shasum -a 256 <zip>`): `427e80b006af4e20b2ae61d45c699a2fd848fb36d8ceb405baefffb1e8fdbcba`
+- Release version: `0.1.4`
+- Build date (YYYY-MM-DD): `2026-03-12`
+- Plugin zip path: `build/distributions/mindmap-jetbrains-0.1.4.zip`
+- Plugin zip size: `________________`
+- SHA256 (`shasum -a 256 <zip>`): `________________`
 
 ### Compatibility Window
 
@@ -77,10 +80,11 @@ Use this checklist for MMP-010 before cutting an internal release.
 
 ### Validation Evidence
 
-- Matrix run log path: `Terminal session outputs on 2026-03-06 (buildPlugin/test/runIde)`
-- Runtime validation evidence path (screenshots/logs): `PORTING_TASKS.md progress entries for MMP-003/MMP-006/MMP-007/MMP-008`
+- Matrix run log path: `Terminal session outputs for 0.1.4 validation (buildPlugin/test/runIde)`
+- Runtime validation evidence path (screenshots/logs): `PORTING_TASKS.md progress entries for MMP-003/MMP-006/MMP-007/MMP-008/MMP-010 and INTERNAL_RELEASE_NOTES_0.1.4.md`
 - Known warnings reviewed against baseline (`MMP-004`): `[x] yes  [ ] no`
 - MMP-003 behavior update acknowledged in release note: `[x] yes  [ ] no`
+- 2026.1 verifier warning fully cleared for deprecated read-action API: `[ ] yes  [x] no`
 
 ### Approval
 

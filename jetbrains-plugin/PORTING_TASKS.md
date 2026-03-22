@@ -1,6 +1,6 @@
 # Mindmap JetBrains Porting Tasks
 
-Last updated: 2026-03-11
+Last updated: 2026-03-12
 
 ## Tracking Rules
 
@@ -33,7 +33,7 @@ Port `vscode-mindmap` to JetBrains IntelliJ Platform products with feature parit
 | MMP-003 | Add auto-open behavior for `.km/.xmind` files | P1 | dev | done | Requirement adjusted: double-click only opens editor tab; ToolWindow remains manual via `Open Mindmap` |
 | MMP-004 | Stabilize warnings/noise under 2025.3.3 sandbox | P1 | dev | done | Warnings classified: platform noise vs plugin-actionable; no feature blocker remains |
 | MMP-005 | Implement file editor provider (open as editor tab, not only ToolWindow) | P1 | dev | done | Added FileEditorProvider for `.km/.xmind`; fixed 2025.3 provider/fileType compatibility |
-| MMP-006 | Improve `.xmind` parser coverage (markers/notes/relations) | P1 | dev | in_progress | Embedded image rendering fix added (resource attachments -> data URLs); pending local validation with real XMind sample |
+| MMP-006 | Improve `.xmind` parser coverage (markers/notes/relations) | P1 | dev | done | Embedded image rendering validated with real XMind sample; relations remain metadata-only in current web UI |
 | MMP-007 | Verify PNG export with real KityMinder page in sandbox | P1 | dev | done | End-to-end verified: export button -> bridge -> `.png` file in sandbox project |
 | MMP-008 | Package webui assets reliably for build/release | P0 | dev | done | Validation matrix executed: buildPlugin/test/runIde passed; startup warnings classified as non-blocking |
 | MMP-009 | Add automated smoke tests for bridge commands | P2 | dev | done | Loaded/import/save/export helper-level smoke coverage completed and validated via Gradle tests |
@@ -104,3 +104,8 @@ Port `vscode-mindmap` to JetBrains IntelliJ Platform products with feature parit
 - 2026-03-10 | MMP-006 | in_progress | Started fix for `.xmind` embedded images: converter now resolves `resources/*` attachments into browser-safe data URLs; plugin metadata now mentions XMind explicitly for Marketplace searchability.
 - 2026-03-11 | MMP-010 | in_progress | Bumped plugin version to `0.1.2` after Marketplace rejected duplicate `0.1.1` upload in default channel; release artifact references updated for re-publish.
 - 2026-03-11 | MMP-010 | in_progress | Replaced deprecated Kotlin `runReadAction` bridge usage with `ReadAction.compute(...)` to satisfy 2026.1 plugin verification deprecation check.
+- 2026-03-12 | MMP-006 | done | User validated real XMind sample import: embedded `resources/*` images now render correctly in the JCEF editor; parser coverage task can be closed except for future relation-line rendering enhancement.
+- 2026-03-12 | MMP-010 | in_progress | Bumped plugin version to `0.1.3`, rolled internal release notes/checklist forward, and closed MMP-006 after user validation of embedded XMind image rendering.
+- 2026-03-12 | MMP-010 | in_progress | Published `0.1.3` to JetBrains Marketplace successfully, recorded artifact checksum, and verified packaged `bundled-webui/**` resources; local Gradle `test` tasks still hang in the current environment and need separate follow-up.
+- 2026-03-12 | MMP-010 | in_progress | 2026.1 verifier still flagged `ReadAction.compute(ThrowableComputable)` as deprecated in `MindmapBridge`, so bridge file loading was switched again to `Application.runReadAction(Computable)` and needs one more build/verifier pass.
+- 2026-03-12 | MMP-010 | in_progress | Rolled release target forward to `0.1.4` so the read-action compatibility fix can be rebuilt, re-verified, and republished cleanly without reusing the already-published `0.1.3`.

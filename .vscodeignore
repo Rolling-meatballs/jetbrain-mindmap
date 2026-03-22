@@ -3,6 +3,12 @@
 out/test/**
 out/**/*.map
 src/**
+jetbrains-plugin/**
+.gradle-local/**
+.gradle-user-home/**
+.idea/**
+node_modules/**
+!node_modules/xmind/**
 webui/node_modules/**
 webui/bower_components/**
 webui/src/**
