@@ -7,12 +7,12 @@ import kotlin.streams.toList
 
 plugins {
     id("java")
-    kotlin("jvm") version "2.1.20"
-    id("org.jetbrains.intellij.platform") version "2.10.5"
+    kotlin("jvm") version "2.3.10"
+    id("org.jetbrains.intellij.platform") version "2.13.1"
 }
 
 group = "com.souche.mindmap"
-version = "0.1.4"
+version = "0.1.5"
 
 repositories {
     mavenCentral()
@@ -28,15 +28,15 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
 
     intellijPlatform {
-        intellijIdea("2025.3.3")
+        intellijIdea("2026.1")
     }
 }
 
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "253"
-            untilBuild = "253.*"
+            sinceBuild = "261"
+            untilBuild = "261.*"
         }
     }
 
@@ -47,28 +47,32 @@ intellijPlatform {
 
 val bundledWebUiOutput = layout.buildDirectory.dir("generated-resources/bundled-webui")
 
-val syncBundledWebUi by tasks.registering(Sync::class) {
-    val sourceWebUi = file("../webui")
-    from(sourceWebUi) {
-        include("mindmap.html")
-        include("main.js")
-        include("favicon.ico")
-        include("dist/**")
-        include("ui/**")
-        include("server/**")
-        include("src/**")
-        include("bower_components/**")
-        include("node_modules/kity/**")
-        include("node_modules/kityminder-core/**")
-    }
-    into(bundledWebUiOutput)
+val syncBundledWebUi by tasks.registering {
+    doNotTrackState("webui source tree contains large bower_components/node_modules that Gradle 9 cannot snapshot reliably")
+    outputs.dir(bundledWebUiOutput)
 
     doLast {
-        val outputPath = bundledWebUiOutput.get().asFile.toPath()
-        if (!Files.exists(outputPath)) {
-            return@doLast
+        val outputDir = bundledWebUiOutput.get().asFile
+        if (outputDir.exists()) outputDir.deleteRecursively()
+
+        val sourceWebUi = file("../webui")
+        project.copy {
+            from(sourceWebUi) {
+                include("mindmap.html")
+                include("main.js")
+                include("favicon.ico")
+                include("dist/**")
+                include("ui/**")
+                include("server/**")
+                include("src/**")
+                include("bower_components/**")
+                include("node_modules/kity/**")
+                include("node_modules/kityminder-core/**")
+            }
+            into(outputDir)
         }
 
+        val outputPath = outputDir.toPath()
         val manifest = outputPath.resolve("manifest.txt")
         val lines = Files.walk(outputPath).use { walk ->
             walk

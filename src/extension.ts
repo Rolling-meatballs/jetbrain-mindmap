@@ -11,7 +11,7 @@ const matchableFileTypes: string[] = ['xmind', 'km'];
 export function activate(context: vscode.ExtensionContext) {
   const openedPanelMap = new Map<string, boolean | undefined | null>();
   let isFirstActivate: boolean = true;
-  let timer: any = null;
+  let timer: NodeJS.Timeout | null = null;
   let disposable = vscode.commands.registerTextEditorCommand(
     'extension.mindmap',
     () => {
@@ -46,7 +46,7 @@ export function activate(context: vscode.ExtensionContext) {
       const panel = createWebviewPanel(basename);
       panel.webview.html = html;
       panel.webview.onDidReceiveMessage(
-        message => {
+        (message: { command: string; data?: string; extName?: string; exportData?: string }) => {
           let destFileName = '';
           switch (message.command) {
             case 'loaded':
@@ -59,6 +59,7 @@ export function activate(context: vscode.ExtensionContext) {
 
             case 'save':
               try {
+                if (!message.exportData) return;
                 const retData = JSON.parse(message.exportData);
                 destFileName =
                   extName === '.xmind'
@@ -72,6 +73,7 @@ export function activate(context: vscode.ExtensionContext) {
               return;
 
             case 'exportToImage':
+              if (!message.exportData) return;
               const buffer = imgService.base64ToPng(message.exportData);
               destFileName = fileName.replace(/(\.xmind|\.kme|\.km)/, '.png');
               writeFileToDisk(destFileName, buffer);
@@ -106,7 +108,7 @@ export function activate(context: vscode.ExtensionContext) {
   executeFirstCommand(
     (vscode.window.activeTextEditor as vscode.TextEditor).document.fileName
   );
-  vscode.workspace.onDidOpenTextDocument(e => {
+  vscode.workspace.onDidOpenTextDocument((e: vscode.TextDocument) => {
     const originFileName = e.fileName.replace('.git', '');
     if (isFirstActivate) {
       executeFirstCommand(originFileName);
@@ -120,13 +122,13 @@ export function activate(context: vscode.ExtensionContext) {
       }, 300);
     }
   });
-  vscode.workspace.onDidCloseTextDocument(e => {
+  vscode.workspace.onDidCloseTextDocument((e: vscode.TextDocument) => {
     if (e.fileName.endsWith('.git')) {
       return;
     }
 
     if (openedPanelMap.get(e.fileName)) {
-      clearTimeout(timer);
+      if (timer) clearTimeout(timer);
       openedPanelMap.set(e.fileName, false);
     }
   });
@@ -163,8 +165,8 @@ function getImportData(fileName: string, extName: string, xmind: Xmind) {
   return fs.readFileSync(fileName).toString();
 }
 
-function writeFileToDisk(fileName: string, data: any) {
-  fs.writeFile(fileName, data, (err: any) => {
+function writeFileToDisk(fileName: string, data: string | Buffer) {
+  fs.writeFile(fileName, data, (err: NodeJS.ErrnoException | null) => {
     if (err) {
       vscode.window.showErrorMessage(`write ${fileName} failed`);
       throw err;

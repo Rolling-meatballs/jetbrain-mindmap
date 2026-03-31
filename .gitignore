@@ -31,3 +31,4 @@ jetbrains-plugin/.kotlin/
 
 # Logs
 *.log
+logs/

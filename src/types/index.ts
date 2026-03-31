@@ -1,11 +1,15 @@
 export interface KMRootNode {
-  root: any;
+  root: KMSubNode;
   template: string;
   theme: string;
   version: string;
 }
 
 export interface KMSubNode {
-  data: any;
-  children: any[];
+  data: {
+    id: string;
+    text: string;
+    created: number;
+  };
+  children: KMSubNode[];
 }

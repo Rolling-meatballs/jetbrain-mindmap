@@ -40,6 +40,33 @@
 
 ![Feedback](https://img.souche.com/f2e/5e127e01cf164f9f9cff4892653d7d02.jpeg)
 
+## Development
+
+### Requirements
+
+- Node.js 16+
+- TypeScript 5.3+
+- VSCode 1.75.0+
+
+### Build
+
+```bash
+npm install
+npm run build
+```
+
+### Development Mode
+
+```bash
+npm run dev
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
 ## JetBrains Port
 
 JetBrains plugin skeleton is available in `jetbrains-plugin/`.

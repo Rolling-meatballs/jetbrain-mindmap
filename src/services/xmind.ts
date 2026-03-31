@@ -18,7 +18,7 @@ export class Xmind {
       version: '1.4.43',
     };
 
-    const walkTopic = (topic: any) => {
+    const walkTopic = (topic: { id: string; getTitle: () => string; children?: unknown[] }) => {
       const item: KMSubNode = {
         data: {
           id: topic.id,
@@ -29,7 +29,7 @@ export class Xmind {
       };
 
       if (topic.children && topic.children.length) {
-        item.children = topic.children.map((child: any) => walkTopic(child));
+        item.children = topic.children.map((child: unknown) => walkTopic(child as { id: string; getTitle: () => string; children?: unknown[] }));
       }
 
       return item;
