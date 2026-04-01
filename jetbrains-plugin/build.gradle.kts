@@ -1,9 +1,10 @@
-import org.gradle.api.tasks.Sync
+import org.gradle.api.file.FileSystemOperations
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.nio.file.Files
 import java.nio.file.StandardOpenOption
-import kotlin.streams.toList
+import java.util.stream.Collectors
+import javax.inject.Inject
 
 plugins {
     id("java")
@@ -47,16 +48,21 @@ intellijPlatform {
 
 val bundledWebUiOutput = layout.buildDirectory.dir("generated-resources/bundled-webui")
 
-val syncBundledWebUi by tasks.registering {
-    doNotTrackState("webui source tree contains large bower_components/node_modules that Gradle 9 cannot snapshot reliably")
-    outputs.dir(bundledWebUiOutput)
+abstract class SyncBundledWebUiTask @Inject constructor(
+    private val fs: FileSystemOperations
+) : DefaultTask() {
+    @get:Internal
+    abstract val outputDir: org.gradle.api.file.DirectoryProperty
 
-    doLast {
-        val outputDir = bundledWebUiOutput.get().asFile
-        if (outputDir.exists()) outputDir.deleteRecursively()
+    @get:Internal
+    abstract val sourceWebUi: org.gradle.api.file.DirectoryProperty
 
-        val sourceWebUi = file("../webui")
-        project.copy {
+    @TaskAction
+    fun sync() {
+        val outDir = outputDir.get().asFile
+        if (outDir.exists()) outDir.deleteRecursively()
+
+        fs.copy {
             from(sourceWebUi) {
                 include("mindmap.html")
                 include("main.js")
@@ -69,10 +75,10 @@ val syncBundledWebUi by tasks.registering {
                 include("node_modules/kity/**")
                 include("node_modules/kityminder-core/**")
             }
-            into(outputDir)
+            into(outDir)
         }
 
-        val outputPath = outputDir.toPath()
+        val outputPath = outDir.toPath()
         val manifest = outputPath.resolve("manifest.txt")
         val lines = Files.walk(outputPath).use { walk ->
             walk
@@ -80,7 +86,7 @@ val syncBundledWebUi by tasks.registering {
                 .map { outputPath.relativize(it).toString().replace('\\', '/') }
                 .filter { it != "manifest.txt" }
                 .sorted()
-                .toList()
+                .collect(Collectors.toList())
         }
 
         Files.write(
@@ -91,6 +97,12 @@ val syncBundledWebUi by tasks.registering {
             StandardOpenOption.WRITE
         )
     }
+}
+
+val syncBundledWebUi by tasks.registering(SyncBundledWebUiTask::class) {
+    doNotTrackState("webui source tree contains large bower_components/node_modules that Gradle 9 cannot snapshot reliably")
+    outputDir = bundledWebUiOutput
+    sourceWebUi = layout.projectDirectory.dir("../webui")
 }
 
 tasks {
