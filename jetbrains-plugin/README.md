@@ -50,7 +50,9 @@ From this folder:
 If you do not have local Gradle installed yet, import this folder as a Gradle project in IntelliJ IDEA and run the `runIde` task.
 
 > Required Gradle version: **8.13+** (recommended: 8.13).  
-> Build system now uses **IntelliJ Platform Gradle Plugin 2.x** and targets **IntelliJ Platform 253-based IDEs**.
+> Build system now uses **IntelliJ Platform Gradle Plugin 2.x** and targets **IntelliJ Platform 261-based IDEs**.
+
+> Marketplace update notifications only reach installed IDEs when the published plugin version is compatible with that IDE build. For PyCharm 2026.1, keep the plugin on the `261` compatibility line.
 
 ## Build packaged webui
 

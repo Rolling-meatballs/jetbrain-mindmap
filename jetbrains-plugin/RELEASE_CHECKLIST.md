@@ -1,6 +1,6 @@
 # Mindmap JetBrains Release Checklist
 
-Last updated: 2026-03-12
+Last updated: 2026-04-01
 
 Use this checklist for MMP-010 before cutting an internal release.
 
@@ -12,8 +12,8 @@ Use this checklist for MMP-010 before cutting an internal release.
 
 ## 2) Build & Test Gate
 
-- [ ] `./gradlew clean buildPlugin`
-- [ ] `./gradlew test`
+- [x] `./gradlew clean buildPlugin`
+- [x] `./gradlew test`
 - [ ] Targeted smoke tests:
   - [ ] `./gradlew test --tests com.souche.mindmap.idea.XmindConverterTest`
   - [ ] `./gradlew test --tests com.souche.mindmap.idea.MindmapBridgeRoundtripTest`
@@ -35,8 +35,8 @@ Use this checklist for MMP-010 before cutting an internal release.
   - [x] `dist/kityminder.editor.min.js`
   - [x] `dist/main.min.js`
   - [x] `bower_components/marked/lib/marked.js`
-- [ ] Distribution zip exists under `build/distributions/`
-- [ ] Plugin jar contains `bundled-webui/**` (verify via `jar tf build/libs/mindmap-jetbrains-0.1.4.jar`)
+- [x] Distribution zip exists under `build/distributions/`
+- [ ] Plugin jar contains `bundled-webui/**` (verify via `jar tf build/libs/mindmap-jetbrains-0.1.6.jar`)
 
 ## 5) Known Non-Blocking Warnings (Documented)
 
@@ -66,22 +66,22 @@ Use this checklist for MMP-010 before cutting an internal release.
 
 ### Release Identity
 
-- Release version: `0.1.4`
-- Build date (YYYY-MM-DD): `2026-03-12`
-- Plugin zip path: `build/distributions/mindmap-jetbrains-0.1.4.zip`
-- Plugin zip size: `________________`
-- SHA256 (`shasum -a 256 <zip>`): `________________`
+- Release version: `0.1.7`
+- Build date (YYYY-MM-DD): `2026-04-01`
+- Plugin zip path: `build/distributions/mindmap-jetbrains-0.1.7.zip`
+- Plugin zip size: `5639772`
+- SHA256 (`shasum -a 256 <zip>`): `06cad8122021ce865f5471f847fe5c1294b81cbb45e5bb1812bf54a1bf842b5d`
 
 ### Compatibility Window
 
-- Target IDE baseline: `IntelliJ Platform 253-based IDEs` (Marketplace currently resolves to Android Studio, AppCode, Aqua, CLion, DataGrip, DataSpell, GoLand, IntelliJ IDEA/Community, JetBrains Client/Gateway, MPS, PhpStorm, PyCharm/Community, Rider, RubyMine, RustRover, WebStorm, Writerside)
-- `sinceBuild`: `253`
-- `untilBuild`: `253.*`
+- Target IDE baseline: `IntelliJ Platform 261-based IDEs`
+- `sinceBuild`: `261`
+- `untilBuild`: `261.*`
 
 ### Validation Evidence
 
-- Matrix run log path: `Terminal session outputs for 0.1.4 validation (buildPlugin/test/runIde)`
-- Runtime validation evidence path (screenshots/logs): `PORTING_TASKS.md progress entries for MMP-003/MMP-006/MMP-007/MMP-008/MMP-010 and INTERNAL_RELEASE_NOTES_0.1.4.md`
+- Matrix run log path: `Terminal session outputs for 0.1.7 validation (clean buildPlugin/test/publishPlugin)`
+- Runtime validation evidence path (screenshots/logs): `PORTING_TASKS.md progress entries for MMP-003/MMP-006/MMP-007/MMP-008/MMP-010 and current terminal publish output`
 - Known warnings reviewed against baseline (`MMP-004`): `[x] yes  [ ] no`
 - MMP-003 behavior update acknowledged in release note: `[x] yes  [ ] no`
 - 2026.1 verifier warning fully cleared for deprecated read-action API: `[ ] yes  [x] no`
