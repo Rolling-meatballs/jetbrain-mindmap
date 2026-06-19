@@ -12,5 +12,5 @@
     "moduleResolution": "node",
     "esModuleInterop": true
   },
-  "exclude": ["node_modules", ".vscode-test", "out"]
+  "exclude": ["node_modules", ".vscode-test", "out", "react-spike", "webui", "webui-react"]
 }

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mindmap</title>
+    <!-- Empty favicon: suppress the browser/JCEF auto /favicon.ico request (404). -->
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/vendor/kityminder.core.css" />
+    <!-- The host (JetBrains JCEF / VS Code) injects window.vscode via a classic
+         script before this module entry. In standalone dev a mock host stands in. -->
+    <!-- Non-ESM IIFE engine libs (Baidu FEX, BSD): MUST load as classic globals
+         BEFORE the module script. kity sets window.kity; kityminder-core reads it
+         and sets window.kityminder. ESM `import` of these breaks their module
+         self-detection at runtime (verified in spike #1). -->
+    <script src="/vendor/kity.min.js"></script>
+    <script src="/vendor/kityminder.core.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

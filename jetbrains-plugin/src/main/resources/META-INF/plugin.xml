@@ -33,5 +33,11 @@
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl M"/>
             <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta M"/>
         </action>
+        <action id="Mindmap.ReactPoc"
+                class="com.souche.mindmap.idea.MindmapReactPocAction"
+                text="Mindmap React PoC (JCEF scheme handler)"
+                description="PoC: render the React build via a JCEF http scheme handler">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
     </actions>
 </idea-plugin>

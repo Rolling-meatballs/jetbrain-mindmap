@@ -32,3 +32,8 @@ jetbrains-plugin/.kotlin/
 # Logs
 *.log
 logs/
+
+# Local scratch / runIde sandbox (not part of the source tree)
+static/
+# Superseded React M0 spike (replaced by webui-react/)
+react-spike/
