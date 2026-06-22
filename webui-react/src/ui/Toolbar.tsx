@@ -2,7 +2,7 @@ import * as RToolbar from '@radix-ui/react-toolbar';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import {
   ChevronsDownUp,
-  ChevronsUpDown, ListPlus,
+  ChevronsUpDown, Download, ListPlus,
   Maximize2,
   Save, Trash2,
   ZoomIn,
@@ -19,6 +19,7 @@ import { ToolbarButton } from './ToolbarButton';
 import { TemplateMenu } from "./TemplateMenu.tsx";
 import {LevelStepper} from "./LevelStepper.tsx";
 import {Priority} from "./Priority.tsx";
+import {NoteEditor} from "./NoteEditor.tsx";
 
 interface ToolbarProps {
   engine: IMindEngine;
@@ -40,6 +41,13 @@ export function Toolbar({ engine, store, onSave, savedLabel }: ToolbarProps) {
   // Live selection count (proves the reactive store end-to-end).
   useEngineVersion(store);
   const selectedCount = engine.getSelectedNodes().length;
+  const exportPng = async () => {
+    const dataUrl = await engine.exportData('png');
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = 'mindmap.png';
+    a.click();
+  }
 
   const exec = (cmd: string, ...args: unknown[]) => engine.execCommand(cmd, ...args);
 
@@ -91,12 +99,15 @@ export function Toolbar({ engine, store, onSave, savedLabel }: ToolbarProps) {
         <TemplateMenu engine={engine} store={store}/>
 
         {SEP}
-        {/* Level Stepper*/}
 
+        {/* Level Stepper*/}
         <LevelStepper engine={engine} />
         <Priority engine={engine} store={store} />
 
+        {SEP}
 
+        {/* Note Editor*/}
+        <NoteEditor engine={engine} store={store} />
 
         {/* Right side */}
         <div className="ml-auto flex items-center gap-2 pr-1">
@@ -115,6 +126,7 @@ export function Toolbar({ engine, store, onSave, savedLabel }: ToolbarProps) {
               Save
             </button>
           </RToolbar.Button>
+          <ToolbarButton tip={'导出 PNG'} icon={Download} onClick={exportPng} />
         </div>
       </RToolbar.Root>
     </Tooltip.Provider>
