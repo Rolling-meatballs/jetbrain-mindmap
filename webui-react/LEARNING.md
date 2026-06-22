@@ -1,5 +1,15 @@
 # Mindmap React 编辑器 · 上手学习计划（给 murphy）
 
+> ## ✅ 进度（截至 2026-06-22）：基础训练已整段完成
+> 实际走的是「改字符串/颜色」之上的进阶线（你做过 React demo，跳过了琐碎格）：
+> - **Task1** 节点编辑按钮（execCommand）· **Task2** 响应式灰掉（useCommandState）
+> - **Task3** 模板下拉（Radix 组件 + useCommandValue + 带参 execCommand）
+> - **Task4** 层级 stepper（useState；顺带掰开 props 解构 + TS 类型标注）
+> - **毕业关** 优先级 marker（自己去 `kityminder-core/src/module/priority.js` 挖命令 + 自己组织组件 + 搭 UI）
+>
+> **你现在握住的全套词汇**：`execCommand`(带/不带参)、`useCommandState`(亮灭)、`useCommandValue`(当前值)、`useState`(自有状态)、Radix 组件、组件拼装+props+TS 类型，**外加元技能：读引擎源码自己找命令**。M3/M4 往后都是这些的重复组合。
+> **下一程可选**：M3 marker 补齐(进度 `progress.js` / 资源 `resource.js`，同 priority 套路) · M1 navigator 缩略图 · 或把这批工具栏功能 commit。详见交接 `contexts/session_records/claude_code/20260622_104717_*`。
+
 > 原则:每一格都是「动手改一个东西 → 存盘 → 看见它变」,不是「读懂某个概念」。
 > 概念是在改的过程里长出来的,不是先学会再改。
 >

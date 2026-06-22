@@ -2,9 +2,9 @@ import * as RToolbar from '@radix-ui/react-toolbar';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import {
   ChevronsDownUp,
-  ChevronsUpDown,
+  ChevronsUpDown, ListPlus,
   Maximize2,
-  Save,
+  Save, Trash2,
   ZoomIn,
   ZoomOut,
 } from 'lucide-react';
@@ -16,6 +16,9 @@ import {
   type EngineStore,
 } from '../store/engineStore';
 import { ToolbarButton } from './ToolbarButton';
+import { TemplateMenu } from "./TemplateMenu.tsx";
+import {LevelStepper} from "./LevelStepper.tsx";
+import {Priority} from "./Priority.tsx";
 
 interface ToolbarProps {
   engine: IMindEngine;
@@ -30,6 +33,8 @@ export function Toolbar({ engine, store, onSave, savedLabel }: ToolbarProps) {
   // Reactive command state/value — re-renders on engine interactchange/zoom/etc.
   const zoomOutDisabled = useCommandState(store, engine, 'zoomout') < 0;
   const zoomInDisabled = useCommandState(store, engine, 'zoomin') < 0;
+  const addChildDisabled = useCommandState(store, engine, 'appendchildnode') < 0;
+  const removeDisabled = useCommandState(store, engine, 'removenode') < 0;
   const zoomValue = useCommandValue<number>(store, engine, 'zoom') ?? 100;
 
   // Live selection count (proves the reactive store end-to-end).
@@ -70,10 +75,28 @@ export function Toolbar({ engine, store, onSave, savedLabel }: ToolbarProps) {
         <ToolbarButton tip="适应窗口" icon={Maximize2} onClick={() => exec('camera')} />
 
         {SEP}
+        {/* insert */}
+        <ToolbarButton tip={"插入"} icon={ListPlus} onClick={() => exec('appendchildnode')} disabled={addChildDisabled}/>
+        <ToolbarButton tip={"删除"} icon={Trash2} onClick={() => exec('removenode')} disabled={removeDisabled}/>
+
+        {SEP}
 
         {/* Expand group */}
         <ToolbarButton tip="全部展开" icon={ChevronsUpDown} onClick={() => exec('expandtolevel', 99)} />
         <ToolbarButton tip="全部收起" icon={ChevronsDownUp} onClick={() => exec('expandtolevel', 1)} />
+
+        {SEP}
+
+        {/*Template */}
+        <TemplateMenu engine={engine} store={store}/>
+
+        {SEP}
+        {/* Level Stepper*/}
+
+        <LevelStepper engine={engine} />
+        <Priority engine={engine} store={store} />
+
+
 
         {/* Right side */}
         <div className="ml-auto flex items-center gap-2 pr-1">
