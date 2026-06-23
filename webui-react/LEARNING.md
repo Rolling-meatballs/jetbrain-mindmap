@@ -7,8 +7,13 @@
 > - **Task4** 层级 stepper（useState；顺带掰开 props 解构 + TS 类型标注）
 > - **毕业关** 优先级 marker（自己去 `kityminder-core/src/module/priority.js` 挖命令 + 自己组织组件 + 搭 UI）
 >
-> **你现在握住的全套词汇**：`execCommand`(带/不带参)、`useCommandState`(亮灭)、`useCommandValue`(当前值)、`useState`(自有状态)、Radix 组件、组件拼装+props+TS 类型，**外加元技能：读引擎源码自己找命令**。M3/M4 往后都是这些的重复组合。
-> **下一程可选**：M3 marker 补齐(进度 `progress.js` / 资源 `resource.js`，同 priority 套路) · M1 navigator 缩略图 · 或把这批工具栏功能 commit。详见交接 `contexts/session_records/claude_code/20260622_104717_*`。
+> **毕业后续（同日，继续巩固 React，三个弱项补齐）**：
+> - **NoteEditor 备注弹窗**：Radix **Dialog** + **受控 textarea** + **useEffect**（打开时预填当前备注）→ 学到弹窗 / 表单 / 副作用同步。
+> - **PNG 导出**：`await exportData('png')` → `<a download>` → 学到 **async/await**（异步）。
+> - ✅ 三弱项闭合：useEffect / 受控表单 / JS 异步。代码已 push（origin/master = `9949402`）。
+>
+> **你现在握住的全套词汇**：`execCommand`(带/不带参)、`useCommandState`(亮灭)、`useCommandValue`(当前值)、`useState`(自有状态)、`useEffect`(副作用同步)、受控表单、async/await、Radix 组件(下拉+弹窗)、组件拼装+props+TS 类型，**外加元技能：读引擎源码自己找命令**。M3/M4 往后都是这些的重复组合。
+> **下一程方向（定）**：继续巩固 React —— M4 弹窗类（图片 `image.js` / 超链接 `hyperlink.js`，同 NoteEditor 模子）。Vue 留到他另外的项目练。详见交接 `contexts/session_records/claude_code/20260622_104717_*`。
 
 > 原则:每一格都是「动手改一个东西 → 存盘 → 看见它变」,不是「读懂某个概念」。
 > 概念是在改的过程里长出来的,不是先学会再改。
