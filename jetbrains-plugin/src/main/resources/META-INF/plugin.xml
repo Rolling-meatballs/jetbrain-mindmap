@@ -9,6 +9,10 @@
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
+    <!-- 2026.2+ ships JCEF as a separate module; without this depends the plugin
+         classloader cannot see com.intellij.ui.jcef.* (NoClassDefFoundError: JBCefApp).
+         The module alias also exists on the 261 line, so sinceBuild=261 is preserved. -->
+    <depends>com.intellij.modules.jcef</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Mindmap"

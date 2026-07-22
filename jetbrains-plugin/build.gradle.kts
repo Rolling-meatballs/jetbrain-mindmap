@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 import java.nio.file.StandardOpenOption
@@ -15,7 +16,7 @@ plugins {
 }
 
 group = "com.souche.mindmap"
-version = "0.1.7"
+version = "0.1.8"
 
 repositories {
     mavenCentral()
@@ -39,7 +40,13 @@ intellijPlatform {
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "261"
-            untilBuild = "261.*"
+        }
+    }
+
+    pluginVerification {
+        ides {
+            create(IntelliJPlatformType.IntellijIdeaUltimate, "2026.2")
+            create(IntelliJPlatformType.PyCharmProfessional, "2026.2")
         }
     }
 
@@ -91,7 +98,15 @@ abstract class SyncBundledWebUiTask : DefaultTask() {
                 if (!Files.exists(root)) continue
                 Files.walk(root).use { walk ->
                     walk.filter { Files.isRegularFile(it) }.forEach { file ->
-                        val dest = outputPath.resolve(srcRoot.relativize(file).toString())
+                        val relative = srcRoot.relativize(file)
+                        // Skip hidden files (.gitattributes, .DS_Store, ...): the jar's
+                        // default excludes drop them anyway, and listing them in
+                        // manifest.txt makes the runtime loader report false missing
+                        // resources.
+                        if ((0 until relative.nameCount).any { relative.getName(it).toString().startsWith(".") }) {
+                            return@forEach
+                        }
+                        val dest = outputPath.resolve(relative.toString())
                         Files.createDirectories(dest.parent)
                         Files.copy(file, dest, StandardCopyOption.REPLACE_EXISTING)
                     }
@@ -160,9 +175,10 @@ tasks {
 
     runIde {
         jvmArgs("-Xmx2g")
-        // PoC: route .km/.xmind opens through the React (scheme handler) editor
-        // path in the sandbox IDE. Absent in production installs -> file:// webui.
-        systemProperty("mindmap.react.editor", "true")
+        // Route .km/.xmind opens through the React (scheme handler) editor path
+        // in the sandbox IDE; pass -PreactEditor=false to exercise the legacy
+        // file:// webui path instead. Absent in production installs -> file:// webui.
+        systemProperty("mindmap.react.editor", providers.gradleProperty("reactEditor").getOrElse("true"))
     }
 
     test {
