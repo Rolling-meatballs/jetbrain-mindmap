@@ -13,7 +13,10 @@
 > - ✅ 三弱项闭合：useEffect / 受控表单 / JS 异步。代码已 push（origin/master = `9949402`）。
 >
 > **你现在握住的全套词汇**：`execCommand`(带/不带参)、`useCommandState`(亮灭)、`useCommandValue`(当前值)、`useState`(自有状态)、`useEffect`(副作用同步)、受控表单、async/await、Radix 组件(下拉+弹窗)、组件拼装+props+TS 类型，**外加元技能：读引擎源码自己找命令**。M3/M4 往后都是这些的重复组合。
-> **下一程方向（定）**：继续巩固 React —— M4 弹窗类（图片 `image.js` / 超链接 `hyperlink.js`，同 NoteEditor 模子）。Vue 留到他另外的项目练。详见交接 `contexts/session_records/claude_code/20260622_104717_*`。
+>
+> **M4 弹窗三连收口（2026-07-23）**：NoteEditor → Hyperlink → **ImageEditor**（独立完成；`verify-m1.mjs` 24/24 全绿含 10 条图片测试；commit `27104e0` 已 push）。弹窗 + 受控表单 + useEffect 预填这个模子已熟练，功能关的重复组合到此为止。
+> **✅ 原理探针第一枪 stale closure 完成（2026-07-23）**：EditTimer 实验全程走完——复现（数字停 1 / tick 恒报 0）→ 两种修法对比（函数式更新胜出；依赖数组法里 setInterval 退化成 setTimeout，murphy 独立看破）→ 反面实验（无 cleanup 定时器堆积）。沉淀笔记：Obsidian `CS/WEB/react/React stale closure 与 useEffect 依赖.md`。实验件已删。
+> **下一关（待选）**：原理探针二 reconciliation/key（用 Priority chips 列表做实验）或 阶段 5 架构关（simple-mind-map 第二引擎适配器映射）。未碰清单：ref/latest-ref、batching。
 
 > 原则:每一格都是「动手改一个东西 → 存盘 → 看见它变」,不是「读懂某个概念」。
 > 概念是在改的过程里长出来的,不是先学会再改。
