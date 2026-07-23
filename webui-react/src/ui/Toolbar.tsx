@@ -21,6 +21,7 @@ import {LevelStepper} from "./LevelStepper.tsx";
 import {Priority} from "./Priority.tsx";
 import {NoteEditor} from "./NoteEditor.tsx";
 import {Hyperlink} from "./Hyperlink.tsx";
+import {ImageEditor} from "./ImageEditor.tsx";
 
 interface ToolbarProps {
   engine: IMindEngine;
@@ -110,6 +111,7 @@ export function Toolbar({ engine, store, onSave, savedLabel }: ToolbarProps) {
         {/* Note Editor*/}
         <NoteEditor engine={engine} store={store} />
         <Hyperlink engine={engine} store={store} />
+        <ImageEditor engine={engine} store={store} />
 
         {/* Right side */}
         <div className="ml-auto flex items-center gap-2 pr-1">

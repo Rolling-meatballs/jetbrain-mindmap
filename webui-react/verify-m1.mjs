@@ -157,6 +157,130 @@ try {
 
   assert('no console errors', errors.length === 0, errors.slice(0, 3).join(' | '));
 
+  // ---- Image Editor smoke tests ----
+  const TEST_IMAGE_URL = '/verify-image.svg';
+
+  // The image trigger button should be in the toolbar with aria-label="图片"
+  const imageTrigger = await page.$('[aria-label="图片"]');
+  assert('image toolbar button exists', !!imageTrigger);
+
+  // Select a node first (click the root node text) so image command is enabled
+  const rootNodeText = await page.$('.km-canvas svg text');
+  if (rootNodeText) {
+    await rootNodeText.click();
+    await sleep(300);
+  }
+
+  // Open the image dialog
+  await page.click('[aria-label="图片"]');
+  await sleep(400);
+
+  // Dialog should appear with the URL input
+  const urlInput = await page.$('[data-testid="image-url-input"]');
+  assert('image dialog URL input visible', !!urlInput);
+
+  const titleInput = await page.$('[data-testid="image-title-input"]');
+  assert('image dialog title input visible', !!titleInput);
+
+  // Insert image: type URL + title, then save
+  await page.type('[data-testid="image-url-input"]', TEST_IMAGE_URL);
+  await page.type('[data-testid="image-title-input"]', 'test-image');
+  await page.click('[data-testid="image-save-btn"]');
+  await sleep(600); // let engine load the data URI and render
+
+  // Click the toolbar save button to capture current state
+  await page.click('[data-testid="save-btn"]');
+  await sleep(400);
+
+  // Verify image was set on the node via export JSON
+  const imgAfterInsert = await page.evaluate(() => {
+    const w = window.__lastSave;
+    if (!w) return null;
+    const json = JSON.parse(w);
+    return json?.root?.data?.image;
+  });
+  assert('image insert sets node data', imgAfterInsert === TEST_IMAGE_URL, `url=${imgAfterInsert?.slice(0, 30)}`);
+
+  const imageSizeAfterInsert = await page.evaluate(() => {
+    const w = window.__lastSave;
+    if (!w) return null;
+    const json = JSON.parse(w);
+    return json?.root?.data?.imageSize;
+  });
+  assert(
+    'image insert records image size',
+    imageSizeAfterInsert?.width > 0 && imageSizeAfterInsert?.height > 0,
+    `size=${JSON.stringify(imageSizeAfterInsert)}`,
+  );
+
+  await page.evaluate(() => {
+    HTMLAnchorElement.prototype.click = function () {
+      window.__lastPngExport = {
+        download: this.download,
+        href: this.href,
+      };
+    };
+  });
+  await page.click('[aria-label="导出 PNG"]');
+  await sleep(1000);
+  const pngAfterImageInsert = await page.evaluate(() => window.__lastPngExport ?? null);
+  assert(
+    'png export works after image insert',
+    pngAfterImageInsert?.download === 'mindmap.png' &&
+      pngAfterImageInsert?.href?.startsWith('data:image/png;base64,'),
+    `download=${pngAfterImageInsert?.download}, href=${pngAfterImageInsert?.href?.slice(0, 30)}`,
+  );
+
+  // Edit: re-open dialog, change title, save
+  await page.click('[aria-label="图片"]');
+  await sleep(400);
+  // Clear the URL field (it should be populated) and type new title
+  const titleValBefore = await page.evaluate(() => {
+    const el = document.querySelector('[data-testid="image-title-input"]');
+    return el?.value ?? '';
+  });
+  assert('image dialog populates current title', titleValBefore === 'test-image', `title="${titleValBefore}"`);
+
+  await page.evaluate(() => {
+    const el = document.querySelector('[data-testid="image-title-input"]');
+    el.value = '';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  await page.type('[data-testid="image-title-input"]', 'edited-image');
+  await page.click('[data-testid="image-save-btn"]');
+  await sleep(600);
+
+  await page.click('[data-testid="save-btn"]');
+  await sleep(400);
+
+  const imgAfterEdit = await page.evaluate(() => {
+    const w = window.__lastSave;
+    if (!w) return null;
+    const json = JSON.parse(w);
+    return json?.root?.data?.imageTitle;
+  });
+  assert('image edit updates title', imgAfterEdit === 'edited-image', `title=${imgAfterEdit}`);
+
+  // Remove: open dialog, click remove
+  await page.click('[aria-label="图片"]');
+  await sleep(400);
+  await page.click('[data-testid="image-remove-btn"]');
+  await sleep(600);
+
+  await page.click('[data-testid="save-btn"]');
+  await sleep(400);
+
+  const imgAfterRemove = await page.evaluate(() => {
+    const w = window.__lastSave;
+    if (!w) return null;
+    const json = JSON.parse(w);
+    return json?.root?.data?.image;
+  });
+  assert('image remove clears node data', imgAfterRemove == null || imgAfterRemove === undefined, `url=${imgAfterRemove}`);
+
+  // Final error check after image tests
+  assert('no console errors after image tests', errors.length === 0, errors.slice(0, 3).join(' | '));
+
   await page.screenshot({ path: 'verify-m1-proof.png' });
 
   const passed = checks.filter((c) => c.pass).length;

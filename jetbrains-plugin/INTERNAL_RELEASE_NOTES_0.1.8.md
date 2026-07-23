@@ -31,9 +31,10 @@ Plugin: `mindmap-jetbrains-0.1.8.zip`
 
 ## Release Gate
 
-- Not published yet.
-- No commit or push has been performed for this release candidate.
-- Release candidate was built from a clean release worktree at commit `b2abc7f`, excluding the uncommitted `webui-react` ImageEditor learning work in the main worktree.
+- Git state as of 2026-07-23: committed and pushed to `origin/master` as `46ac8a6 fix: 0.1.8 compatibility for 2026.2 IDEs`.
+- JetBrains Marketplace publish has not been confirmed in this session.
+- The first release candidate was built from a clean release worktree at commit `b2abc7f`, excluding the uncommitted `webui-react` ImageEditor learning work in the main worktree.
+- The pushed `46ac8a6` commit contains the final compatibility fixes: `com.intellij.modules.jcef` dependency, `marked` 0.3.6 pin, hidden-file skip in `syncBundledWebUi`, and the `0.1.8` compatibility/verifier updates.
 - 2026-07-22 16:28 rebuild (with jcef depends) was done from the main worktree; legacy `webui/dist`, `bower_components`, and engine `node_modules` were copied in from the release worktree, and jar contents were re-verified.
 - Manual validation on an installed 2026.2 IDE is still required before GO: install the rc zip, open a `.km`, confirm the legacy editor renders and saves.
 - 261-line load check: `runIde` sandbox (IDEA 2026.1) with `-PreactEditor=false` should show the legacy editor with no missing-dependency plugin error.
