@@ -19,6 +19,8 @@ webui/bower_components
 jetbrains-plugin/.intellijPlatform/
 jetbrains-plugin/build/
 jetbrains-plugin/.kotlin/
+# Release candidate zips copied out of build/distributions (build artifacts)
+jetbrains-plugin/*.zip
 
 # IDE
 .idea/
